@@ -34,7 +34,7 @@ public class CitizenWebMockTest {
 	private CitizenService service;
 
 	@Test
-	public void getCitizenByForenamesTest() throws Exception {
+	public void getCitizensByForenamesTest() throws Exception {
 		List<Citizen> MOCK_LIST = new ArrayList<>();
 		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
 		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
@@ -43,6 +43,31 @@ public class CitizenWebMockTest {
 
 		mockMvc.perform(get("/getCitizensByForenames/1234/" + "Aaron"))
 				.andExpect(content().string(containsString("Aaron"))).andDo(print());
+
+	}
+
+	@Test
+	public void getCitizensBySurnameTest() throws Exception {
+		List<Citizen> MOCK_LIST = new ArrayList<>();
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+
+		when(service.findBySurname("Aarvark")).thenReturn(MOCK_LIST);
+
+		mockMvc.perform(get("/getCitizensBySurname/1234/" + "Aarvark"))
+				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
+
+	}
+
+	@Test
+	public void getCitizensByFullnameTest() throws Exception {
+		List<Citizen> MOCK_LIST = new ArrayList<>();
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+
+		when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(MOCK_LIST);
+
+		mockMvc.perform(get("/getCitizensByFullname/1234/" + "Aaron/" + "Aarvark"))
+				.andExpect(content().string(containsString("Aaron")))
+				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
 
 	}
 
