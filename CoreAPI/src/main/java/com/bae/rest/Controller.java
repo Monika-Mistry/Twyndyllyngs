@@ -14,7 +14,7 @@ public abstract class Controller {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	private void sendToQueue(Request request) {
+	public void sendToQueue(Request request) {
 		SentRequest sentRequest = new SentRequest(request);	
 		jmsTemplate.convertAndSend("AuditQueue", sentRequest);
 	}
