@@ -25,26 +25,26 @@ public class CitizenController {
 		this.citizenService = citizenService;
 	}
 
-	@GetMapping("/getCitizensByForenames/{forenames}")
+	@GetMapping("/getCitizensByForenames/{username}/{forenames}")
 	public List<Citizen> findCitizensByForenames(@PathVariable("forenames") String forenames) {
 
 		return citizenService.findByForenames(forenames);
 	}
 
-	@GetMapping("/getCitizensBySurname/{surname}")
+	@GetMapping("/getCitizensBySurname/{username}/{surname}")
 	public List<Citizen> findCitizensBySurname(@PathVariable("surname") String surname) {
 
 		return citizenService.findBySurname(surname);
 	}
 
-	@GetMapping("/getCitizensByFullname/{forenames}/{surname}")
+	@GetMapping("/getCitizensByFullname/{username}/{forenames}/{surname}")
 	public List<Citizen> findCitizensByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
 
 		return citizenService.findByForenamesAndSurname(forenames, surname);
 	}
 
-	@GetMapping("/getCitizenById/{citizenId}")
+	@GetMapping("/getCitizenById/{username}/{citizenId}")
 	public Citizen findCitizenById(@PathVariable("citizenId") Long citizenId) {
 
 		return citizenService.findById(citizenId);

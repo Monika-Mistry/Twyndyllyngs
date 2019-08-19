@@ -2,7 +2,6 @@ package com.bae.citizen.rest;
 
 import static org.junit.Assert.assertEquals;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.citizen.TestConstants;
 import com.bae.citizen.domain.Citizen;
 import com.bae.citizen.service.CitizenService;
 
@@ -27,16 +27,11 @@ public class CitizenMockitoTests {
 	@Mock
 	CitizenService service;
 
-	private static final Citizen MOCK_CITIZEN_1 = new Citizen(12345L, "Aaron", "Aarvark", "34 Megaroad Megatown M6 7RQ",
-			LocalDate.of(1990, 01, 01), "Aardvarktown", "Male");
-	private static final Citizen MOCK_CITIZEN_2 = new Citizen(56325L, "Aaron", "Androgenous",
-			"256 Megaroad Megatown M6 7RQ", LocalDate.of(1990, 01, 01), "Androgenouston", "Male");
-
 	@Test
 	public void getTwoCitizensByForenamesTest() {
 		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(MOCK_CITIZEN_1);
-		MOCK_LIST.add(MOCK_CITIZEN_2);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
 
 		Mockito.when(service.findByForenames("Aaron")).thenReturn(MOCK_LIST);
 
@@ -47,11 +42,11 @@ public class CitizenMockitoTests {
 	@Test
 	public void getCitizensBySurnameTest() {
 		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(MOCK_CITIZEN_1);
-		MOCK_LIST.add(MOCK_CITIZEN_2);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
 
 		List<Citizen> MOCK_RETURN_LIST = new ArrayList<>();
-		MOCK_RETURN_LIST.add(MOCK_CITIZEN_1);
+		MOCK_RETURN_LIST.add(TestConstants.MOCK_CITIZEN_1);
 
 		Mockito.when(service.findBySurname("Aarvark")).thenReturn(MOCK_RETURN_LIST);
 
@@ -62,11 +57,11 @@ public class CitizenMockitoTests {
 	@Test
 	public void getCitizensByFullnameTest() {
 		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(MOCK_CITIZEN_1);
-		MOCK_LIST.add(MOCK_CITIZEN_2);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
 
 		List<Citizen> MOCK_RETURN_LIST = new ArrayList<>();
-		MOCK_RETURN_LIST.add(MOCK_CITIZEN_1);
+		MOCK_RETURN_LIST.add(TestConstants.MOCK_CITIZEN_1);
 
 		Mockito.when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(MOCK_RETURN_LIST);
 
@@ -75,14 +70,14 @@ public class CitizenMockitoTests {
 	}
 
 	@Test
-	public void getByIdTest() {
+	public void getCitizenByIdDoesExistTest() {
 		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(MOCK_CITIZEN_1);
-		MOCK_LIST.add(MOCK_CITIZEN_2);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
+		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
 
-		Mockito.when(service.findById(12345L)).thenReturn(MOCK_CITIZEN_1);
+		Mockito.when(service.findById(12345L)).thenReturn(TestConstants.MOCK_CITIZEN_1);
 
-		assertEquals(MOCK_CITIZEN_1, controller.findCitizenById(12345L));
+		assertEquals(TestConstants.MOCK_CITIZEN_1, controller.findCitizenById(12345L));
 		Mockito.verify(service).findById(12345L);
 	}
 
