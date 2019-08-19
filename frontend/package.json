@@ -11,6 +11,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
+    "mdbreact": "^4.19.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-image": "^2.1.3",

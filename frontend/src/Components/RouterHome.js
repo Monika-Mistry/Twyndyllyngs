@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavBar } from './subcomponents/NavBar.js';
 import { Login } from './subcomponents/Login.js';
+import { Footer } from './subcomponents/Footer.js';
+import { Audit } from './subcomponents/AuditHome.js';
+import { Analyst } from './subcomponents/AnalystHome.js';
 
 export class RouterHome extends Component {
     render() {
-        return(
+        return (
             <Router>
                 <div>
                     <NavBar />
                     <Route exact path='/' render={() => <Login />} />
+                    <Route path='/home' render={() => <Analyst />} />
+                    <Route path='/audit' render={() => <Audit />} />
+                    <Footer />
                 </div>
             </Router>
         )

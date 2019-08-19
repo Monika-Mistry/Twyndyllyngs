@@ -9,8 +9,6 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
-import { Logo } from '../../Logos/Lizzie.png'
-
 
 export class NavBar extends Component {
     constructor(props) {
