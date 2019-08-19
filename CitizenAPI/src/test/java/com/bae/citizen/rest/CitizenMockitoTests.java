@@ -45,8 +45,45 @@ public class CitizenMockitoTests {
 	}
 
 	@Test
-	public void getCitizensByForenamesNotExistTest() {
+	public void getCitizensBySurnameTest() {
+		List<Citizen> MOCK_LIST = new ArrayList<>();
+		MOCK_LIST.add(MOCK_CITIZEN_1);
+		MOCK_LIST.add(MOCK_CITIZEN_2);
 
+		List<Citizen> MOCK_RETURN_LIST = new ArrayList<>();
+		MOCK_RETURN_LIST.add(MOCK_CITIZEN_1);
+
+		Mockito.when(service.findBySurname("Aarvark")).thenReturn(MOCK_RETURN_LIST);
+
+		assertEquals(MOCK_RETURN_LIST, controller.findCitizensBySurname("Aarvark"));
+		Mockito.verify(service).findBySurname("Aarvark");
+	}
+
+	@Test
+	public void getCitizensByFullnameTest() {
+		List<Citizen> MOCK_LIST = new ArrayList<>();
+		MOCK_LIST.add(MOCK_CITIZEN_1);
+		MOCK_LIST.add(MOCK_CITIZEN_2);
+
+		List<Citizen> MOCK_RETURN_LIST = new ArrayList<>();
+		MOCK_RETURN_LIST.add(MOCK_CITIZEN_1);
+
+		Mockito.when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(MOCK_RETURN_LIST);
+
+		assertEquals(MOCK_RETURN_LIST, controller.findCitizensByFullname("Aaron", "Aarvark"));
+		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Aarvark");
+	}
+
+	@Test
+	public void getByIdTest() {
+		List<Citizen> MOCK_LIST = new ArrayList<>();
+		MOCK_LIST.add(MOCK_CITIZEN_1);
+		MOCK_LIST.add(MOCK_CITIZEN_2);
+
+		Mockito.when(service.findById(12345L)).thenReturn(MOCK_CITIZEN_1);
+
+		assertEquals(MOCK_CITIZEN_1, controller.findCitizenById(12345L));
+		Mockito.verify(service).findById(12345L);
 	}
 
 }
