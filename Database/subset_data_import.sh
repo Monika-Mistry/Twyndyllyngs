@@ -281,3 +281,27 @@ LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS
 (vehicleRegistrationNo, make, model, colour);
 "
+
+sudo mysql -e "
+CREATE TABLE PeopleMobile (
+        forenames VARCHAR(30), 
+        surname VARCHAR(20), 
+        address VARCHAR(100),
+	dateOfBirth DATE,
+        phoneNumber VARCHAR(50),
+        network VARCHAR(20),
+	id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
+"
+
+sudo mysql -e "
+LOAD DATA INFILE '/var/lib/mysql-files/peoplemobile_subset.csv' 
+INTO TABLE PeopleMobile
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(forenames,surname,@dateOfBirth,address,phoneNumber,network)
+SET dateOfBirth = STR_TO_DATE(@dateOfBirth,'%d/%m/%Y');
+"
