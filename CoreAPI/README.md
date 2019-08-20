@@ -22,4 +22,4 @@ Core API communicates over port **8000**
 
 **Create User:** http://login:8002/createUser
 
-**Delete User:** http://login:8002/deleteUser
+**Delete User:** http://login:8002/deleteUser/{id}
