@@ -38,6 +38,7 @@ public class CitizenControllerTest {
 
 	private static List<Citizen> MOCK_LIST;
 	private static Citizen[] citizens;
+	private static ResponseEntity<Citizen[]> citizenResponse;
 
 	@BeforeClass
 	public static void setup() {
@@ -45,15 +46,17 @@ public class CitizenControllerTest {
 		MOCK_LIST.add(TestConstants.MOCK_CITIZEN);
 
 		citizens = MOCK_LIST.toArray(new Citizen[MOCK_LIST.size()]);
+		
+		citizenResponse = new ResponseEntity<Citizen[]>(citizens, HttpStatus.OK);
 	}
 
 	@Test
 	public void findByForenameTest() {
 
-		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).exchange(TestConstants.CITIZEN_FORENAME,
+		doReturn(citizenResponse).when(restTemplate).exchange(TestConstants.CITIZEN_FORENAME,
 				HttpMethod.GET, null, Citizen[].class);
 
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.findCitizenByForenames("Crazy", "user"));
+		assertEquals(citizenResponse, controller.findCitizenByForenames("Crazy", "user"));
 
 		verify(restTemplate).exchange(TestConstants.CITIZEN_FORENAME, HttpMethod.GET, null, Citizen[].class);
 
@@ -72,10 +75,10 @@ public class CitizenControllerTest {
 	@Test
 	public void findBySurnameTest() {
 
-		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).exchange(TestConstants.CITIZEN_SURNAME,
+		doReturn(citizenResponse).when(restTemplate).exchange(TestConstants.CITIZEN_SURNAME,
 				HttpMethod.GET, null, Citizen[].class);
 
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.findCitizenBySurname("Ivan", "user"));
+		assertEquals(citizenResponse, controller.findCitizenBySurname("Ivan", "user"));
 
 		verify(restTemplate).exchange(TestConstants.CITIZEN_SURNAME, HttpMethod.GET, null, Citizen[].class);
 	}
@@ -83,10 +86,10 @@ public class CitizenControllerTest {
 	@Test
 	public void findByForenameAndSurnameTest() {
 
-		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).exchange(TestConstants.CITIZEN_FULLNAME,
+		doReturn(citizenResponse).when(restTemplate).exchange(TestConstants.CITIZEN_FULLNAME,
 				HttpMethod.GET, null, Citizen[].class);
 
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE,
+		assertEquals(citizenResponse,
 				controller.findCitizenByForenamesAndSurname("Crazy", "Ivan", "user"));
 
 		verify(restTemplate).exchange(TestConstants.CITIZEN_FULLNAME, HttpMethod.GET, null, Citizen[].class);

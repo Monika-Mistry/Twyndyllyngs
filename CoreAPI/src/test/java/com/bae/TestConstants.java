@@ -17,7 +17,6 @@ public class TestConstants {
 	public static final String CITIZEN_FULLNAME = "http://citizen:8003/getCitizensByFullname/user/Crazy/Ivan";
 	public static final String CITIZEN_ID = "http://citizen:8003/getCitizenById/user/" + 12348L;
 	
-	public static final ResponseEntity<Citizen[]> MOCK_CITIZEN_RESPONSE = new ResponseEntity<Citizen[]>(citizens, HttpStatus.OK);
 	
 	public static final User MOCK_EMPTY_USER = new User("", "");
 	public static final User MOCK_NULL_USER = new User();
