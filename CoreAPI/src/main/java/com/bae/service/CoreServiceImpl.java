@@ -1,6 +1,7 @@
 package com.bae.service;
 
 import org.springframework.stereotype.Service;
+import com.google.common.base.Strings;
 
 import com.bae.domain.User;
 
@@ -9,7 +10,7 @@ public class CoreServiceImpl implements CoreService{
 
 
 	public boolean verifyLogin(User user) {
-		boolean condition = user.getPassword().isEmpty() || user.getPassword() == null || user.getUsername().isEmpty() || user.getUsername() == null;
+		boolean condition =  Strings.isNullOrEmpty(user.getPassword()) || Strings.isNullOrEmpty(user.getUsername());
 		return condition ? false : true;
 	}
 
