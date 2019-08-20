@@ -18,8 +18,8 @@ Core API communicates over port **8000**
 
 ### User
 
-**Login User:** http://login:8002/loginUser
+**Login User:** http://core:8000/loginUser
 
-**Create User:** http://login:8002/createUser
+**Create User:** http://core:8000/createUser
 
-**Delete User:** http://login:8002/deleteUser/{id}
+**Delete User:** http://core:8000/deleteUser/{id}
