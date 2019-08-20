@@ -49,7 +49,6 @@ public class UserControllerTest {
 
 	@Test
 	public void invalidUserLoginTest() {
-		
 
 		doReturn(false).when(service).verifyLogin(TestConstants.MOCK_EMPTY_USER);
 
