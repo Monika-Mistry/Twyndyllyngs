@@ -12,5 +12,6 @@ public class Constants {
 	public static final String LOGIN_URL = "http://login:8002/";
 	public static final String LOGIN_USER_URL = "http://login:8002/loginUser";
 	public static final String LOGIN_CREATE_URL = "http://login:8002/createUser";
+	public static final String LOGIN_DELETE_URL = "http://login:8002/deleteUser/";
 
 }

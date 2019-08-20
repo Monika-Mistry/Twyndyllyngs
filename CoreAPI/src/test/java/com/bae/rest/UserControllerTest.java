@@ -73,5 +73,14 @@ public class UserControllerTest {
 
 		verify(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity, User.class);
 	}
+	
+	@Test
+	public void deleteUserTest() {
+		doReturn(TestConstants.MOCK_SUCCESS).when(restTemplate).getForObject(TestConstants.MOCK_DELETE_USER_URL, String.class);
+		
+		assertEquals(TestConstants.MOCK_SUCCESS, controller.deleteUser(1L));
+		
+		verify(restTemplate).getForObject(TestConstants.MOCK_DELETE_USER_URL, String.class);
+	}
 
 }

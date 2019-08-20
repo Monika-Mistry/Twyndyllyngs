@@ -48,8 +48,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/deleteUser/{id}")
-	public void deleteUser(@PathVariable ("id") Long id) {
+	public String deleteUser(@PathVariable ("id") Long id) {
 		
+		return restTemplate.getForObject(Constants.LOGIN_DELETE_URL +id, String.class);
 	}
 
 }

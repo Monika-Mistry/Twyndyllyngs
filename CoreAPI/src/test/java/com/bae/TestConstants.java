@@ -17,5 +17,8 @@ public class TestConstants {
 	public static final User MOCK_EMPTY_USER = new User("", "");
 	public static final User MOCK_NULL_USER = new User();
 	public static final User MOCK_USER = new User("user", "user");
+	public static final String MOCK_DELETE_USER_URL = "http://login:8002/deleteUser/" + 1L;
+	
+	public static final String MOCK_SUCCESS = "Success";
 
 }
