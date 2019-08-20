@@ -23,16 +23,17 @@ public class UserController {
 	
 	private CoreService service;
 
-	public UserController(@Autowired RestTemplate restTemplate) {
+	public UserController(@Autowired RestTemplate restTemplate, @Autowired CoreService service) {
 
 		this.restTemplate = restTemplate;
+		this.service = service;
 	}
 	
 	@PostMapping("/loginUser")
 	public ResponseEntity<String> loginUser(@RequestBody User user) {
 		if(service.verifyLogin(user)) {
 			HttpEntity<User> requestEntity = new HttpEntity<>(user);
-			return restTemplate.exchange(Constants.LOGIN_USER, HttpMethod.POST, requestEntity, String.class);
+			return restTemplate.exchange(Constants.LOGIN_USER_URL, HttpMethod.POST, requestEntity, String.class);
 		}
 		else {
 			return new ResponseEntity<String>("Invalid login credentials", HttpStatus.PRECONDITION_FAILED);

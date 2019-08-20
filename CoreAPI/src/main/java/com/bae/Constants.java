@@ -10,6 +10,6 @@ public class Constants {
 	
 	
 	public static final String LOGIN_URL = "http://login:8002/";
-	public static final String LOGIN_USER = "http://login:8002/loginUser";
+	public static final String LOGIN_USER_URL = "http://login:8002/loginUser";
 
 }

@@ -2,6 +2,7 @@ package com.bae.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,10 @@ public class CitizenControllerTest {
 				Citizen[].class);
 
 		assertEquals(response, controller.findCitizenByForenames("Crazy", "user"));
+		
+		verify(restTemplate).exchange(TestConstants.CITIZEN_FORENAME, HttpMethod.GET, null,
+				Citizen[].class);
+		
 	}
 
 	@Test
@@ -54,6 +59,8 @@ public class CitizenControllerTest {
 		doReturn(TestConstants.MOCK_CITIZEN).when(restTemplate).getForObject(TestConstants.CITIZEN_ID, Citizen.class);
 
 		assertEquals(TestConstants.MOCK_CITIZEN, controller.findCitizenById(12348L, "user"));
+		
+		verify(restTemplate).getForObject(TestConstants.CITIZEN_ID, Citizen.class);
 	}
 
 	@Test
@@ -69,6 +76,9 @@ public class CitizenControllerTest {
 				Citizen[].class);
 
 		assertEquals(response, controller.findCitizenBySurname("Ivan", "user"));
+		
+		verify(restTemplate).exchange(TestConstants.CITIZEN_SURNAME, HttpMethod.GET, null,
+				Citizen[].class);
 	}
 
 	@Test
@@ -84,6 +94,9 @@ public class CitizenControllerTest {
 				Citizen[].class);
 
 		assertEquals(response, controller.findCitizenByForenamesAndSurname("Crazy", "Ivan", "user"));
+		
+		verify(restTemplate).exchange(TestConstants.CITIZEN_FULLNAME, HttpMethod.GET, null,
+				Citizen[].class);
 	}
 
 }
