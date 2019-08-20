@@ -1,10 +1,16 @@
 package com.bae.domain;
 
 import java.sql.Timestamp;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="audit")
 public class SentRequest {
 	
-private String username;
+	@Id
+	private String id;
+	
+	private String username;
 	
 	private String searchItem;
 	
