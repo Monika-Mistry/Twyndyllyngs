@@ -4,7 +4,8 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "sonar": "node sonar-project.js"
     },
     "author": "",
     "license": "ISC",
@@ -35,6 +36,7 @@
         "@babel/node": "^7.5.5",
         "@babel/preset-env": "^7.5.5",
         "@babel/register": "^7.5.5",
-        "babel-cli": "^6.26.0"
+        "babel-cli": "^6.26.0",
+        "sonarqube-scanner": "^2.5.0"
     }
 }
