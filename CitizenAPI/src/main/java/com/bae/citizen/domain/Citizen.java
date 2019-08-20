@@ -37,6 +37,7 @@ public class Citizen {
 		this.homeAddress = homeAddress;
 		this.dateOfBirth = dateOfBirth;
 		this.placeOfBirth = placeOfBirth;
+		this.sex = sex;
 	}
 
 	public Long getCitizenId() {
