@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
+import CitizenHeader from './CitizenHeader';
 
-export class CitizenList extends Component {
-    
-    render() {
-        return (
-            <div>
+export default function CitizenList(props) {
 
-            </div>
-        )
-    }
-
+    return (
+        <div>
+            <CitizenHeader data={props.data} />
+        </div>
+    )
 }

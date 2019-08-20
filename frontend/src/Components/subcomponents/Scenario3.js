@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export class Audit extends Component {
+export default class Scenario3 extends Component {
     render() {
         return (
-            <p>Audit Home</p>
+            <p>Suspect Fleeing</p>
         )
     }
 
