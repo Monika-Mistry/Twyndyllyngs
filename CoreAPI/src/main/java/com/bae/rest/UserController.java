@@ -36,7 +36,7 @@ public class UserController {
 			return restTemplate.exchange(Constants.LOGIN_USER_URL, HttpMethod.POST, requestEntity, String.class);
 		}
 		else {
-			return new ResponseEntity<String>("Invalid login credentials", HttpStatus.PRECONDITION_FAILED);
+			return new ResponseEntity<>("Invalid login credentials", HttpStatus.PRECONDITION_FAILED);
 		}
 		
 	}
