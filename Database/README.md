@@ -33,15 +33,36 @@ Set external IP to be static rather than ephemeral.
 
 ## Install and configure MySQL server
 
-SSH into the VM you just created.
+**SSH** into the Virtual Machine you just created.
 
-run **database_setup.sh** (change [MY_PASsWORD] and [DATABASE] to appropriate values first).
+Run **database_setup.sh** (change [MY_PASSWORD] and [DATABASE] to appropriate values first).
 
 ## Populate database
 
 Upload data .csv files to **/var/lib/mysql-files/**
 
-run **data_import.sh** (this will create tables and import data fro mthe csvs).
+Run **data_import.sh** (this will create tables and import data from the .csv files).
 
+
+# Spring Boot App configuration
+
+### Add the following dependency to pom.xml:
+```
+<dependency>
+  <groupId>com.github.ulisesbocchio</groupId>
+  <artifactId>jasypt-spring-boot-starter</artifactId>
+  <version>2.1.0</version>
+</dependency>
+```
+
+### Add the following annotation to the main app (under @SpringBootApp):
+```
+@EnableEncryptableProperties
+```
+
+### Run your app with the following additional argument:
+```
+ -Djasypt.encryptor.password=[password]
+ ```
 
 
