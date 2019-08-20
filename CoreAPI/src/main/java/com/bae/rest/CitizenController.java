@@ -23,7 +23,7 @@ public class CitizenController extends Controller {
 
 	public CitizenController(@Autowired JmsTemplate jmsTemplate, @Autowired RestTemplate restTemplate) {
 		super(jmsTemplate);
-		this.restTemplate = restTemplate;
+		this.restTemplate = restTemplate; 
 	}
 
 	@GetMapping("/getCitizensByForenames/{username}/{forenames}")

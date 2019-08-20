@@ -1,6 +1,8 @@
 package com.bae.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,11 +25,13 @@ public class UserController {
 		
 	}
 	
-	public void createUser() {
+	@PostMapping("/createUser")
+	public void createUser(@RequestBody User user) {
 		
 	}
 	
-	public void deleteUser() {
+	@GetMapping("/deleteUser/{id}")
+	public void deleteUser(@PathVariable ("id") Long id) {
 		
 	}
 
