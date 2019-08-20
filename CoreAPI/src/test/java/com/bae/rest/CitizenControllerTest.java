@@ -43,7 +43,7 @@ public class CitizenControllerTest {
 
 		ResponseEntity<Citizen[]> response = new ResponseEntity<Citizen[]>(citizens, HttpStatus.OK);
 
-		doReturn(response).when(restTemplate).exchange(Constants.CITIZEN_URL + "/getCitizensByForenames/user/Crazy",
+		doReturn(response).when(restTemplate).exchange(TestConstants.CITIZEN_FORENAME,
 				HttpMethod.GET, null, Citizen[].class);
 
 		assertEquals(response, controller.findCitizenByForenames("Crazy", "user"));
@@ -52,7 +52,7 @@ public class CitizenControllerTest {
 	@Test
 	public void findByIdTest() {
 
-		doReturn(TestConstants.MOCK_CITIZEN).when(restTemplate).getForObject(Constants.CITIZEN_URL + "/getCitizenById/user/" + 12348L,
+		doReturn(TestConstants.MOCK_CITIZEN).when(restTemplate).getForObject(TestConstants.CITIZEN_ID,
 				Citizen.class);
 
 		assertEquals(TestConstants.MOCK_CITIZEN, controller.findCitizenById(12348L, "user"));
@@ -67,7 +67,7 @@ public class CitizenControllerTest {
 
 		ResponseEntity<Citizen[]> response = new ResponseEntity<Citizen[]>(citizens, HttpStatus.OK);
 
-		doReturn(response).when(restTemplate).exchange(Constants.CITIZEN_URL + "/getCitizensBySurname/user/Ivan",
+		doReturn(response).when(restTemplate).exchange(TestConstants.CITIZEN_SURNAME,
 				HttpMethod.GET, null, Citizen[].class);
 
 		assertEquals(response, controller.findCitizenBySurname("Ivan", "user"));
@@ -82,7 +82,7 @@ public class CitizenControllerTest {
 
 		ResponseEntity<Citizen[]> response = new ResponseEntity<Citizen[]>(citizens, HttpStatus.OK);
 
-		doReturn(response).when(restTemplate).exchange(Constants.CITIZEN_URL + "/getCitizensByFullname/user/Crazy/Ivan",
+		doReturn(response).when(restTemplate).exchange(TestConstants.CITIZEN_FULLNAME,
 				HttpMethod.GET, null, Citizen[].class);
 
 		assertEquals(response, controller.findCitizenByForenamesAndSurname("Crazy", "Ivan", "user"));

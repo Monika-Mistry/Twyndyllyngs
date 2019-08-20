@@ -34,8 +34,8 @@ public class CitizenController extends Controller {
 //
 //		sendToQueue(request);
 
-		return restTemplate.exchange(Constants.CITIZEN_URL + "/getCitizensByForenames/" + username + "/" + forenames,
-				HttpMethod.GET, null, Citizen[].class);
+		return restTemplate.exchange(Constants.CITIZEN_FORENAME_URL + username + "/" + forenames,
+				HttpMethod.GET, null, Citizen[].class); 
 
 	}
 
@@ -46,7 +46,7 @@ public class CitizenController extends Controller {
 //
 //		sendToQueue(request);
 
-		return restTemplate.exchange(Constants.CITIZEN_URL + "/getCitizensBySurname/" + username + "/" + surname,
+		return restTemplate.exchange(Constants.CITIZEN_SURNAME_URL + username + "/" + surname,
 				HttpMethod.GET, null, Citizen[].class);
 	}
 
@@ -57,7 +57,7 @@ public class CitizenController extends Controller {
 //
 //		sendToQueue(request);
 
-		return restTemplate.exchange(Constants.CITIZEN_URL + "/getCitizensByFullname/" + username + "/" + forenames + "/" + surname,
+		return restTemplate.exchange(Constants.CITIZEN_FULLNAME_URL + username + "/" + forenames + "/" + surname,
 				HttpMethod.GET, null, Citizen[].class);
 	}
 
@@ -68,7 +68,7 @@ public class CitizenController extends Controller {
 //
 //		sendToQueue(request);
 
-		return restTemplate.getForObject(Constants.CITIZEN_URL + "/getCitizenById/" + username + "/" + id, Citizen.class);
+		return restTemplate.getForObject(Constants.CITIZEN_ID_URL + username + "/" + id, Citizen.class);
 	}
 
 }
