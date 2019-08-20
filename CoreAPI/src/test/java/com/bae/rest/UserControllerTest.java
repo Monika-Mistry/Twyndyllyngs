@@ -35,13 +35,12 @@ public class UserControllerTest {
 	@Test
 	public void validUserLoginTest() {
 		HttpEntity<User> requestEntity = new HttpEntity<>(TestConstants.MOCK_USER);
-		ResponseEntity<String> response = new ResponseEntity<String>("User Logged In", HttpStatus.OK);
 
 		doReturn(true).when(service).verifyLogin(TestConstants.MOCK_USER);
-		doReturn(response).when(restTemplate).exchange(Constants.LOGIN_USER_URL, HttpMethod.POST, requestEntity,
+		doReturn(TestConstants.MOCK_LOGIN_RESPONSE).when(restTemplate).exchange(Constants.LOGIN_USER_URL, HttpMethod.POST, requestEntity,
 				String.class);
 
-		assertEquals(response, controller.loginUser(TestConstants.MOCK_USER));
+		assertEquals(TestConstants.MOCK_LOGIN_RESPONSE, controller.loginUser(TestConstants.MOCK_USER));
 
 		verify(service).verifyLogin(TestConstants.MOCK_USER);
 		verify(restTemplate).exchange(Constants.LOGIN_USER_URL, HttpMethod.POST, requestEntity, String.class);
@@ -50,12 +49,11 @@ public class UserControllerTest {
 
 	@Test
 	public void invalidUserLoginTest() {
-		ResponseEntity<String> response = new ResponseEntity<String>("Invalid login credentials",
-				HttpStatus.PRECONDITION_FAILED);
+		
 
 		doReturn(false).when(service).verifyLogin(TestConstants.MOCK_EMPTY_USER);
 
-		assertEquals(response, controller.loginUser(TestConstants.MOCK_EMPTY_USER));
+		assertEquals(TestConstants.MOCK_FAIL_LOGIN_RESPONSE, controller.loginUser(TestConstants.MOCK_EMPTY_USER));
 
 		verify(service).verifyLogin(TestConstants.MOCK_EMPTY_USER);
 
@@ -64,12 +62,11 @@ public class UserControllerTest {
 	@Test
 	public void createUserTest() {
 		HttpEntity<User> requestEntity = new HttpEntity<>(TestConstants.MOCK_USER);
-		ResponseEntity<User> response = new ResponseEntity<User>(TestConstants.MOCK_USER, HttpStatus.CREATED);
 
-		doReturn(response).when(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity,
+		doReturn(TestConstants.MOCK_CREATE_USER_RESPONSE).when(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity,
 				User.class);
 
-		assertEquals(response, controller.createUser(TestConstants.MOCK_USER));
+		assertEquals(TestConstants.MOCK_CREATE_USER_RESPONSE, controller.createUser(TestConstants.MOCK_USER));
 
 		verify(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity, User.class);
 	}
