@@ -30,9 +30,9 @@ public class CitizenController extends Controller {
 	public ResponseEntity<Citizen[]> findCitizenByForenames(@PathVariable("forenames") String forenames,
 			@PathVariable("username") String username) {
 
-//		Request request = new Request(username, forenames, new Timestamp(System.currentTimeMillis()));
-//
-//		sendToQueue(request);
+		Request request = new Request(username, forenames, new Timestamp(System.currentTimeMillis()));
+
+		sendToQueue(request);
 
 		return restTemplate.exchange(Constants.CITIZEN_FORENAME_URL + username + "/" + forenames,
 				HttpMethod.GET, null, Citizen[].class); 
@@ -42,9 +42,9 @@ public class CitizenController extends Controller {
 	@GetMapping("/getCitizensBySurname/{username}/{surname}")
 	public ResponseEntity<Citizen[]> findCitizenBySurname(@PathVariable("surname") String surname,
 			@PathVariable("username") String username) {
-//		Request request = new Request(username, surname, new Timestamp(System.currentTimeMillis()));
-//
-//		sendToQueue(request);
+		Request request = new Request(username, surname, new Timestamp(System.currentTimeMillis()));
+
+		sendToQueue(request);
 
 		return restTemplate.exchange(Constants.CITIZEN_SURNAME_URL + username + "/" + surname,
 				HttpMethod.GET, null, Citizen[].class);
@@ -53,9 +53,9 @@ public class CitizenController extends Controller {
 	@GetMapping("/getCitizensByFullname/{username}/{forenames}/{surname}")
 	public ResponseEntity<Citizen[]> findCitizenByForenamesAndSurname(@PathVariable("forenames") String forenames,@PathVariable("surname") String surname,
 			@PathVariable("username") String username) {
-//		Request request = new Request(username, forenames + " " + surname, new Timestamp(System.currentTimeMillis()));
-//
-//		sendToQueue(request);
+		Request request = new Request(username, forenames + " " + surname, new Timestamp(System.currentTimeMillis()));
+
+		sendToQueue(request);
 
 		return restTemplate.exchange(Constants.CITIZEN_FULLNAME_URL + username + "/" + forenames + "/" + surname,
 				HttpMethod.GET, null, Citizen[].class);
@@ -64,9 +64,9 @@ public class CitizenController extends Controller {
 	@GetMapping("/getCitizenById/{username}/{citizenId}")
 	public Citizen findCitizenById(@PathVariable("id") Long id,
 			@PathVariable("username") String username) {
-//		Request request = new Request(username,"Citizen ID:" +  id, new Timestamp(System.currentTimeMillis()));
-//
-//		sendToQueue(request);
+		Request request = new Request(username,"Citizen ID:" +  id, new Timestamp(System.currentTimeMillis()));
+
+		sendToQueue(request);
 
 		return restTemplate.getForObject(Constants.CITIZEN_ID_URL + username + "/" + id, Citizen.class);
 	}

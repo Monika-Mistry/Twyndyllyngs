@@ -18,6 +18,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,6 +34,9 @@ public class CitizenControllerTest {
 
 	@Mock
 	private RestTemplate restTemplate;
+	
+	@Mock
+	private JmsTemplate jmsTemplate;
 
 	@Test
 	public void findByForenameTest() {
