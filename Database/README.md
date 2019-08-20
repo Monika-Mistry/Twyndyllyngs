@@ -43,8 +43,11 @@ Upload data .csv files to **/var/lib/mysql-files/**
 
 Run **data_import.sh** (this will create tables and import data from the .csv files).
 
-
 # Spring Boot App configuration
+
+### Use the application.properties file in this repo in your application
+
+Change [IP ADDRESS] to the IP address of the database virtual machine you just created.
 
 ### Add the following dependency to pom.xml:
 ```
