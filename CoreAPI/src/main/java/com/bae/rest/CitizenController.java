@@ -26,7 +26,7 @@ public class CitizenController extends Controller {
 		this.restTemplate = restTemplate;
 	}
 
-	@GetMapping("getCitizensByForenames/{username}/{forenames}")
+	@GetMapping("/getCitizensByForenames/{username}/{forenames}")
 	public ResponseEntity<Citizen[]> findCitizenByForenames(@PathVariable("forenames") String forenames,
 			@PathVariable("username") String username) {
 
