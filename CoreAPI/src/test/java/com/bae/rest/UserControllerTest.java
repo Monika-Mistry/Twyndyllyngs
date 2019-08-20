@@ -1,7 +1,6 @@
 package com.bae.rest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
@@ -56,10 +55,23 @@ public class UserControllerTest {
 
 		doReturn(false).when(service).verifyLogin(TestConstants.MOCK_EMPTY_USER);
 
-		assertEquals(response, controller.loginUser(TestConstants.MOCK_USER));
+		assertEquals(response, controller.loginUser(TestConstants.MOCK_EMPTY_USER));
 
-		verify(service).verifyLogin(TestConstants.MOCK_USER);
+		verify(service).verifyLogin(TestConstants.MOCK_EMPTY_USER);
 
+	}
+	
+	@Test
+	public void createUserTest() {
+		HttpEntity<User> requestEntity = new HttpEntity<>(TestConstants.MOCK_USER);
+		ResponseEntity<User> response = new ResponseEntity<User>(TestConstants.MOCK_USER, HttpStatus.CREATED);
+
+		doReturn(response).when(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity,
+				User.class);
+
+		assertEquals(response, controller.createUser(TestConstants.MOCK_USER));
+
+		verify(restTemplate).exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity, User.class);
 	}
 
 }

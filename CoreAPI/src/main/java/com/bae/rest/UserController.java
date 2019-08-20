@@ -42,8 +42,9 @@ public class UserController {
 	}
 	
 	@PostMapping("/createUser")
-	public void createUser(@RequestBody User user) {
-		
+	public ResponseEntity<User> createUser(@RequestBody User user) {
+		HttpEntity<User> requestEntity = new HttpEntity<>(user);
+		return restTemplate.exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity, User.class);
 	}
 	
 	@GetMapping("/deleteUser/{id}")
