@@ -29,7 +29,7 @@ public class CitizenWebMockTest {
 	@MockBean
 	private CitizenService service;
 		
-
+	@WithMockUser(value = "spring")
 	@Test
 	public void getCitizensByForenamesTest() throws Exception {
 		
@@ -40,7 +40,8 @@ public class CitizenWebMockTest {
 				.andExpect(content().string(containsString("Aaron"))).andDo(print());
 
 	}
-
+	
+	@WithMockUser(value = "spring")
 	@Test
 	public void getCitizensBySurnameTest() throws Exception {
 
@@ -51,6 +52,7 @@ public class CitizenWebMockTest {
 
 	}
 
+	@WithMockUser(value = "spring")
 	@Test
 	public void getCitizensByFullnameTest() throws Exception {
 
