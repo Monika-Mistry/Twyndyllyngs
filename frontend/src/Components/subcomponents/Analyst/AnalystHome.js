@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Scenario3 from './Scenario3.js';
-import Scenario2 from './Scenario2.js';
-import Scenario1 from './Scenario1.js';
+import Scenario3 from '../Scenario3/Scenario3.js';
+import Scenario2 from '../Scenario2/Scenario2.js';
+import Scenario1 from '../Scenario1/Scenario1.js';
 
 export class Analyst extends Component {
 

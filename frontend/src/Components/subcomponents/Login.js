@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 export class Login extends Component {
 
     user = () => {
-        window.open('./home')
+        window.location = './home'
     }
 
     audit =() => {
-        window.open('./audit')
+        window.location = './audit'
     }
 
     render() {
