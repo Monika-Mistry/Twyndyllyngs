@@ -6,9 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.bae.citizen.TestConstants;
-import com.bae.citizen.domain.Citizen;
 import com.bae.citizen.service.CitizenService;
 
 @RunWith(SpringRunner.class)
@@ -32,14 +28,13 @@ public class CitizenWebMockTest {
 
 	@MockBean
 	private CitizenService service;
+		
 
 	@Test
 	public void getCitizensByForenamesTest() throws Exception {
-		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
-		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_2);
+		
 
-		when(service.findByForenames("Aaron")).thenReturn(MOCK_LIST);
+		when(service.findByForenames("Aaron")).thenReturn(TestConstants.MOCK_CITIZENS_ARRAY);
 
 		mockMvc.perform(get("/getCitizensByForenames/1234/" + "Aaron"))
 				.andExpect(content().string(containsString("Aaron"))).andDo(print());
@@ -48,10 +43,8 @@ public class CitizenWebMockTest {
 
 	@Test
 	public void getCitizensBySurnameTest() throws Exception {
-		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
 
-		when(service.findBySurname("Aarvark")).thenReturn(MOCK_LIST);
+		when(service.findBySurname("Aarvark")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
 
 		mockMvc.perform(get("/getCitizensBySurname/1234/" + "Aarvark"))
 				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
@@ -60,10 +53,8 @@ public class CitizenWebMockTest {
 
 	@Test
 	public void getCitizensByFullnameTest() throws Exception {
-		List<Citizen> MOCK_LIST = new ArrayList<>();
-		MOCK_LIST.add(TestConstants.MOCK_CITIZEN_1);
 
-		when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(MOCK_LIST);
+		when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
 
 		mockMvc.perform(get("/getCitizensByFullname/1234/" + "Aaron/" + "Aarvark"))
 				.andExpect(content().string(containsString("Aaron")))
