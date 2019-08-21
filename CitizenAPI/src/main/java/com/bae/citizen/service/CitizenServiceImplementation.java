@@ -14,10 +14,6 @@ public class CitizenServiceImplementation implements CitizenService{
 	
 	private CitizenRepository citizenRepository;
 	
-	public CitizenServiceImplementation() {
-	
-	}
-	
 	@Autowired
 	public CitizenServiceImplementation(CitizenRepository citizenRepository) {
 
