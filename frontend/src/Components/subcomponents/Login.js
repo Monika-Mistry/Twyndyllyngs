@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 export class Login extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     user = () => {
         let value = "analyst"
         this.props.onLogin(value)

@@ -16,18 +16,22 @@ export class Footer extends Component {
                         <MDBCol md="3">
                             <h5 className="title">Contact Us</h5>
                             <div className="row">
-                                
+
                                 <p><FontAwesomeIcon icon='phone'></FontAwesomeIcon>  0116 489 3265</p>
                             </div>
                             <div className="row">
-                                
-                                
+
+
                                 <p> <FontAwesomeIcon icon='envelope'></FontAwesomeIcon> contactDesk@twyndyll.co</p>
                             </div>
                         </MDBCol>
                         <MDBCol md="6">
                             <br></br>
-                            <img style={{ width: 400 }} src={require('../../Logos/Twyndyllyngs.png')}></img>
+                            <img
+                                style={{ width: 400 }}
+                                src={require('../../Logos/Twyndyllyngs.png')}
+                                alt="default">
+                            </img>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

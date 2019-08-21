@@ -5,8 +5,8 @@ import { Login } from './subcomponents/Login.js';
 import { Footer } from './subcomponents/Footer.js';
 import { Audit } from './subcomponents/Audit/AuditHome.js';
 import { Analyst } from './subcomponents/Analyst/AnalystHome.js';
-import { CreateAnalyst } from './subcomponents/CreateAnalyst.js';
-import { ForgottenPassword } from './subcomponents/ForgottenPassword.js'
+import { CreateAnalyst } from './subcomponents/Audit/CreateAnalyst.js';
+import { ForgottenPassword } from './subcomponents/ForgottenPassword';
 
 export class RouterHome extends Component {
 

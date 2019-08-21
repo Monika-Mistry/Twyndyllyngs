@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Scenario from '../Scenario.js';
-import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js'
-import {coreApi} from '../Constants/Constants.js'
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js';
 
 export default class Scenario1 extends Component {
 
@@ -13,27 +12,26 @@ export default class Scenario1 extends Component {
         };
     }
 
-    findCitizens = () => {
-        
-        let forename = this.state.searchForenames;
-        let surname = this.state.searchSurname;
+    findCitizens = (e) => {
+        e.preventDefault();
 
-        console.log(forename + surname)
+        let forename = e.target[0].value;
+        let surname = e.target[1].value;
 
-        if(forename && !surname) {
+        if (forename && !surname) {
             findByForename(forename).then(response => {
                 this.setState({
                     data: response.data
                 })
             })
-        } else if ( surname && !forename) {
+        } else if (surname && !forename) {
             findBySurname(surname).then(response => {
                 this.setState({
                     data: response.data
                 })
             })
-           }
-         else {
+        }
+        else {
             findByFullName(forename, surname).then(response => {
                 this.setState({
                     data: response.data
@@ -41,43 +39,31 @@ export default class Scenario1 extends Component {
             })
         }
     }
- 
-    handleChange1 = event => {
-        this.setState({
-            searchForenames: event.target.value
-        });
-    }
-
-    handleChange2 = event => {
-        this.setState({
-            searchSurname: event.target.value
-        });
-    }
 
     render() {
         return (
             <div>
                 <p>Suspect Detained</p>
 
-                <form>
-                    Please enter detainees first and last names:
-                    <br></br>
-                    <br></br>
-                    Forenames:
-                        <input type="text"
-                        name="forenames"
-                        value={this.state.searchForenames}
-                        onChange={this.handleChange1}
-                    />
-                    Surname:
-                    <input type="text"
-                        name="surname"
-                        value={this.state.searchSurname}
-                        onChange={this.handleChange2}
-                    />
-                </form>
-                <br></br>
-                <button onClick={this.findCitizens}>Search</button>
+                <Form onSubmit={this.findCitizens} className="search-form">
+                    <FormGroup row>
+                        <Col>
+                            <Label for="forname">Forename:</Label>
+                        </Col>
+                        <Col>
+                            <Input type="text" name="forname" placeholder="enter forename" />
+                        </Col>
+                        <Col>
+                            <Label for="forname">Surename:</Label>
+                        </Col>
+                        <Col>
+                            <Input type="text" name="surname" placeholder="enter surname" />
+                        </Col>
+                        <Col>
+                            <Button>Create Account</Button>
+                        </Col>
+                    </FormGroup>
+                </Form>
 
                 <Scenario data={this.state.data} ></Scenario>
 

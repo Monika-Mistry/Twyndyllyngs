@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 export class CreateAnalyst extends Component {
 
@@ -14,19 +13,7 @@ export class CreateAnalyst extends Component {
     createAnalyst = (event) => {
 
         event.preventDefault();
-
-        let newAnalyst = {
-            username: event.target[0].value,
-            email: event.target[1].value,
-            password: event.target[2].value
-        }
-
-        axios
-            .post("http://...", newAnalyst)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(err => console.log(err))
+        
     }
 
     render() {

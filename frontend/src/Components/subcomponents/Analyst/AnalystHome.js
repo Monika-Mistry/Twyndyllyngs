@@ -5,10 +5,6 @@ import Scenario1 from '../Scenario1/Scenario1.js';
 
 export class Analyst extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
     state = {
         renderView: 0
     }
