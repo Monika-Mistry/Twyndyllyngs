@@ -20,9 +20,6 @@ module.exports = (app) => {
                         console.log('user found in db from findUsers');
                         res.status(200).send({
                             auth: true,
-                            first_name: userInfo.first_name,
-                            last_name: userInfo.last_name,
-                            email: userInfo.email,
                             username: userInfo.username,
                             password: userInfo.password,
                             message: 'user found in db',
