@@ -16,7 +16,7 @@ services:
         build:
             context: ./CitizenAPI
             dockerfile: Dockerfile
-            args: [PASSWORD]
+            args: 
+                - PASSWORD
         ports:
             - {target: 8003, protocol: tcp}
-
