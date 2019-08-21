@@ -33,7 +33,7 @@ export class NavBar extends Component {
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         <NavLink tag={RRNavLink}>
-                            <p>logged in as {this.props.currentUser}</p>
+                            <p>Logged in as: {this.props.currentUser}</p>
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -43,7 +43,7 @@ export class NavBar extends Component {
                 <Nav className="ml-auto" navbar>
                     <NavItem>
                         <NavLink tag={RRNavLink}>
-                            <p>logged in as {this.props.currentUser}</p>
+                            <p>Logged in as: {this.props.currentUser}</p>
                         </NavLink>
                     </NavItem>
                 </Nav>
