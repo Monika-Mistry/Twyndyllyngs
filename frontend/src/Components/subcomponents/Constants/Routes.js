@@ -8,7 +8,7 @@ export function findByForename(forename) {
 }
 
 export function findBySurname(Surname) {
-    axios.get(coreApi + "/getCitizensBySurname/" + "1" + "/" + Surname).then(response => {
+    axios.get(coreApi + "/getCitizensBySurname/" + "user" + "/" + Surname).then(response => {
         return response
     });
 }

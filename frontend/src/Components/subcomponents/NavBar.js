@@ -32,7 +32,7 @@ export class NavBar extends Component {
     render() {
 
         let barItems;
-        if (this.props.currentUser === "analyst") {
+        if (this.props.currentUser) {
             barItems = [
                 <Nav className="ml-auto" navbar>
                     <NavItem>
@@ -47,21 +47,21 @@ export class NavBar extends Component {
                     </NavItem>
                 </Nav>
             ]
-        } else if (this.props.currentUser === "audit") {
-            barItems = [
-                <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <NavLink tag={RRNavLink}>
-                            <p>Logged in as: {this.props.currentUser}</p>
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink tag={RRNavLink} onClick={this.props.logout} to='/'>
-                            <p>Logout</p>
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            ]
+        // } else if (this.props.currentUser === "audit") {
+        //     barItems = [
+        //         <Nav className="ml-auto" navbar>
+        //             <NavItem>
+        //                 <NavLink tag={RRNavLink}>
+        //                     <p>Logged in as: {this.props.currentUser}</p>
+        //                 </NavLink>
+        //             </NavItem>
+        //             <NavItem>
+        //                 <NavLink tag={RRNavLink} onClick={this.props.logout} to='/'>
+        //                     <p>Logout</p>
+        //                 </NavLink>
+        //             </NavItem>
+        //         </Nav>
+        //     ]
         } else {
             barItems = []
         }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Scenario from '../Scenario.js';
 import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js'
+import {coreApi} from '../Constants/Constants.js'
 
 export default class Scenario1 extends Component {
 
@@ -14,8 +15,10 @@ export default class Scenario1 extends Component {
 
     findCitizens = () => {
         
-        let forename = this.state.forname;
-        let surname = this.state.surname;
+        let forename = this.state.searchForenames;
+        let surname = this.state.searchSurname;
+
+        console.log(forename + surname)
 
         if(forename && !surname) {
             findByForename(forename).then(response => {
@@ -24,12 +27,16 @@ export default class Scenario1 extends Component {
                 })
             })
         } else if ( surname && !forename) {
-            findBySurname(surname).then(response => {
+            axios.get(coreApi + "/getCitizensBySurname/" + "user" + "/" + surname).then(response => {
+               
                 this.setState({
                     data: response.data
                 })
-            })
-        } else {
+            });
+               
+               
+           }
+         else {
             findByFullName(forename, surname).then(response => {
                 this.setState({
                     data: response.data
