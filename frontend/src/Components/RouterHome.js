@@ -9,12 +9,20 @@ import { CreateAnalyst } from './subcomponents/CreateAnalyst.js';
 import { ForgottenPassword } from './subcomponents/ForgottenPassword.js'
 
 export class RouterHome extends Component {
+
+    constructor(){
+        super()
+        this.state = {
+            loggedIn: null
+        }
+    }
+
     render() {
         return (
             <Router>
                 <div>
-                    <NavBar />
-                    <Route exact path='/' render={() => <Login />} />
+                    <NavBar currentUser={this.state.loggedIn}/>
+                    <Route exact path='/' render={() => <Login onLogin={this.state.loggedIn}/>} />
                     <Route path='/home' render={() => <Analyst />} />
                     <Route path='/audit' render={() => <Audit />} />
                     <Route path='/CreateAnalyst' render={() => <CreateAnalyst />} /> 

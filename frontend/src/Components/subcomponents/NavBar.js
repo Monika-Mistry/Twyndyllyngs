@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink as RRNavLink} from "react-router-dom";
+import { NavLink as RRNavLink } from "react-router-dom";
 import {
     Collapse,
     Navbar,
@@ -24,21 +24,46 @@ export class NavBar extends Component {
             collapsed: !this.state.collapsed
         });
     }
-    
+
     render() {
+
+        let barItems;
+        if (this.props.currentUser === "analyst") {
+            barItems = [
+                <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        <NavLink tag={RRNavLink}>
+                            <p>logged in as {this.props.currentUser}</p>
+                        </NavLink>
+                    </NavItem>
+                </Nav>
+            ]
+        } else if (this.props.currentUser === "audit") {
+            barItems = [
+                <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        <NavLink tag={RRNavLink}>
+                            <p>logged in as {this.props.currentUser}</p>
+                        </NavLink>
+                    </NavItem>
+                </Nav>
+            ]
+        } else {
+            barItems = ["not logged in"]
+        }
+
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand tag={RRNavLink} to="/"></NavbarBrand>
-                    <img style={{width: 69, height: 69}} src={require('../../Logos/Lizzie.png')}></img>
+                    <NavbarBrand tag={RRNavLink} to="/">
+                        <img
+                            style={{ width: 69, height: 69 }}
+                            src={require('../../Logos/Lizzie.png')}>
+                        </img>
+                    </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                        <NavItem>
-                                <NavLink tag={RRNavLink} to="/">
-                                    <p>Hello</p></NavLink>
-                            </NavItem>
-                        </Nav>
+                        {barItems}
                     </Collapse>
                 </Navbar>
             </div>
