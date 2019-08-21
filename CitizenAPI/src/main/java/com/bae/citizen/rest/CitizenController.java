@@ -15,10 +15,6 @@ public class CitizenController {
 
 	private CitizenService citizenService;
 
-	public CitizenController() {
-
-	}
-
 	@Autowired
 	public CitizenController(CitizenService citizenService) {
 
