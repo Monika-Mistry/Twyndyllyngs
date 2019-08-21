@@ -1,5 +1,5 @@
 import React from 'react';
-import CitizenList from './CitizenList.js';
+import CitizenList from './Citizen/CitizenList.js';
 
 export default function Scenario(props) {
 

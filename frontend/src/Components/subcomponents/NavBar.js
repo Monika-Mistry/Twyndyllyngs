@@ -13,7 +13,6 @@ import {
 export class NavBar extends Component {
     constructor(props) {
         super(props);
-
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
@@ -25,6 +24,7 @@ export class NavBar extends Component {
             collapsed: !this.state.collapsed
         });
     }
+    
     render() {
         return (
             <div>
@@ -35,10 +35,9 @@ export class NavBar extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                         <NavItem>
-                                <NavLink tag={RRNavLink}>
+                                <NavLink tag={RRNavLink} to="/">
                                     <p>Hello</p></NavLink>
                             </NavItem>
-                            
                         </Nav>
                     </Collapse>
                 </Navbar>
