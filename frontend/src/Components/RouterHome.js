@@ -5,6 +5,7 @@ import { Login } from './subcomponents/Login.js';
 import { Footer } from './subcomponents/Footer.js';
 import { Audit } from './subcomponents/AuditHome.js';
 import { Analyst } from './subcomponents/AnalystHome.js';
+import { CreateAnalyst } from './subcomponents/CreateAnalyst.js';
 
 export class RouterHome extends Component {
     render() {
@@ -15,6 +16,7 @@ export class RouterHome extends Component {
                     <Route exact path='/' render={() => <Login />} />
                     <Route path='/home' render={() => <Analyst />} />
                     <Route path='/audit' render={() => <Audit />} />
+                    <Route path='/CreateAnalyst' render={() => <CreateAnalyst />} /> 
                     <Footer />
                 </div>
             </Router>
