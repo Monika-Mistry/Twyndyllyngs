@@ -21,21 +21,27 @@ public class CitizenServiceImplementation implements CitizenService{
 	}
 	
 
-	public List<Citizen> findByForenames(String forenames) {
+	public Citizen[] findByForenames(String forenames) {
+
+		List<Citizen> citizensList = citizenRepository.findByForenames(forenames);
 		
-		return citizenRepository.findByForenames(forenames);
+		return citizensList.toArray(new Citizen[citizensList.size()]);
 	}
 
 
-	public List<Citizen> findBySurname(String surname) {
+	public Citizen[] findBySurname(String surname) {
 		
-		return citizenRepository.findBySurname(surname);
+		List<Citizen> citizensList = citizenRepository.findBySurname(surname);
+		
+		return citizensList.toArray(new Citizen[citizensList.size()]);
 	}
 
 	
-	public List<Citizen> findByForenamesAndSurname(String forenames, String surname) {
+	public Citizen[] findByForenamesAndSurname(String forenames, String surname) {
 		
-		return citizenRepository.findByForenamesAndSurname(forenames, surname);
+		List<Citizen> citizensList = citizenRepository.findByForenamesAndSurname(forenames, surname);
+		
+		return citizensList.toArray(new Citizen[citizensList.size()]);
 	}
 
 
