@@ -25,6 +25,10 @@ export class NavBar extends Component {
         });
     }
 
+    confirm = () => {
+
+    }
+
     render() {
 
         let barItems;
@@ -34,6 +38,11 @@ export class NavBar extends Component {
                     <NavItem>
                         <NavLink tag={RRNavLink}>
                             <p>Logged in as: {this.props.currentUser}</p>
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink tag={RRNavLink} onClick={this.props.logout} to='/'>
+                            <p>Logout</p>
                         </NavLink>
                     </NavItem>
                 </Nav>
@@ -46,6 +55,11 @@ export class NavBar extends Component {
                             <p>Logged in as: {this.props.currentUser}</p>
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink tag={RRNavLink} onClick={this.props.logout} to='/'>
+                            <p>Logout</p>
+                        </NavLink>
+                    </NavItem>
                 </Nav>
             ]
         } else {
@@ -55,7 +69,7 @@ export class NavBar extends Component {
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand tag={RRNavLink} to="/" onClick={this.props.logout}>
+                    <NavbarBrand tag={RRNavLink}>
                         <img
                             style={{ width: 69, height: 69 }}
                             src={require('../../Logos/Lizzie.png')}>
