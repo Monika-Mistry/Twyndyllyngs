@@ -11,14 +11,14 @@ export default class Scenario1 extends Component {
         };
     }
 
-    findByFullname = () => {
+    findBySurname = () => {
         axios.get("http://localhost:8003/getCitizensBySurname/" + "1" + "/" + this.state.searchSurname).then(response => {
             this.setState({
                 data: response.data
             });
         });
     }
-
+ 
     handleChange1 = event => {
         this.setState({
             searchForenames: event.target.value
