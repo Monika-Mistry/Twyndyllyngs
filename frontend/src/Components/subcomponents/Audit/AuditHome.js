@@ -6,13 +6,10 @@ export class Audit extends Component {
         return (
             <div>
             <p>Audit Home</p>
-            
-            <button>
-                <Link to="/CreateAnalyst">Create Analyst</Link>
-            </button>
-
+                <Link to="/CreateAnalyst">
+                    <button>Create Analyst</button>
+                </Link>
             </div>
-
         )
     }
 

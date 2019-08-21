@@ -6,6 +6,7 @@ import { Footer } from './subcomponents/Footer.js';
 import { Audit } from './subcomponents/Audit/AuditHome.js';
 import { Analyst } from './subcomponents/Analyst/AnalystHome.js';
 import { CreateAnalyst } from './subcomponents/CreateAnalyst.js';
+import { ForgottenPassword } from './subcomponents/ForgottenPassword.js'
 
 export class RouterHome extends Component {
     render() {
@@ -17,6 +18,7 @@ export class RouterHome extends Component {
                     <Route path='/home' render={() => <Analyst />} />
                     <Route path='/audit' render={() => <Audit />} />
                     <Route path='/CreateAnalyst' render={() => <CreateAnalyst />} /> 
+                    <Route path='/forgot' render={() => <ForgottenPassword />} />
                     <Footer />
                 </div>
             </Router>
