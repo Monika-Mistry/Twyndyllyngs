@@ -31,4 +31,7 @@ public class TestConstants {
 	
 	public static final String MOCK_SUCCESS = "Success";
 
+	public static final Citizen[] MOCK_CITIZEN_ARRAY = {MOCK_CITIZEN}; 
+	
+	public static final ResponseEntity<Citizen[]> MOCK_CITIZEN_RESPONSE = new ResponseEntity<Citizen[]>(MOCK_CITIZEN_ARRAY, HttpStatus.OK);
 }

@@ -1,7 +1,5 @@
 package com.bae.rest;
 
-import java.sql.Timestamp;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.bae.Constants;
 import com.bae.domain.Citizen;
-import com.bae.domain.Request;
 
 @RestController
 public class CitizenController extends Controller {
