@@ -2,19 +2,13 @@ import axios from 'axios';
 import { coreApi } from './Constants.js'
 
 export function findByForename(forename) {
-    axios.get(coreApi + "/getCitizensByForenames/" + "1" + "/" + forename).then(response => {
-        return response
-    });
+    return axios.get(coreApi + "/getCitizensByForenames/" + "1" + "/" + forename)
 }
 
 export function findBySurname(Surname) {
-    axios.get(coreApi + "/getCitizensBySurname/" + "user" + "/" + Surname).then(response => {
-        return response
-    });
+    return axios.get(coreApi + "/getCitizensBySurname/" + "user" + "/" + Surname)
 }
 
 export function findByFullName(forename, surname) {
-    axios.get(coreApi + "/getCitizensByFullname/" + "1" + "/" + forename + "/" + surname).then(response => {
-        return response
-    });
+    return axios.get(coreApi + "/getCitizensByFullname/" + "1" + "/" + forename + "/" + surname)
 }

@@ -27,14 +27,11 @@ export default class Scenario1 extends Component {
                 })
             })
         } else if ( surname && !forename) {
-            axios.get(coreApi + "/getCitizensBySurname/" + "user" + "/" + surname).then(response => {
-               
+            findBySurname(surname).then(response => {
                 this.setState({
                     data: response.data
                 })
-            });
-               
-               
+            })
            }
          else {
             findByFullName(forename, surname).then(response => {
