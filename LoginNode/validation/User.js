@@ -17,10 +17,6 @@ module.exports = function validateUserInput(data) {
     errors.username = "Username field is required";
   }
 
-  if (Validator.isEmpty(data.role)) {
-    errors.email = "Role field is required";
-  }
-
   if (!Validator.equals(data.password, data.password2)) {
     errors.password = "Passwords do not match";
   }

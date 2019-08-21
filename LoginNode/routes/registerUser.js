@@ -1,10 +1,16 @@
 
 const passport = require('passport');
 const User = require('../sequelize');
+const validateUserInput = require("../validation/User");
 
 module.exports = app => {
     app.post('/registerUser', (req, res, next) => {
         passport.authenticate('register', (err, user, info) => {
+            const { errors, isValid } = validateUserInput(req.body);
+            if (!isValid) {
+                console.log('invalid input')
+                return res.status(400).json(errors);
+            }
             if (err) {
                 console.error(err);
             }

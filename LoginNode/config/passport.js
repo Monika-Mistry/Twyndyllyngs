@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const Sequelize = require('sequelize');
 const jwtSecret = require('./jwtConfig.js');
-
 const BCRYPT_SALT_ROUNDS = 12;
 
 const Op = Sequelize.Op;
@@ -18,6 +17,7 @@ passport.use(
         {
             usernameField: 'username',
             passwordField: 'password',
+            password2Field: 'password2',
             passReqToCallback: true,
             session: false,
         },
