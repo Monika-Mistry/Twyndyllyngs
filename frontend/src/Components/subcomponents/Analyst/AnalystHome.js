@@ -69,7 +69,6 @@ export class Analyst extends Component {
                     <button onClick={this.ClickScenario2}> Scenario 2 - Incident </button>
                     <button onClick={this.ClickScenario3}> Scenario 3 - Vehicle </button>
                     <p>Loading...</p>
-                    <button onClick={this.pro}>Click me</button>
                 </div>
             )
         }
