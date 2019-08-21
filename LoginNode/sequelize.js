@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const UserModel = require('./models/User');
+// const UserModel = require('./models/User');
 
 const sequelize = new Sequelize('users', 'root', '1234', {
     host: 'localhost',
@@ -7,10 +7,17 @@ const sequelize = new Sequelize('users', 'root', '1234', {
     dialect: 'mysql',
 });
 
-const User = UserModel(sequelize, Sequelize);
+var User = sequelize.define('users', {
+    username: {
+        type: Sequelize.STRING,
+        field: 'username'
+    },
+    password: {
+        type: Sequelize.STRING,
+        field: 'password'
+    }
+})
 
-sequelize.sync().then(() => {
-    console.log('"Users" DB & "User" Table \nHave Been Created');
-});
+User.sync({ force: true });
 
 module.exports = User;

@@ -4,17 +4,17 @@ module.exports = (sequelize, type) => sequelize.define('user', {
         primaryKey: true,
         autoIncrement: true,
     },
-    email: {
-        type: type.STRING,
-        allowNull: false,
-    },
+    // email: {
+    //     type: type.STRING,
+    //     allowNull: true,
+    // },
     username: {
         type: type.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     password: {
         type: type.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     resetPasswordToken: type.STRING,
     resetPasswordExpires: type.DATE,
