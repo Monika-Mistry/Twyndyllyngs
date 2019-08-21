@@ -23,7 +23,6 @@ passport.use(
         },
         (req, username, password, done) => {
             console.log(username);
-            console.log(req.body.email);
             try {
                 User.findOne({
                     where: {
@@ -31,21 +30,20 @@ passport.use(
                             {
                                 username,
                             },
-                            { email: req.body.email },
+                            { password: req.body.password },
                         ],
                     },
                 }).then(user => {
                     if (user != null) {
-                        console.log('username or email already taken');
+                        console.log('username or password already taken');
                         return done(null, false, {
-                            message: 'username or email already taken',
+                            message: 'username or password already taken',
                         });
                     }
                     bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(hashedPassword => {
                         User.create({
                             username,
                             password: hashedPassword,
-                            email: req.body.email,
                         }).then(user => {
                             console.log('user created');
                             return done(null, user);
