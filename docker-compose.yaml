@@ -17,7 +17,7 @@ services:
             context: ./CitizenAPI
             dockerfile: Dockerfile
             args: 
-                - PASSWORD
+                - PASSWORD=${PASSWORD}
         ports:
             - {target: 8003, protocol: tcp}
     activemq:

@@ -10,6 +10,8 @@ RUN mvn -Djasypt.encryptor.password=${PASSWORD} package
 
 FROM java:8
 
+ARG PASSWORD
+
 ENV ENV_PASSWORD=${PASSWORD}
 
 COPY --from=build target/CitizenAPI-0.0.1-SNAPSHOT.jar /opt/CitizenAPI-0.0.1-SNAPSHOT.jar
