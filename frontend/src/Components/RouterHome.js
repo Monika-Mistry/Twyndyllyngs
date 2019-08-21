@@ -17,13 +17,25 @@ export class RouterHome extends Component {
         }
     }
 
+    reset = () => {
+        this.setState({
+            loggedIn: null
+        })
+    }
+
+    onLogin = (user) => {
+        this.setState({
+            loggedIn: user
+        })
+    }
+
     render() {
         return (
             <Router>
                 <div>
-                    <NavBar currentUser={this.state.loggedIn}/>
-                    <Route exact path='/' render={() => <Login onLogin={this.state.loggedIn}/>} />
-                    <Route path='/home' render={() => <Analyst />} />
+                    <NavBar currentUser={this.state.loggedIn} logout={this.reset}/>
+                    <Route exact path='/' render={() => <Login onLogin={this.onLogin}/>} />
+                    <Route path='/home' render={() => <Analyst/>} />
                     <Route path='/audit' render={() => <Audit />} />
                     <Route path='/CreateAnalyst' render={() => <CreateAnalyst />} /> 
                     <Route path='/forgot' render={() => <ForgottenPassword />} />

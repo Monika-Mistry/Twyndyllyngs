@@ -49,13 +49,13 @@ export class NavBar extends Component {
                 </Nav>
             ]
         } else {
-            barItems = ["not logged in"]
+            barItems = []
         }
 
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand tag={RRNavLink} to="/">
+                    <NavbarBrand tag={RRNavLink} to="/" onClick={this.props.logout}>
                         <img
                             style={{ width: 69, height: 69 }}
                             src={require('../../Logos/Lizzie.png')}>

@@ -8,19 +8,13 @@ export class Login extends Component {
     }
 
     user = () => {
-        this.setState({
-            onLogin: "analyst"
-        })
-
-        console.log("hello")
-        console.log(this.props)
-
+        let value = "analyst"
+        this.props.onLogin(value)
     }
 
     audit = () => {
-        this.setState({
-            onLogin: "audit"
-        })
+        let value = "audit"
+        this.props.onLogin(value)
     }
 
     render() {

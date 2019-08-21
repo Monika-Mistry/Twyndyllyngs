@@ -5,6 +5,10 @@ import Scenario1 from '../Scenario1/Scenario1.js';
 
 export class Analyst extends Component {
 
+    constructor(props){
+        super(props)
+    }
+
     state = {
         renderView: 0
     }
@@ -65,6 +69,7 @@ export class Analyst extends Component {
                     <button onClick={this.ClickScenario2}> Scenario 2 - Incident </button>
                     <button onClick={this.ClickScenario3}> Scenario 3 - Vehicle </button>
                     <p>Loading...</p>
+                    <button onClick={this.pro}>Click me</button>
                 </div>
             )
         }
