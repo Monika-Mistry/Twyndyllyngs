@@ -10,7 +10,7 @@ const sequelize = new Sequelize('users', 'root', '1234', {
 const User = UserModel(sequelize, Sequelize);
 
 sequelize.sync().then(() => {
-    console.log('Users db and user table have been created');
+    console.log('"Users" DB & "User" Table \nHave Been Created');
 });
 
 module.exports = User;
