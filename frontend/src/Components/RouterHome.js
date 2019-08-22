@@ -13,6 +13,7 @@ import { Scenario1 } from './subcomponents/Scenario1/Scenario1.js';
 import { Scenario2} from './subcomponents/Scenario2/Scenario2.js';
 import { LocationMap } from './subcomponents/Scenario2/Scenario2Map.js';
 import { Scenario3 } from './subcomponents/Scenario3/Scenario3.js';
+import { CitizenProfile } from './subcomponents/Citizen/CitizenProfile.js';
 
 export class RouterHome extends Component {
 
@@ -55,6 +56,7 @@ export class RouterHome extends Component {
                     <PrivateRoute path='/AreaSearch' component={Scenario2} /> 
                     <PrivateRoute path='/CarDatabase' component={Scenario3} /> 
                     <PrivateRoute path='/LocationMap' component={LocationMap} /> 
+                    <PrivateRoute path='/Profile' component={CitizenProfile} /> 
                     <Route path='/forgot' render={() => <ForgottenPassword />} />
                     <Footer />
                 </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js';
+import { Link } from 'react-router-dom';
 
 export class Scenario1 extends Component {
 
@@ -40,6 +41,14 @@ export class Scenario1 extends Component {
         }
     }
 
+    details = (element) => {
+        console.log(element._id);
+        console.log(element.forename);
+
+        sessionStorage.setItem('forename', element.forename);
+       window.open("/Profile");
+    }
+
     render() {
         return (
             <div>
@@ -58,12 +67,14 @@ export class Scenario1 extends Component {
                             <Input type="text" name="surname" placeholder="enter surname" />
                         </Col>
                         <Col>
-                            <Button>Create Account</Button>
+                            <Button>Search</Button>
                         </Col>
                     </FormGroup>
                 </Form>
-                
-                <Scenario data={this.state.data} ></Scenario>
+                <br></br>
+                <br></br>
+                <p> <Link to='/Profile'>profile</Link></p>
+                <Scenario data={this.state.data} details={this.details} ></Scenario>
 
             </div>
         )

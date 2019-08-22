@@ -12,12 +12,11 @@ export default function CitizenHeader(props) {
                         <th>Forenames</th>
                         <th>Surname</th>
                         <th>Date Of Birth</th>
-                        <th>Place of Birth</th>
-                        <th>Gender</th>
-                        <th>Home Address</th>
+                        <th>address</th>
+                        <th>See More</th>
                     </tr>
                 </thead>
-                <CitizenRow data={props.data} />
+                <CitizenRow data={props.data} details={props.details} />
             </Table>
         </div>
     )

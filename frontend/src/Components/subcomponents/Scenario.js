@@ -5,7 +5,7 @@ export default function Scenario(props) {
 
     return (
         <div>
-            <CitizenList data={props.data} />
+            <CitizenList data={props.data} details={props.details}/>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 export function CitizenRow(props) {
     return (
@@ -17,14 +18,11 @@ export function CitizenRow(props) {
                         {element.dateOfBirth}
                     </td>
                     <td>
-                        {element.placeOfBirth}
-                    </td>
-                    <td>
-                        {element.sex}
-                    </td>
-                    <td>
                         {element.homeAddress}
                     </td>
+                    <td>{<Button onClick={() => {props.details(element)}} data={element.name}>
+                            Details
+                 </Button>}</td>
                 </tr>)
             })}
 
