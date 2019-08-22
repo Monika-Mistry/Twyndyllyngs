@@ -19,4 +19,8 @@ require('./routes/loginUser')(app);
 require('./routes/findUsers.js')(app);
 require('./routes/registerUser.js')(app);
 
+const carSearch = require('./scenario/carSearch.js');
+
+app.use("/getCarDetails",carSearch);
+
 module.exports = app;

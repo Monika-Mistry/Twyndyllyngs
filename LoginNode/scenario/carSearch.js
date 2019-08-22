@@ -1,12 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
-import passport from "passport";
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
-import { getCarDetails } from './urlConstants';
-import { getCarRequest } from './routesConstants';
 
-router.get(getCarDetails, (req, res, next) => {
+const coreApiCar = "http://core:8000/car/";
+
+const getCarRequest = vehicleReg => {
+    return axios.get(coreApiCar + vehicleReg);
+};
+
+router.get("/test", (req, res) => {
+    res.send("test")
+});
+
+
+router.get("/", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             console.error(err);
@@ -20,4 +30,6 @@ router.get(getCarDetails, (req, res, next) => {
             }).catch(err => { console.error(err) })
         }
     })(req, res, next);
-})
+});
+
+module.exports = router;
