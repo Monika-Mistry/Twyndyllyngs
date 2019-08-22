@@ -6,6 +6,11 @@ services:
             - {type: bind, source: ./nginx/nginx.conf, target: /etc/nginx/nginx.conf}
         ports:
             - {target: 80, published: 80, protocol: tcp}
+    website:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports: {target: 3000, protocol: tcp}
     core:
         build:
             context: ./CoreAPI
