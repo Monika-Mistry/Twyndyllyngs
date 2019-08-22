@@ -18,9 +18,12 @@ public class CitizenController {
 	private RestTemplate restTemplate;
 	private JmsTemplate jmsTemplate;
 
-	public CitizenController(JmsTemplate jmsTemplate, @Autowired RestTemplate restTemplate) {
-		super(jmsTemplate);
+	
+
+	public CitizenController(RestTemplate restTemplate, JmsTemplate jmsTemplate) {
+		super();
 		this.restTemplate = restTemplate;
+		this.jmsTemplate = jmsTemplate;
 	}
 
 	@GetMapping("/{forename}/{surname}")
