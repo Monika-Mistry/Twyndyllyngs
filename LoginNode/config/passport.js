@@ -17,7 +17,6 @@ passport.use(
         {
             usernameField: 'username',
             passwordField: 'password',
-            password2Field: 'password2',
             passReqToCallback: true,
             session: false,
         },
@@ -44,6 +43,7 @@ passport.use(
                         User.create({
                             username,
                             password: hashedPassword,
+                            usertype: req.body.usertype,
                         }).then(user => {
                             console.log('user created');
                             return done(null, user);

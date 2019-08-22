@@ -5,12 +5,12 @@ const validateUserInput = require("../validation/User");
 
 module.exports = app => {
     app.post('/registerUser', (req, res, next) => {
+        const { errors, isValid } = validateUserInput(req.body);
+        if (!isValid) {
+            console.log('invalid input')
+            return res.status(400).json(errors);
+        }
         passport.authenticate('register', (err, user, info) => {
-            const { errors, isValid } = validateUserInput(req.body);
-            if (!isValid) {
-                console.log('invalid input')
-                return res.status(400).json(errors);
-            }
             if (err) {
                 console.error(err);
             }
@@ -29,15 +29,7 @@ module.exports = app => {
                             username: data.username,
                         },
                     }).then(user => {
-                        console.log(user);
-                        user
-                            .update({
-                                email: data.email,
-                            })
-                            .then(() => {
-                                console.log('user created in db');
-                                res.status(200).send({ message: 'user created' });
-                            });
+                        res.status(200).send({ message: 'user created' })
                     });
                 });
             }
