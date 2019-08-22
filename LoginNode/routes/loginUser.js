@@ -11,7 +11,6 @@ module.exports = app => {
                 console.error(`error ${err}`);
             }
             if (info !== undefined) {
-                console.error(info.message);
                 if (info.message === 'bad username') {
                     res.status(401).send(info.message);
                 } else {
