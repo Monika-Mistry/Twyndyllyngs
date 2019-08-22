@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MobileCallRecords {
+public class MobileCallRecord {
 
 
 
@@ -30,11 +30,11 @@ public class MobileCallRecords {
 	private String receiverTowerId;
 	
 	
-	public MobileCallRecords() {
+	public MobileCallRecord() {
 		
 	}
 	
-	public MobileCallRecords(int id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
+	public MobileCallRecord(int id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
 			String receiverMSISDN, String receiverTowerId) {
 		this.id = id;
 		this.timestamp = timestamp;
