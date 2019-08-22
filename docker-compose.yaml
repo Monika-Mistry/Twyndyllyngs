@@ -20,7 +20,7 @@ services:
             - {target: 8000, protocol: tcp}
     vehicle:
         build:
-            context: ./vehicleAPI
+            context: ./VehicleAPI
             dockerfile: Dockerfile
         ports:
             - {target: 8004, protocol: tcp}
