@@ -22,13 +22,13 @@ export class CreateAnalyst extends Component {
                 <h1>Register Analyst</h1>
                 <form onSubmit={this.createAnalyst}>
                     <p>Username:</p>
-                    <input type="text" placeholder="username"></input>
+                    <input type="text" placeholder="username" required></input>
                     <br></br>
                     <p>Email:</p>
-                    <input type="text" placeholder="e.g. twyndyllyngs@email.com"></input>
+                    <input type="text" placeholder="email" required></input>
                     <br></br>
                     <p>Password:</p>
-                    <input type="text" placeholder="password"></input>
+                    <input type="text" placeholder="password" required></input>
                     <br></br>
                     <button type="submit">Create</button>
                 </form>

@@ -57,9 +57,9 @@ export class NavBar extends Component {
                     </NavItem>
                 </Nav>
             ]
-        } else if (this.props.currentUser === "audit") {
+        } else if (this.props.currentUser === "auditor") {
             barItems = [
-                <Nav className="ml-auto" navbar key="audit">
+                <Nav className="ml-auto" navbar key="auditor">
                     <NavItem>
                         <NavLink tag={RRNavLink} to='./CreateAnalyst'>
                             <p>Create Analyst</p>
