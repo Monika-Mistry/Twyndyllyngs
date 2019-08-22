@@ -32,7 +32,9 @@ export class NavBar extends Component {
     render() {
 
         let barItems;
+        let user;
         if (this.props.currentUser === "analyst") {
+            user = "/analyst"
             barItems = [
                 <Nav className="ml-auto" navbar key="analyst">
                     <NavItem>
@@ -58,6 +60,7 @@ export class NavBar extends Component {
                 </Nav>
             ]
         } else if (this.props.currentUser === "auditor") {
+            user = "/auditor"
             barItems = [
                 <Nav className="ml-auto" navbar key="auditor">
                     <NavItem>
@@ -73,13 +76,14 @@ export class NavBar extends Component {
                 </Nav>
             ]
         } else {
+            user = "/"
             barItems = []
         }
 
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand tag={RRNavLink} to='/'>
+                    <NavbarBrand tag={RRNavLink} to={user}>
                         <img
                             style={{ width: 69, height: 69 }}
                             src={require('../../Logos/Lizzie.png')}

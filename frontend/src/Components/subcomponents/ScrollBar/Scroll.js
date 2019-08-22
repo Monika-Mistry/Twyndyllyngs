@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import "./Scroll.css";
+import './Scroll.css';
 
 const list = [
   { name: "item1" },
@@ -38,21 +37,21 @@ export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
 export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
 export class ScrollBar extends Component {
-  state = {
-    alignCenter: true,
-    clickWhenDrag: false,
-    dragging: true,
-    hideArrows: true,
-    hideSingleArrow: true,
-    itemsCount: list.length,
-    selected: "item1",
-    translate: 0,
-    transition: 0.3,
-    wheel: true
-  };
 
   constructor(props) {
     super(props);
+    this.state = {
+      alignCenter: false,
+      clickWhenDrag: false,
+      dragging: true,
+      hideArrows: true,
+      hideSingleArrow: true,
+      itemsCount: list.length,
+      selected: null,
+      translate: 0,
+      transition: 0.8,
+      wheel: false
+    };
     this.menu = null;
     this.menuItems = Menu(list.slice(0, list.length), this.state.selected);
   }
@@ -112,9 +111,6 @@ export class ScrollBar extends Component {
 
     const menu = this.menuItems;
 
-    const checkboxStyle = {
-      margin: "5px 10px"
-    };
     const valueStyle = {
       margin: "5px 10px",
       display: "inline-block"
@@ -122,12 +118,6 @@ export class ScrollBar extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">React horizontal scrolling menu</h1>
-        </header>
-        <p className="App-intro">
-          Horizontal scrolling menu example. Click arrow or drag items.
-        </p>
 
         <ScrollMenu
           ref={el => (this.menu = el)}
@@ -147,63 +137,8 @@ export class ScrollBar extends Component {
           clickWhenDrag={clickWhenDrag}
           wheel={wheel}
         />
-
-         <form className="properties">
-          
-          <label style={checkboxStyle}>
-            Use mouse wheel
-            <input
-              name="wheel"
-              type="checkbox"
-              checked={wheel}
-              onChange={() => this.setState({ wheel: !wheel })}
-            />
-          </label>
-          
-          <br />
-          
-          <label style={valueStyle}>
-            Selected:
-            <input
-              style={{ margin: "0 5px" }}
-              name="selected"
-              type="text"
-              value={selected}
-              onChange={this.setSelected}
-            />
-          </label>
-          <label style={valueStyle}>
-            Transition duration:
-            <input
-              style={{ margin: "0 5px" }}
-              name="transition"
-              type="number"
-              value={transition || 0}
-              min={0}
-              max={10}
-              onChange={ev =>
-                this.setState({
-                  transition: !isNaN(ev.target.value) ? +ev.target.value : 0
-                })
-              }
-            />
-          </label>
-          
-        </form>
         <hr />
-        <div>
-          <a
-            /* eslint-disable react/jsx-no-target-blank */
-            target="_blank"
-            rel="noopener"
-            href="https://github.com/asmyshlyaev177/react-horizontal-scrolling-menu"
-          >
-            Project on GitHub
-          </a>
-        </div>
       </div>
     );
   }
 }
-
-ReactDOM.render(<ScrollBar />, document.getElementById("root"));

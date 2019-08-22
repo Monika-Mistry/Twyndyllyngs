@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ScrollBar} from '../Scroll.js';
+import { ScrollBar } from '../ScrollBar/Scroll.js';
 
 export class CitizenProfile extends Component {
 
@@ -47,9 +47,9 @@ export class CitizenProfile extends Component {
                 <h3 align="left">Associates:</h3>
 
                 <Container>
-                    <Row>
-                        <ScrollBar />
-                    </Row>
+
+                    <ScrollBar />
+
                 </Container>
 
                 <br></br>
