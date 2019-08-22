@@ -12,6 +12,12 @@ services:
             dockerfile: Dockerfile
         ports:
             - {target: 8000, protocol: tcp}
+    login:
+        build:
+            context: ./LoginNode
+            dockerfile: Dockerfile
+        ports:
+            - {target: 8002, protocol:tcp}
     citizen:
         build:
             context: ./CitizenAPI
