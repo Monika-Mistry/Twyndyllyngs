@@ -41,7 +41,7 @@ public class UserController {
 		
 	}
 	
-	@PostMapping("/createUser")
+	@PostMapping("/registerUser")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		HttpEntity<User> requestEntity = new HttpEntity<>(user);
 		return restTemplate.exchange(Constants.LOGIN_CREATE_URL, HttpMethod.POST, requestEntity, User.class);
