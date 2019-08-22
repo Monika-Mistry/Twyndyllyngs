@@ -9,6 +9,10 @@ import { CreateAnalyst } from './subcomponents/Audit/CreateAnalyst.js';
 import { ForgottenPassword } from './subcomponents/ForgottenPassword';
 import { PrivateRoute } from './subcomponents/authenticate/PrivateRoute.js';
 import { authed } from './subcomponents/authenticate/authenticator.js';
+import { Scenario1 } from './subcomponents/Scenario1/Scenario1.js';
+import { Scenario2} from './subcomponents/Scenario2/Scenario2.js';
+import { LocationMap } from './subcomponents/Scenario2/Scenario2Map.js';
+import { Scenario3 } from './subcomponents/Scenario3/Scenario3.js';
 
 export class RouterHome extends Component {
 
@@ -47,6 +51,10 @@ export class RouterHome extends Component {
                     <PrivateRoute path='/analyst' component={Analyst} />
                     <PrivateRoute path='/auditor' component={Audit} />
                     <PrivateRoute path='/CreateAnalyst' component={CreateAnalyst} /> 
+                    <PrivateRoute path='/SuspectSearch' component={Scenario1} /> 
+                    <PrivateRoute path='/AreaSearch' component={Scenario2} /> 
+                    <PrivateRoute path='/CarDatabase' component={Scenario3} /> 
+                    <PrivateRoute path='/LocationMap' component={LocationMap} /> 
                     <Route path='/forgot' render={() => <ForgottenPassword />} />
                     <Footer />
                 </div>

@@ -3,7 +3,7 @@ import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js';
 
-export default class Scenario1 extends Component {
+export class Scenario1 extends Component {
 
     constructor() {
         super();
@@ -43,8 +43,6 @@ export default class Scenario1 extends Component {
     render() {
         return (
             <div>
-                <p>Suspect Detained</p>
-
                 <Form onSubmit={this.findCitizens} className="search-form">
                     <FormGroup row>
                         <Col>
@@ -64,7 +62,7 @@ export default class Scenario1 extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
-
+                
                 <Scenario data={this.state.data} ></Scenario>
 
             </div>

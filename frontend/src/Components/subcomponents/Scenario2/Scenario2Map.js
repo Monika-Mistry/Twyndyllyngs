@@ -2,7 +2,7 @@ import React from 'react'
 import ReactGoogleMapLoader from "react-google-maps-loader"
 import ReactGoogleMap from "react-google-map"
 
-const Scenario2Map = () =>
+export const LocationMap = () =>
     <ReactGoogleMapLoader
         params={{
             key: "AIzaSyCI3cDduwloUnVSfREo-6wuRYTMjOHcQjc",
@@ -19,5 +19,3 @@ const Scenario2Map = () =>
                 </div>
             )}
     />
-
-export default Scenario2Map;

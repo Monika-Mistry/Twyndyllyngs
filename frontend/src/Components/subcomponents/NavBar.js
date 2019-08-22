@@ -36,18 +36,18 @@ export class NavBar extends Component {
             barItems = [
                 <Nav className="ml-auto" navbar key="analyst">
                     <NavItem>
-                        <NavLink tag={RRNavLink} to='/'>
-                            <p>Scenario 1</p>
+                        <NavLink tag={RRNavLink} to='/SuspectSearch'>
+                            <p>Suspect Search</p>
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={RRNavLink} to='/'>
-                            <p>Scenario 2</p>
+                        <NavLink tag={RRNavLink} to='/AreaSearch'>
+                            <p>Area Search</p>
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={RRNavLink} to='/'>
-                            <p>Scenario 3</p>
+                        <NavLink tag={RRNavLink} to='/CarDatabase'>
+                            <p>Car Database</p>
                         </NavLink>
                     </NavItem>
                     <NavItem>

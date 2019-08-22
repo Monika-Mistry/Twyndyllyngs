@@ -19,7 +19,7 @@ export class Login extends Component {
 
         if (this.props.refer)  {
             if (this.props.role === "analyst"){
-                return <Redirect to='./analyst' />;
+                return <Redirect to='/analyst' />;
             } else {
                 return <Redirect to='/auditor' />;
             }
@@ -51,7 +51,7 @@ export class Login extends Component {
                 </Form>
                 <br></br>
                 <br></br>
-                <Link to='./auditor' onClick={this.audit}>
+                <Link to='/auditor' onClick={this.audit}>
                     <button> Audit </button>
                 </Link>
                 <p> <Link to='/forgot'> Forgotten Password?</Link></p>
