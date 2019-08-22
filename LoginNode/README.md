@@ -62,11 +62,11 @@ This is accessed through the Sequelizer node_module and a password which is .git
 <a name="auth"></a>
 # 5. Authors
 
-Rich Harris
-Owen Miller
-Thi Nguyen
-Monika Mistry
-Josh Brooks
+*Rich Harris
+*Owen Miller
+*Thi Nguyen
+*Monika Mistry
+*Josh Brooks
 
 <a name="ack"></a>
 # 6. Acknowledgements
