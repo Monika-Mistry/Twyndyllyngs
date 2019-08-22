@@ -22,6 +22,8 @@ services:
         build:
             context: ./VehicleAPI
             dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
         ports:
             - {target: 8004, protocol: tcp}
     citizen:
