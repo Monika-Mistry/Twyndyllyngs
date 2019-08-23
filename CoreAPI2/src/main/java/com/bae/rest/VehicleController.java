@@ -16,12 +16,12 @@ import com.bae.domain.VehicleRegistration;
 
 @RestController
 @RequestMapping("/vehicle")
-public class CarController extends Controller {
+public class VehicleController extends Controller {
 
 	private RestTemplate restTemplate;
 	private JmsTemplate jmsTemplate;
 
-	public CarController(JmsTemplate jmsTemplate, @Autowired RestTemplate restTemplate) {
+	public VehicleController(JmsTemplate jmsTemplate, @Autowired RestTemplate restTemplate) {
 		super(jmsTemplate);
 		this.restTemplate = restTemplate;
 	}

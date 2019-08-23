@@ -19,10 +19,10 @@ import com.bae.domain.VehicleRegistration;
 
 
 @RunWith(SpringRunner.class)
-public class CarControllerTest {
+public class VehicleControllerTest {
 
 	@InjectMocks
-	private CarController controller;
+	private VehicleController controller;
 
 	@Mock
 	private RestTemplate restTemplate;
@@ -34,10 +34,10 @@ public class CarControllerTest {
 	@Test
 	public void getCarDetails() {
 
-		doReturn(TestConstants.MOCK_CAR_REG_RESPONSE).when(restTemplate)
+		doReturn(TestConstants.MOCK_VEHICLE_REG_RESPONSE).when(restTemplate)
 				.getForEntity(TestConstants.VEHICLE_REGISTRATION, VehicleRegistration[].class);
 
-		doReturn(TestConstants.MOCK_CAR_LOCATION_RESPONSE).when(restTemplate)
+		doReturn(TestConstants.MOCK_VEHICLE_LOCATION_RESPONSE).when(restTemplate)
 				.getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocations[].class);
 		ResponseEntity<CarObject> response = controller.getCarDetails("CRA 55Y");
 		
