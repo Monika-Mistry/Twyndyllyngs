@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+    nginx:
+        image: 'nginx:latest'
+        volumes:
+            - {type: bind, source: ./nginx/nginx.conf, target: /etc/nginx/nginx.conf}
+        ports:
+            - {target: 80, published: 80, protocol: tcp}
+    login:
+        build:
+            context: ./LoginNode
+            dockerfile: Dockerfile
+        ports:
+            - {target: 8002, protocol: tcp}
+    core:
+        build:
+            context: ./CoreAPI2
+            dockerfile: Dockerfile
+        ports:
+            - {target: 8000, protocol: tcp}
+    vehicle:
+        build:
+            context: ./VehicleAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8004, protocol: tcp}
+    citizen:
+        build:
+            context: ./CitizenAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8003, protocol: tcp}
+    activemq:
+        image: 'rmohr/activemq:latest'
+        ports:
+            - {target: 8161, published: 8161, protocol: tcp}
+            - {target: 61616, published: 61616, protocol: tcp}   
