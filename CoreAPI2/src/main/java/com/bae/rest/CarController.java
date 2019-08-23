@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +14,8 @@ import com.bae.domain.CarObject;
 import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
 
-@RestController("/vehicle")
+@RestController
+@RequestMapping("/vehicle")
 public class CarController extends Controller {
 
 	private RestTemplate restTemplate;

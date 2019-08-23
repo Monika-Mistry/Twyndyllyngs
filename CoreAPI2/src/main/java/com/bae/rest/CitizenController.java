@@ -6,13 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.bae.domain.Citizen;
-import com.bae.domain.VehicleLocations;
 
-@RestController("/citizen")
+@RestController
+@RequestMapping("/citizen")
 public class CitizenController extends Controller{
 
 	private RestTemplate restTemplate;
