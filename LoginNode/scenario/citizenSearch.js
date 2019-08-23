@@ -27,8 +27,8 @@ router.post("/", (req, res, next) => {
         if (info !== undefined) {
             res.status(401).send(info.message);
         } else {
-            let forename = req.forename;
-            let surname = req.surname;
+            let forename = req.body.forename;
+            let surname = req.body.surname;
             getAllCitizenRequest(forename, surname).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })

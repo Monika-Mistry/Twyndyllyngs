@@ -28,7 +28,6 @@ public class CarController extends Controller {
 
 	@GetMapping("/{vehicleReg}")
 	public ResponseEntity<CarObject> getCarDetails(@PathVariable("vehicleReg") String vehicleReg) {
-		System.out.println(vehicleReg);
 
 		ResponseEntity<VehicleLocations[]> vehicleLocation = getVehicleLocation(vehicleReg);
 		ResponseEntity<VehicleRegistration[]> vehicleRegistration = getVehicleRegistration(vehicleReg);
@@ -41,7 +40,6 @@ public class CarController extends Controller {
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
 	private ResponseEntity<VehicleLocations[]> getVehicleLocation(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
-		System.out.println("location");
 		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocations[].class);
 
 	}
@@ -49,7 +47,6 @@ public class CarController extends Controller {
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
 	private ResponseEntity<VehicleRegistration[]> getVehicleRegistration(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
-		System.out.println("registration");
 		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL + vehicleReg, VehicleRegistration[].class);
 
 	}
