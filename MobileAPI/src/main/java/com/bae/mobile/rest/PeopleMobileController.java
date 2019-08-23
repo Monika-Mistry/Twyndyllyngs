@@ -47,13 +47,13 @@ public class PeopleMobileController {
 		
 	}
 	
-	@GetMapping("/getMobileByFullnameAndDOB/{forenames}/{surname}/{DOB}")
-	public ResponseEntity<PeopleMobile[]> findMobileByFullnameAndDOB(@PathVariable("forenames") String forenames,
-			@PathVariable("surname") String surname, @PathVariable("DOB") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate DOB) {
-		
-		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByForenamesAndSurnameAndDateOfBirth(forenames, surname, DOB), HttpStatus.OK);
-		
-	}
+//	@GetMapping("/getMobileByFullnameAndDOB/{forenames}/{surname}/{DOB}")
+//	public ResponseEntity<PeopleMobile[]> findMobileByFullnameAndDOB(@PathVariable("forenames") String forenames,
+//			@PathVariable("surname") String surname, @PathVariable("DOB") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate DOB) {
+//		
+//		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByForenamesAndSurnameAndDateOfBirth(forenames, surname, DOB), HttpStatus.OK);
+//		
+//	}
  	
 	@GetMapping("/getMobileByNumber/{phoneNumber}")
 	public ResponseEntity<PeopleMobile[]> findMobilebyPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {
