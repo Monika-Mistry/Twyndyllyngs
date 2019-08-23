@@ -1,7 +1,5 @@
 package com.bae.mobile.repository;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
