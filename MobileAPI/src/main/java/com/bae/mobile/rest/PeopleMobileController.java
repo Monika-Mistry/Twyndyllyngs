@@ -27,21 +27,21 @@ public class PeopleMobileController {
 	@GetMapping("/getMobileByForenames/{forenames}")
 	public ResponseEntity<PeopleMobile[]> findMobileByForenames(@PathVariable("forenames") String forenames) {
 		
-		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByForenames(forenames), HttpStatus.OK);
+		return new ResponseEntity<>(peopleMobileService.findByForenames(forenames), HttpStatus.OK);
  		
 	}
 	
 	@GetMapping("/getMobileBySurname/{surname}")
 	public ResponseEntity<PeopleMobile[]> findMobileBySurname(@PathVariable("surname") String surname) {
 		
-		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findBySurname(surname), HttpStatus.OK);
+		return new ResponseEntity<>(peopleMobileService.findBySurname(surname), HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/getMobileByFullname/{forenames}/{surname}")
 	public ResponseEntity<PeopleMobile[]> findMobileByFullname(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname) {
 		
-		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
+		return new ResponseEntity<>(peopleMobileService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
 		
 	}
 	
@@ -49,7 +49,7 @@ public class PeopleMobileController {
 	@GetMapping("/getMobileByNumber/{phoneNumber}")
 	public ResponseEntity<PeopleMobile[]> findMobilebyPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {
 		
-		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByPhoneNumber(phoneNumber), HttpStatus.OK);
+		return new ResponseEntity<>(peopleMobileService.findByPhoneNumber(phoneNumber), HttpStatus.OK);
 		
 	}
 	
