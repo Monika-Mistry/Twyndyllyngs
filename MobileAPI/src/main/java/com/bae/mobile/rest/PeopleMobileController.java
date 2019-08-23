@@ -1,10 +1,8 @@
 package com.bae.mobile.rest;
 
-import java.sql.Date;
-import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,13 +45,6 @@ public class PeopleMobileController {
 		
 	}
 	
-//	@GetMapping("/getMobileByFullnameAndDOB/{forenames}/{surname}/{DOB}")
-//	public ResponseEntity<PeopleMobile[]> findMobileByFullnameAndDOB(@PathVariable("forenames") String forenames,
-//			@PathVariable("surname") String surname, @PathVariable("DOB") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate DOB) {
-//		
-//		return new ResponseEntity<PeopleMobile[]>(peopleMobileService.findByForenamesAndSurnameAndDateOfBirth(forenames, surname, DOB), HttpStatus.OK);
-//		
-//	}
  	
 	@GetMapping("/getMobileByNumber/{phoneNumber}")
 	public ResponseEntity<PeopleMobile[]> findMobilebyPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {
