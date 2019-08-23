@@ -10,12 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ATMTransactionLocation {
+public class AtmTransactionLocations {
 
 	@Id
-	@Column(name = "atmtransactionid")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long atmTransactionId;
+	private Long id;
 	@Column(name = "atmid")
 	private Long atmId;
 	@Column(name = "type")
@@ -49,16 +49,16 @@ public class ATMTransactionLocation {
 	@Column(name = "cardnumber")
 	private String cardNumber;
 	
-	public ATMTransactionLocation() {
+	public AtmTransactionLocations() {
 		
 	}
 	
-	public ATMTransactionLocation(Long atmTransactionId, Long atmId, String type, int amount, Timestamp timestamp,
+	public AtmTransactionLocations(Long id, Long atmId, String type, int amount, Timestamp timestamp,
 			String operator, String streetName, String postcode, Double latitude, Double longitude, Long bankAccountId,
 			String accountNo, String forenames, String surname, LocalDate dateOfBirth, String homeAddress,
 			String cardNumber) {
 		super();
-		this.atmTransactionId = atmTransactionId;
+		this.id = id;
 		this.atmId = atmId;
 		this.type = type;
 		this.amount = amount;
@@ -77,12 +77,12 @@ public class ATMTransactionLocation {
 		this.cardNumber = cardNumber;
 	}
 
-	public Long getAtmTransactionId() {
-		return atmTransactionId;
+	public Long Id() {
+		return id;
 	}
 
-	public void setAtmTransactionId(Long atmTransactionId) {
-		this.atmTransactionId = atmTransactionId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getAtmId() {

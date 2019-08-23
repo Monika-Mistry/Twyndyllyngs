@@ -1,5 +1,7 @@
 package com.bae.finance.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,13 +28,15 @@ public class PeopleBankCard {
 	private String sortCode;
 	@Column(name = "homeaddress")
 	private String homeAddress;
+	@Column(name = "dateofbirth")
+	private LocalDate dateOfBirth;
 	
 	public PeopleBankCard() {
 		
 	}
 	
 	public PeopleBankCard(Long bankAccountId, String forenames, String surname, String accountNo, String bank,
-			String cardNumber, String sortCode, String homeAddress) {
+			String cardNumber, String sortCode, String homeAddress, LocalDate dateOfBirth) {
 		super();
 		this.bankAccountId = bankAccountId;
 		this.forenames = forenames;
@@ -42,6 +46,7 @@ public class PeopleBankCard {
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
 		this.homeAddress = homeAddress;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	
@@ -108,6 +113,14 @@ public class PeopleBankCard {
 
 	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
+	}
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 	
 	
