@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+    nginx:
+        image: 'nginx:latest'
+        volumes:
+            - {type: bind, source: ./nginx/nginx.conf, target: /etc/nginx/nginx.conf}
+        ports:
+            - {target: 80, published: 80, protocol: tcp}
+    vehicle:
+        build:
+            context: ./VehicleAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8004, protocol: tcp}
+    citizen:
+        build:
+            context: ./CitizenAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8003, protocol: tcp}
