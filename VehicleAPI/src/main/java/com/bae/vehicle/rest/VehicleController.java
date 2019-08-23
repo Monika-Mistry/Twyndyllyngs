@@ -25,13 +25,13 @@ public class VehicleController {
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
 	public ResponseEntity<VehicleRegistration[]> getVehiclesByRegistrationNo(@PathVariable("vehicleRegistrationNo") String vehicleRegistrationNo) {
 
-		return new ResponseEntity<VehicleRegistration[]>(vehicleService.findByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
+		return new ResponseEntity<>(vehicleService.findByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
 	}
 	
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
 	public ResponseEntity<VehicleLocations[]> getLocationsByRegistrationNo(@PathVariable("vehicleRegistrationNo") String vehicleRegistrationNo) {
 
-		return new ResponseEntity<VehicleLocations[]>(vehicleService.findLocationsByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
+		return new ResponseEntity<>(vehicleService.findLocationsByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
 	}
 
 }
