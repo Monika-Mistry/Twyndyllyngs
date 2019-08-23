@@ -38,14 +38,14 @@ public class CarController extends Controller {
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
 	private ResponseEntity<VehicleLocation[]> getVehicleLocation(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
-		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL, VehicleLocation[].class);
+		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocation[].class);
 
 	}
 
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
 	private ResponseEntity<VehicleRegistration[]> getVehicleRegistration(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
-		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL, VehicleRegistration[].class);
+		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL + vehicleReg, VehicleRegistration[].class);
 
 	}
 

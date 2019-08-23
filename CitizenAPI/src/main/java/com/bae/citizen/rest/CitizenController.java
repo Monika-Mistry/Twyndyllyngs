@@ -21,26 +21,26 @@ public class CitizenController {
 		this.citizenService = citizenService;
 	}
 
-	@GetMapping("/getCitizensByForenames/{username}/{forenames}")
+	@GetMapping("/getCitizensByForenames/{forenames}")
 	public ResponseEntity<Citizen[]> findCitizensByForenames(@PathVariable("forenames") String forenames) {
 
 		return new ResponseEntity<Citizen[]>(citizenService.findByForenames(forenames), HttpStatus.OK);
 	}
 
-	@GetMapping("/getCitizensBySurname/{username}/{surname}")
+	@GetMapping("/getCitizensBySurname/{surname}")
 	public ResponseEntity<Citizen[]> findCitizensBySurname(@PathVariable("surname") String surname) {
 		return new ResponseEntity<Citizen[]>(citizenService.findBySurname(surname), HttpStatus.OK);
 
 	}
 
-	@GetMapping("/getCitizensByFullname/{username}/{forenames}/{surname}")
+	@GetMapping("/getCitizensByFullname/{forenames}/{surname}")
 	public ResponseEntity<Citizen[]> findCitizensByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
 		return new ResponseEntity<Citizen[]>(citizenService.findByForenamesAndSurname(forenames, surname),
 				HttpStatus.OK);
 	}
 
-	@GetMapping("/getCitizenById/{username}/{citizenId}")
+	@GetMapping("/getCitizenById/{citizenId}")
 	public Citizen findCitizenById(@PathVariable("citizenId") Long citizenId) {
 
 		return citizenService.findById(citizenId);

@@ -13,17 +13,16 @@ import com.bae.domain.Citizen;
 import com.bae.domain.VehicleLocation;
 
 @RestController
-public class CitizenController {
+public class CitizenController extends Controller{
 
 	private RestTemplate restTemplate;
 	private JmsTemplate jmsTemplate;
 
 	
 
-	public CitizenController(RestTemplate restTemplate, JmsTemplate jmsTemplate) {
-		super();
+	public CitizenController(@Autowired RestTemplate restTemplate, JmsTemplate jmsTemplate) {
+		super(jmsTemplate);
 		this.restTemplate = restTemplate;
-		this.jmsTemplate = jmsTemplate;
 	}
 
 	@GetMapping("/{forename}/{surname}")
@@ -50,28 +49,28 @@ public class CitizenController {
 	@GetMapping("/getCitizensByForenames/{forenames}")
 	private ResponseEntity<Citizen> getCitizenByForename(
 			@PathVariable("forenames") String forenames) {
-		return restTemplate.getForEntity(Constants.CITIZEN_FORENAME_URL, Citizen.class);
+		return restTemplate.getForEntity(Constants.CITIZEN_FORENAME_URL + forenames, Citizen.class);
 
 	}
 	
 	@GetMapping("/getCitizensBySurname/{surname}")
 	private ResponseEntity<Citizen> getCitizenBySurname(
 			@PathVariable("surname") String surname) {
-		return restTemplate.getForEntity(Constants.CITIZEN_SURNAME_URL, Citizen.class);
+		return restTemplate.getForEntity(Constants.CITIZEN_SURNAME_URL + surname, Citizen.class);
 
 	}
 	
 	@GetMapping("/getCitizensByFullname/{forenames}/{surname}")
 	private ResponseEntity<Citizen> getCitizenByFullname(
 			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname) {
-		return restTemplate.getForEntity(Constants.CITIZEN_FULLNAME_URL, Citizen.class);
+		return restTemplate.getForEntity(Constants.CITIZEN_FULLNAME_URL + forenames + "/" + surname, Citizen.class);
 
 	}
 	
 	@GetMapping("/getCitizenById/{citizenId}")
 	private ResponseEntity<Citizen> getCitizenById(
 			@PathVariable("citizenId") String citizenId) {
-		return restTemplate.getForEntity(Constants.CITIZEN_ID_URL, Citizen.class);
+		return restTemplate.getForEntity(Constants.CITIZEN_ID_URL + citizenId, Citizen.class);
 
 	}
 
