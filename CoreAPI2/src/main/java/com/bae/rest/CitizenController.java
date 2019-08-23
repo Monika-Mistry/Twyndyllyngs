@@ -28,7 +28,7 @@ public class CitizenController extends Controller{
 	@GetMapping("/{forename}/{surname}")
 	public ResponseEntity<Citizen[]> getAllCitizens(@PathVariable("forename") String forename,
 			@PathVariable("surname") String surname) {
-
+System.out.println("CITIZEN?!");
 		if (forename == "null") {
 			ResponseEntity<Citizen[]> citizenSurname = getCitizenBySurname(surname);
 			Citizen[] citizen = citizenSurname.getBody();

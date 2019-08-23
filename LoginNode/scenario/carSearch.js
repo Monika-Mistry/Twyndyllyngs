@@ -8,6 +8,7 @@ const axios = require('axios');
 const coreApiCar = "http://core:8000/vehicle/";
 
 const getCarRequest = vehicleReg => {
+    console.log(coreApiCar + vehicleReg);
     return axios.get(coreApiCar + vehicleReg);
 };
 
