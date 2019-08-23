@@ -36,7 +36,7 @@ public class CitizenWebMockTest {
 
 		when(service.findByForenames("Aaron")).thenReturn(TestConstants.MOCK_CITIZENS_ARRAY);
 
-		mockMvc.perform(get("/getCitizensByForenames/1234/" + "Aaron"))
+		mockMvc.perform(get("/getCitizensByForenames/Aaron"))
 				.andExpect(content().string(containsString("Aaron"))).andDo(print());
 
 	}
@@ -46,7 +46,7 @@ public class CitizenWebMockTest {
 
 		when(service.findBySurname("Aarvark")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
 
-		mockMvc.perform(get("/getCitizensBySurname/1234/" + "Aarvark"))
+		mockMvc.perform(get("/getCitizensBySurname/Aarvark"))
 				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
 
 	}
@@ -56,7 +56,7 @@ public class CitizenWebMockTest {
 
 		when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
 
-		mockMvc.perform(get("/getCitizensByFullname/1234/" + "Aaron/" + "Aarvark"))
+		mockMvc.perform(get("/getCitizensByFullname/Aaron/Aarvark"))
 				.andExpect(content().string(containsString("Aaron")))
 				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
 
