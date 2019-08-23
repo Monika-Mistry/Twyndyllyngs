@@ -23,14 +23,14 @@ public class VehicleServiceImplementation implements VehicleService {
 	}
 	
 	
-	@Override
+
 	public VehicleRegistration[] findByVehicleRegistrationNo(String vehicleRegistrationNo) {
 		List<VehicleRegistration> vehicleRegistrationList = vehicleRegistrationRepository.findByVehicleRegistrationNo(vehicleRegistrationNo);
 		return vehicleRegistrationList.toArray(new VehicleRegistration[vehicleRegistrationList.size()]);	
 		
 	}
 
-	@Override
+
 	public VehicleLocations[] findLocationsByVehicleRegistrationNo(String vehicleRegistrationNo) {
 		List<VehicleLocations> vehicleLocationsList = vehicleLocationsRepository.findByVehicleRegistrationNo(vehicleRegistrationNo);
 		return vehicleLocationsList.toArray(new VehicleLocations[vehicleLocationsList.size()]);
