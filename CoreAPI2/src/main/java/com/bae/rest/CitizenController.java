@@ -29,19 +29,22 @@ public class CitizenController extends Controller{
 	@GetMapping("/{forename}/{surname}")
 	public ResponseEntity<Citizen[]> getAllCitizens(@PathVariable("forename") String forename,
 			@PathVariable("surname") String surname) {
-
+System.out.println(forename + " " + surname);
 		if (forename == "null") {
 			ResponseEntity<Citizen[]> citizenSurname = getCitizenBySurname(surname);
 			Citizen[] citizen = citizenSurname.getBody();
+			System.out.println(1);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
 		} else if (surname == "null") {
 			ResponseEntity<Citizen[]> citizenForename = getCitizenByForename(forename);
 			Citizen[] citizen = citizenForename.getBody();
+			System.out.println(2);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
 
 		} else {
 			ResponseEntity<Citizen[]> citizenFullname = getCitizenByFullname(forename, surname);
 			Citizen[] citizen = citizenFullname.getBody();
+			System.out.println(3);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
 		}
 

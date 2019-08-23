@@ -7,6 +7,7 @@ const axios = require('axios');
 const coreApiCitizen = "http://core:8000/citizen/";
 
 const getAllCitizenRequest = (forename, surname) => {
+    console.log(coreApiCitizen + forename + "/" + surname);
     return axios.get(coreApiCitizen + forename + "/" + surname);
 };
 
