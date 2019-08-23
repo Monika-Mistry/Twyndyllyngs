@@ -1,0 +1,306 @@
+
+## anprcamera ##
+
+CREATE TABLE AnprCamera (
+	anprPointId BIGINT,
+	streetName VARCHAR(50),
+	latitude DOUBLE,
+	longitude DOUBLE,
+	PRIMARY KEY (anprPointId));
+
+LOAD DATA INFILE '/var/lib/mysql-files/anprcamera.csv' 
+INTO TABLE AnprCamera
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(anprPointId, streetName, latitude, longitude);
+
+CREATE TABLE AtmPoint (
+        atmId BIGINT,
+        operator VARCHAR(40), 
+        streetName VARCHAR(50), 
+        postcode VARCHAR(20), 
+        latitude DOUBLE, 
+        longitude DOUBLE, 
+	PRIMARY KEY (atmId)
+);
+
+
+## atmpoint ##
+
+LOAD DATA INFILE '/var/lib/mysql-files/atmpoint.csv' 
+INTO TABLE AtmPoint
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(atmId,operator,streetName,postcode,latitude,longitude);
+
+## atmtransactions ##
+
+CREATE TABLE AtmTransactions (
+        timeStamp DATETIME,
+        atmId BIGINT, 
+        bankCardNumber BIGINT, 
+        type VARCHAR(20), 
+        amount INT, 
+        id INT NOT NULL AUTO_INCREMENT, 
+	PRIMARY KEY (id)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/atmTransaction.csv' 
+INTO TABLE AtmTransactions
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(timeStamp,atmId,bankCardNumber,type,amount);
+
+## bankcard ##
+
+CREATE TABLE BankCard (
+        id BIGINT,
+        cardNumber VARCHAR(16), 
+        sortCode VARCHAR(10), 
+        bankAccountId BIGINT, 
+        accountNo VARCHAR(20), 
+        bank VARCHAR(30), 
+	PRIMARY KEY (id)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/bankcard.csv' 
+INTO TABLE BankCard
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(id,cardNumber,sortCode,bankAccountId,accountNo,bank);
+
+## celltower ##
+
+CREATE TABLE Celltower (
+        cellTower BIGINT,
+        operator VARCHAR(20), 
+        type VARCHAR(10), 
+        latitude DOUBLE, 
+        longitude DOUBLE, 
+	PRIMARY KEY (cellTower)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/celltower.csv' 
+INTO TABLE Celltower
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(cellTower,operator,type,latitude,longitude);
+
+## citizen ## 
+
+CREATE TABLE Citizen (
+        citizenID VARCHAR(20),
+        forenames VARCHAR(30), 
+        surname VARCHAR(20), 
+        homeAddress VARCHAR(100), 
+        dateOfBirth DATE, 
+        placeOfBirth VARCHAR(40), 
+        sex VARCHAR(6),
+	PRIMARY KEY (citizenID)
+);
+
+LOAD DATA INFILE '/var/lib/mysql-files/citizen.csv' 
+INTO TABLE Citizen
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(citizenID,forenames,surname,homeAddress,@dateOfBirth,placeofBirth,sex)
+SET dateOfBirth = STR_TO_DATE(@dateOfBirth,'%Y-%m-%d');
+
+## epos ##
+
+CREATE TABLE Epos (
+        id BIGINT,
+        vendor VARCHAR(80), 
+        streetName VARCHAR(50), 
+        postCode VARCHAR(30), 
+        latitude DOUBLE, 
+        longitude DOUBLE, 
+	PRIMARY KEY (id)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/epos.csv' 
+INTO TABLE Epos
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(id,vendor,streetName,postCode,latitude,longitude);
+
+## epos transactions ##
+
+CREATE TABLE EposTransactions (
+        timestamp DATETIME,
+        eposid BIGINT,
+        bankCard BIGINT, 
+        payeeAccount BIGINT, 
+        amount DOUBLE, 
+	id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/eposTransactions.csv' 
+INTO TABLE EposTransactions
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(@timestamp,eposid,bankCard,payeeAccount,amount)
+SET timestamp= STR_TO_DATE(@timestamp,'%Y-%m-%dT%H:%i:%s.%fZ');
+
+
+## mobile call records ##
+
+CREATE TABLE MobileCallRecords (
+        timestamp DATETIME,
+        callerMSISDN VARCHAR(12),
+        callCellTowerId VARCHAR(10), 
+        receiverMSISDN VARCHAR(12), 
+        receiverTowerId VARCHAR(10), 
+	id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
+
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/mobileCallRecords_subset.csv' 
+INTO TABLE MobileCallRecords
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(@timestamp,callerMSISDN,callCellTowerId,receiverMSISDN,receiverTowerId)
+SET timestamp= STR_TO_DATE(@timestamp,'%Y-%m-%dT%H:%i:%s.%f');
+
+
+## people bank acccount ##
+
+CREATE TABLE PeopleBankAccount (
+        bankAccountId BIGINT,
+        accountNo VARCHAR(20), 
+        bank VARCHAR(30), 
+        forenames VARCHAR(30), 
+        surname VARCHAR(20), 
+        dateOfBirth DATE, 
+        homeAddress VARCHAR(100),
+	PRIMARY KEY (bankAccountId)
+);
+
+LOAD DATA INFILE '/var/lib/mysql-files/peoplebankaccount.csv' 
+INTO TABLE PeopleBankAccount
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(bankAccountId, accountNo,bank, forenames, surname, @dateOfBirth, homeAddress)#
+SET dateOfBirth = STR_TO_DATE(@dateOfBirth,'%Y-%m-%d');
+
+
+## vehicle observations
+
+CREATE TABLE VehicleObservations (
+	anprPointId BIGINT,
+	timestamp DATETIME,
+	vehicleRegistrationNo VARCHAR(15),
+	id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/vehicleObservations.csv' 
+INTO TABLE VehicleObservations
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(anprPointId, @timestamp, vehicleRegistrationNo)
+SET timestamp= STR_TO_DATE(@timestamp,'%Y-%m-%dT%H:%i:%s.%f');
+
+## vehicle registrations ##
+
+CREATE TABLE VehicleRegistration (
+	registrationId BIGINT,
+	registrationDate DATE,
+        vehicleRegistrationNo VARCHAR(15),
+        make VARCHAR(30), 
+        model VARCHAR(30), 
+        colour VARCHAR(30),
+	forenames VARCHAR(30),
+	surname VARCHAR(20),
+	address VARCHAR(100),
+	dateOfBirth DATE,
+	driverLicenceId VARCHAR(30),
+	PRIMARY KEY (registrationId)
+);
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/vehicleRegistration.csv' 
+INTO TABLE VehicleRegistration
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(registrationId, @registrationDate, vehicleRegistrationNo, make, model, colour, forenames, surname, address, @dateOfBirth, driverLicenceId)
+SET registrationDate = STR_TO_DATE(@registrationDate,'%Y-%m-%d') , dateOfBirth = STR_TO_DATE(@dateOfBirth,'%Y-%m-%d');
+
+
+## vehicles ##
+
+CREATE TABLE Vehicles (
+        vehicleRegistrationNo VARCHAR(15),
+        make VARCHAR(30), 
+        model VARCHAR(30), 
+        colour VARCHAR(30), 
+	PRIMARY KEY (vehicleRegistrationNo)
+);
+
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/vehicles.csv' 
+INTO TABLE Vehicles
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(vehicleRegistrationNo, make, model, colour);
+
+
+## people mobile ##
+
+CREATE TABLE PeopleMobile (
+        forenames VARCHAR(30), 
+        surname VARCHAR(20), 
+        address VARCHAR(100),
+	dateOfBirth DATE,
+        phoneNumber VARCHAR(50),
+        network VARCHAR(20),
+	id INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
+
+
+
+LOAD DATA INFILE '/var/lib/mysql-files/peoplemobile.csv' 
+INTO TABLE PeopleMobile
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '\"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(forenames,surname,@dateOfBirth,address,phoneNumber,network)
+SET dateOfBirth = STR_TO_DATE(@dateOfBirth,'%Y-%m-%d');
