@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class PeopleBankAccountDetails {
+public class PeopleBankCard {
 
 
 
@@ -27,11 +27,11 @@ public class PeopleBankAccountDetails {
 	@Column(name = "homeaddress")
 	private String homeAddress;
 	
-	public PeopleBankAccountDetails() {
+	public PeopleBankCard() {
 		
 	}
 	
-	public PeopleBankAccountDetails(Long bankAccountId, String forenames, String surname, String accountNo, String bank,
+	public PeopleBankCard(Long bankAccountId, String forenames, String surname, String accountNo, String bank,
 			String cardNumber, String sortCode, String homeAddress) {
 		super();
 		this.bankAccountId = bankAccountId;

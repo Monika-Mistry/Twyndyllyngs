@@ -7,24 +7,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.finance.domain.PeopleBankAccountDetails;
-import com.bae.finance.service.PeopleBankAccountDetailsService;
+import com.bae.finance.domain.PeopleBankCard;
+import com.bae.finance.service.PeopleBankCardService;
 
 @RestController
-public class PeopleBankAccountDetailsController {
+public class PeopleBankCardController {
 
-	private PeopleBankAccountDetailsService pbadService;
+	private PeopleBankCardService pbadService;
 
-	public PeopleBankAccountDetailsController() {
+	public PeopleBankCardController() {
 	}
 
 	@Autowired
-	public PeopleBankAccountDetailsController(PeopleBankAccountDetailsService pbadService) {
+	public PeopleBankCardController(PeopleBankCardService pbadService) {
 		this.pbadService = pbadService;
 	}
 
 	@GetMapping("/getBankAccountDetailsByFullname/{forenames}/{surname}")
-	public List<PeopleBankAccountDetails> findBankAccountDetailsByFullname(@PathVariable("forenames") String forenames,
+	public List<PeopleBankCard> findBankAccountDetailsByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
 		return pbadService.findByForenamesAndSurname(forenames, surname);
 	}
