@@ -14,12 +14,10 @@ import com.bae.domain.Citizen;
 
 @RestController
 @RequestMapping("/citizen")
-public class CitizenController extends Controller{
+public class CitizenController extends Controller {
 
 	private RestTemplate restTemplate;
 	private JmsTemplate jmsTemplate;
-
-	
 
 	public CitizenController(@Autowired RestTemplate restTemplate, JmsTemplate jmsTemplate) {
 		super(jmsTemplate);
@@ -29,51 +27,44 @@ public class CitizenController extends Controller{
 	@GetMapping("/{forename}/{surname}")
 	public ResponseEntity<Citizen[]> getAllCitizens(@PathVariable("forename") String forename,
 			@PathVariable("surname") String surname) {
-System.out.println(forename + " " + surname);
-		if (forename == "null") {
+		if (forename.equals("null")) {
 			ResponseEntity<Citizen[]> citizenSurname = getCitizenBySurname(surname);
 			Citizen[] citizen = citizenSurname.getBody();
-			System.out.println(1);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
-		} else if (surname == "null") {
+		} else if (surname.equals("null")) {
 			ResponseEntity<Citizen[]> citizenForename = getCitizenByForename(forename);
 			Citizen[] citizen = citizenForename.getBody();
-			System.out.println(2);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
 
 		} else {
 			ResponseEntity<Citizen[]> citizenFullname = getCitizenByFullname(forename, surname);
 			Citizen[] citizen = citizenFullname.getBody();
-			System.out.println(3);
 			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
 		}
 
 	}
 
 	@GetMapping("/getCitizensByForenames/{forenames}")
-	private ResponseEntity<Citizen[]> getCitizenByForename(
-			@PathVariable("forenames") String forenames) {
+	private ResponseEntity<Citizen[]> getCitizenByForename(@PathVariable("forenames") String forenames) {
 		return restTemplate.getForEntity(Constants.CITIZEN_FORENAME_URL + forenames, Citizen[].class);
 
 	}
-	
+
 	@GetMapping("/getCitizensBySurname/{surname}")
-	private ResponseEntity<Citizen[]> getCitizenBySurname(
-			@PathVariable("surname") String surname) {
+	private ResponseEntity<Citizen[]> getCitizenBySurname(@PathVariable("surname") String surname) {
 		return restTemplate.getForEntity(Constants.CITIZEN_SURNAME_URL + surname, Citizen[].class);
 
 	}
-	
+
 	@GetMapping("/getCitizensByFullname/{forenames}/{surname}")
-	private ResponseEntity<Citizen[]> getCitizenByFullname(
-			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname) {
+	private ResponseEntity<Citizen[]> getCitizenByFullname(@PathVariable("forenames") String forenames,
+			@PathVariable("surname") String surname) {
 		return restTemplate.getForEntity(Constants.CITIZEN_FULLNAME_URL + forenames + "/" + surname, Citizen[].class);
 
 	}
-	
+
 	@GetMapping("/getCitizenById/{citizenId}")
-	private ResponseEntity<Citizen> getCitizenById(
-			@PathVariable("citizenId") String citizenId) {
+	private ResponseEntity<Citizen> getCitizenById(@PathVariable("citizenId") String citizenId) {
 		return restTemplate.getForEntity(Constants.CITIZEN_ID_URL + citizenId, Citizen.class);
 
 	}

@@ -6,9 +6,8 @@ const axios = require('axios');
 
 const coreApiCitizen = "http://core:8000/citizen/";
 
-const getAllCitizenRequest = (forename, surname) => {
-    console.log(coreApiCitizen + forename + "/" + surname);
-    return axios.get(coreApiCitizen + forename + "/" + surname);
+const getAllCitizenRequest = (forenames, surname) => {
+    return axios.get(coreApiCitizen + forenames + "/" + surname);
 };
 
 const getACitizenRequest = (id) => {
@@ -28,9 +27,9 @@ router.post("/", (req, res, next) => {
         if (info !== undefined) {
             res.status(401).send(info.message);
         } else {
-            let forename = req.body.forename;
+            let forenames = req.body.forenames;
             let surname = req.body.surname;
-            getAllCitizenRequest(forename, surname).then(response => {
+            getAllCitizenRequest(forenames, surname).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
         }
