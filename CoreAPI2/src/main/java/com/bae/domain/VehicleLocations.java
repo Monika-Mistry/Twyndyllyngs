@@ -2,7 +2,7 @@ package com.bae.domain;
 
 import java.sql.Timestamp;
 
-public class VehicleLocation {
+public class VehicleLocations {
 	
 	private Long id;
 	private Long anprPointId;
@@ -13,11 +13,11 @@ public class VehicleLocation {
 	private Double longitude;
 	
 	
-	public VehicleLocation() {
+	public VehicleLocations() {
 		super();
 	}
 	
-	public VehicleLocation(Long id, Long anprPointId, Timestamp timestamp, String vehicleRegistrationNo,
+	public VehicleLocations(Long id, Long anprPointId, Timestamp timestamp, String vehicleRegistrationNo,
 			String streetName, Double latitude, Double longitude) {
 		super();
 		this.id = id;

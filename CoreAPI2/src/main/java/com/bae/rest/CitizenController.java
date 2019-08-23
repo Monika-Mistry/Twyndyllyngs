@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.bae.domain.Citizen;
-import com.bae.domain.VehicleLocation;
+import com.bae.domain.VehicleLocations;
 
 @RestController
 public class CitizenController extends Controller{

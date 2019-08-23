@@ -14,10 +14,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.bae.TestConstants;
 import com.bae.domain.CarObject;
-import com.bae.domain.VehicleLocation;
+import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
 
-import junit.framework.Assert;
 
 @RunWith(SpringRunner.class)
 public class CarControllerTest {
@@ -39,14 +38,14 @@ public class CarControllerTest {
 				.getForEntity(TestConstants.VEHICLE_REGISTRATION, VehicleRegistration[].class);
 
 		doReturn(TestConstants.MOCK_CAR_LOCATION_RESPONSE).when(restTemplate)
-				.getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocation[].class);
+				.getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocations[].class);
 		ResponseEntity<CarObject> response = controller.getCarDetails("CRA 55Y");
 		
-		assertEquals(TestConstants.MOCK_CAR_RESPONSE.getBody().getVehicleLocation(), response.getBody().getVehicleLocation());
-		assertEquals(TestConstants.MOCK_CAR_RESPONSE.getBody().getVehicleRegistration(), response.getBody().getVehicleRegistration());
+		assertEquals(TestConstants.MOCK_VEHICLE_LOCATION, response.getBody().getVehicleLocation());
+		assertEquals(TestConstants.MOCK_VEHICLE_REGISTRATION, response.getBody().getVehicleRegistration());
 
 		verify(restTemplate).getForEntity(TestConstants.VEHICLE_REGISTRATION, VehicleRegistration[].class);
-		verify(restTemplate).getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocation[].class);
+		verify(restTemplate).getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocations[].class);
 	}
 
 }

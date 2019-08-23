@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.bae.domain.CarObject;
-import com.bae.domain.VehicleLocation;
+import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
 
 @RestController
@@ -27,7 +27,7 @@ public class CarController extends Controller {
 	@GetMapping("/{vehicleReg}")
 	public ResponseEntity<CarObject> getCarDetails(@PathVariable("vehicleReg") String vehicleReg) {
 
-		ResponseEntity<VehicleLocation[]> vehicleLocation = getVehicleLocation(vehicleReg);
+		ResponseEntity<VehicleLocations[]> vehicleLocation = getVehicleLocation(vehicleReg);
 		ResponseEntity<VehicleRegistration[]> vehicleRegistration = getVehicleRegistration(vehicleReg);
 
 		CarObject carObject = new CarObject(vehicleLocation.getBody(), vehicleRegistration.getBody());
@@ -36,9 +36,9 @@ public class CarController extends Controller {
 	}
 
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
-	private ResponseEntity<VehicleLocation[]> getVehicleLocation(
+	private ResponseEntity<VehicleLocations[]> getVehicleLocation(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
-		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocation[].class);
+		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocations[].class);
 
 	}
 

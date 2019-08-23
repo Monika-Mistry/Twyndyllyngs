@@ -24,7 +24,7 @@ router.post("/", (req, res, next) => {
         if (info !== undefined) {
             res.status(401).send(info.message);
         } else {
-            let vehicleReg = req.vehicleReg;
+            let vehicleReg = req.vehicleRegistrationNo;
             getCarRequest(vehicleReg).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })

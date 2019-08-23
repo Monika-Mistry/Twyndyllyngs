@@ -2,23 +2,23 @@ package com.bae.domain;
 
 public class CarObject {
 	
-	private VehicleLocation[] vehicleLocation;
+	private VehicleLocations[] vehicleLocation;
 	private VehicleRegistration[] vehicleRegistration;
 	
 	public CarObject() {
 
 	}
 
-	public CarObject(VehicleLocation[] vehicleLocation, VehicleRegistration[] vehicleRegistration) {
+	public CarObject(VehicleLocations[] vehicleLocation, VehicleRegistration[] vehicleRegistration) {
 		super();
 		this.vehicleLocation = vehicleLocation;
 		this.vehicleRegistration = vehicleRegistration;
 	}
 	
-	public VehicleLocation[] getVehicleLocation() {
+	public VehicleLocations[] getVehicleLocation() {
 		return vehicleLocation;
 	}
-	public void setVehicleLocation(VehicleLocation[] vehicleLocation) {
+	public void setVehicleLocation(VehicleLocations[] vehicleLocation) {
 		this.vehicleLocation = vehicleLocation;
 	}
 	public VehicleRegistration[] getVehicleRegistration() {
