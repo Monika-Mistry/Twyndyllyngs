@@ -16,7 +16,7 @@ router.get("/test", (req, res) => {
 });
 
 
-router.get("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             console.error(err);

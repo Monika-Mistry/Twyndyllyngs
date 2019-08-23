@@ -19,7 +19,7 @@ router.get("/test", (req, res) => {
 });
 
 
-router.get("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             console.error(err);
@@ -36,7 +36,7 @@ router.get("/", (req, res, next) => {
     })(req, res, next);
 });
 
-router.get("/profile", (req, res, next) => {
+router.post("/profile", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             console.error(err);
