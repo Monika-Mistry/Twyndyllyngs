@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import com.bae.domain.Citizen;
 import com.bae.domain.VehicleLocations;
 
-@RestController
+@RestController("/citizen")
 public class CitizenController extends Controller{
 
 	private RestTemplate restTemplate;
