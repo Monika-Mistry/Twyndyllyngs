@@ -24,15 +24,29 @@ public class MobileCallRecordMockitoTests {
 	MobileCallRecordService service;
 	
 
-	//getCallRecordsByReceiverTest
-	//getCallRecordsByCallerOrReceiver
-	
 	@Test
 	public void getCallRecordsByCallerTest() {
-		Mockito.when(service.findByCaller("01234567890")).thenReturn(TestConstants.MOCK_CALL_RECORD_ARRAY);
+		Mockito.when(service.findByCaller("01234567890")).thenReturn(TestConstants.MOCK_CALL_1_RECORD_ARRAY);
 		
-		assertEquals(TestConstants.MOCK_CALL_RECORD_RESPONSE, controller.findCallRecordsByCaller("01234567890"));
+		assertEquals(TestConstants.MOCK_CALL_1_RECORD_RESPONSE, controller.findCallRecordsByCaller("01234567890"));
 		Mockito.verify(service).findByCaller("01234567890");
+	}
+	
+	@Test
+	public void getCallRecordsByReceiverTest() {
+		Mockito.when(service.findByReceiver("08123456781")).thenReturn(TestConstants.MOCK_CALL_1_RECORD_ARRAY);
+		
+		assertEquals(TestConstants.MOCK_CALL_1_RECORD_RESPONSE, controller.findCallRecordsByReceiver("08123456781"));
+		Mockito.verify(service).findByReceiver("08123456781");
+		
+	}
+	
+	@Test
+	public void getCallRecordsByCallerOrRecieverTest() {
+		Mockito.when(service.findByCallerOrReceiver("01234567890", "01234567890")).thenReturn(TestConstants.MOCK_CALL_RECORD_ARRAY);
+		
+		assertEquals(TestConstants.MOCK_CALL_RECORD_RESPONSE, controller.findCallRecordsByCallerOrReceiver("01234567890", "01234567890"));
+		Mockito.verify(service).findByCallerOrReceiver("01234567890", "01234567890");
 	}
 	
 	
