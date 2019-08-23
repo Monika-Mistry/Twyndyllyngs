@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MobileCallRecord {
+public class MobileCallRecords {
 
 
 
@@ -30,11 +30,11 @@ public class MobileCallRecord {
 	private String receiverTowerId;
 	
 	
-	public MobileCallRecord() {
+	public MobileCallRecords() {
 		
 	}
 	
-	public MobileCallRecord(int id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
+	public MobileCallRecords(int id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
 			String receiverMSISDN, String receiverTowerId) {
 		this.id = id;
 		this.timestamp = timestamp;
@@ -93,6 +93,11 @@ public class MobileCallRecord {
 		this.receiverTowerId = receiverTowerId;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return callerMSISDN + "------";
+	}
 
 	
 	

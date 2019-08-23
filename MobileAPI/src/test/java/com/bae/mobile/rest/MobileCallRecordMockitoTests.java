@@ -11,17 +11,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.mobile.TestConstants;
-import com.bae.mobile.service.MobileCallRecordService;
+import com.bae.mobile.service.MobileCallRecordsService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MobileCallRecordMockitoTests {
 
 	@InjectMocks
-	MobileCallRecordController controller;
+	MobileCallRecordsController controller;
 	
 	@Mock
-	MobileCallRecordService service;
+	MobileCallRecordsService service;
 	
 
 	@Test
