@@ -22,9 +22,9 @@ public class TestConstants {
 	
 	
 	public static final ResponseEntity<PeopleMobile[]> MOCK_PERSON_MOBILE_RESPONSE = 
-			new ResponseEntity<PeopleMobile[]>(MOCK_PERSON_MOBILE_ARRAY, HttpStatus.OK);
+			new ResponseEntity<>(MOCK_PERSON_MOBILE_ARRAY, HttpStatus.OK);
 	public static final ResponseEntity<PeopleMobile[]> MOCK_PEOPLE_MOBILE_RESPONSE = 
-			new ResponseEntity<PeopleMobile[]>(MOCK_PEOPLE_MOBILE_ARRAY, HttpStatus.OK);
+			new ResponseEntity<>(MOCK_PEOPLE_MOBILE_ARRAY, HttpStatus.OK);
 
 
 			
@@ -39,8 +39,8 @@ public class TestConstants {
 	public static final MobileCallRecord[] MOCK_CALL_RECORD_ARRAY = {MOCK_CALL_RECORD_1, MOCK_CALL_RECORD_2};
 	
 	public static final ResponseEntity<MobileCallRecord[]> MOCK_CALL_1_RECORD_RESPONSE = 
-			new ResponseEntity<MobileCallRecord[]>(MOCK_CALL_1_RECORD_ARRAY, HttpStatus.OK);
+			new ResponseEntity<>(MOCK_CALL_1_RECORD_ARRAY, HttpStatus.OK);
 	public static final ResponseEntity<MobileCallRecord[]> MOCK_CALL_RECORD_RESPONSE = 
-		new ResponseEntity<MobileCallRecord[]>(MOCK_CALL_RECORD_ARRAY, HttpStatus.OK);
+		new ResponseEntity<>(MOCK_CALL_RECORD_ARRAY, HttpStatus.OK);
 
 }
