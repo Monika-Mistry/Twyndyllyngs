@@ -13,7 +13,7 @@ import com.bae.domain.CarObject;
 import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
 
-@RestController
+@RestController("/vehicle")
 public class CarController extends Controller {
 
 	private RestTemplate restTemplate;

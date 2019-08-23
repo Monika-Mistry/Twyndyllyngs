@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const axios = require('axios');
 
 
-const coreApiCar = "http://core:8000/car/";
+const coreApiCar = "http://core:8000/vehicle/";
 
 const getCarRequest = vehicleReg => {
     return axios.get(coreApiCar + vehicleReg);
