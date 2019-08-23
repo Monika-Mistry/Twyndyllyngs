@@ -55,14 +55,6 @@ public class PeopleMobileMockitoTests {
 		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Aarvark");
 	}
 	
-
-//	@Test
-//	public void getMobileDetailsByFullnameAndDOBTest() {
-//		Mockito.when(service.findByForenamesAndSurnameAndDateOfBirth("Aaron", "Aarvark", LocalDate.of(1978, 5, 01))).thenReturn(TestConstants.MOCK_PERSON_MOBILE_ARRAY);
-//		
-//		assertEquals(TestConstants.MOCK_PERSON_MOBILE_RESPONSE, controller.findMobileByFullnameAndDOB("Aaron", "Aarvark", LocalDate.of(1978, 5, 01)));
-//		Mockito.verify(service).findByForenamesAndSurnameAndDateOfBirth("Aaron", "Aarvark", LocalDate.of(1978, 5, 01));
-//	}
 	
 	@Test
 	public void getMobileDetailsByPhoneNumberTest() {
