@@ -4,8 +4,22 @@ import { Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
 
 export class Login extends Component {
 
+    constructor(){
+        super()
+        this.state ={
+            username: "",
+            password: ""
+        }
+    }
+
     login = (e) => {
         e.preventDefault();
+
+        let user = {
+            username: e.target[0].value,
+            password: e.target[1].value
+        }
+
         let value = "analyst"
         this.props.onLogin(value)
     }
@@ -14,6 +28,8 @@ export class Login extends Component {
         let value = "auditor"
         this.props.onLogin(value)
     }
+
+    
 
     render() {
 
@@ -26,7 +42,7 @@ export class Login extends Component {
         }
         return (
             <div>
-                <Form onSubmit={this.login} className="search-form" >
+                <Form onSubmit={this.login} className="search-form">
                     <FormGroup row>
                         <Col sm={1}>
                             <Label for="forname">Username:</Label>
@@ -40,7 +56,7 @@ export class Login extends Component {
                             <Label for="password">Password:</Label>
                         </Col>
                         <Col sm={3}>
-                            <Input type="password" name="password" placeholder="enter password" required />
+                            <Input type="password" name="password"  placeholder="enter password" required />
                         </Col>
                     </FormGroup>
                     <FormGroup row>

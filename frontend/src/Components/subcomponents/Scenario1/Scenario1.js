@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { findByForename, findBySurname, findByFullName } from '../Constants/Routes.js';
+import { findCitizens } from '../Constants/Routes.js';
 import { Link } from 'react-router-dom';
 
 export class Scenario1 extends Component {
@@ -19,26 +19,13 @@ export class Scenario1 extends Component {
         let forename = e.target[0].value;
         let surname = e.target[1].value;
 
-        if (forename && !surname) {
-            findByForename(forename).then(response => {
-                this.setState({
-                    data: response.data
-                })
+
+        findCitizens(forename, surname).then(response => {
+            this.setState({
+                data: response.data
             })
-        } else if (surname && !forename) {
-            findBySurname(surname).then(response => {
-                this.setState({
-                    data: response.data
-                })
-            })
-        }
-        else {
-            findByFullName(forename, surname).then(response => {
-                this.setState({
-                    data: response.data
-                })
-            })
-        }
+        })
+
     }
 
     details = (element) => {
@@ -46,7 +33,7 @@ export class Scenario1 extends Component {
         console.log(element.forename);
 
         sessionStorage.setItem('forename', element.forename);
-       window.open("/Profile");
+        window.open("/Profile");
     }
 
     render() {
