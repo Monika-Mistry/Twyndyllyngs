@@ -3,6 +3,7 @@ import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findCitizens } from '../Constants/Routes.js';
 import { Link } from 'react-router-dom';
+import { validation, alphavalid } from '../Constants/Constants.js';
 
 export class Scenario1 extends Component {
 
@@ -16,16 +17,37 @@ export class Scenario1 extends Component {
     findCitizens = (e) => {
         e.preventDefault();
 
-        let forename = e.target[0].value;
-        let surname = e.target[1].value;
+        let user = {
+            forenames: this.nullify(e.target[0].value),
+            surname: this.nullify(e.target[1].value)
+        }
 
+        if (user.forenames === "null" && user.surname === "null") {
+            document.getElementById("searchError").innerText = "Please Fill at least 1 search box"
+        } else {
 
-        findCitizens(forename, surname).then(response => {
-            this.setState({
-                data: response.data
-            })
-        })
+            if (validation(user.forenames, alphavalid) && validation(user.surname, alphavalid)) {
+                document.getElementById("searchError").innerText = ""
+                findCitizens(user).then(response => {
+                    this.setState({
+                        data: response.data
+                    })
+                }).catch(response => {
+                    console.error(response);
+                })
+                console.log(user)
+            } else {
+                document.getElementById("searchError").innerText = "Search Criteria is invalid"
+            }
+        }
+    }
 
+    nullify = (value) => {
+        if (!value) {
+            return value = "null"
+        } else {
+            return value
+        }
     }
 
     details = (element) => {
@@ -58,6 +80,7 @@ export class Scenario1 extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
+                <p id="searchError" style={{ color: 'red' }}></p>
                 <br></br>
                 <br></br>
                 <p> <Link to='/Profile'>profile</Link></p>

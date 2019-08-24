@@ -22,20 +22,20 @@ export class CreateAnalyst extends Component {
             password2: e.target[2].value,
         }
 
-        let verifyPassword = validation(newUser.password, passValid);
-        let vefifyName = validation(newUser.username, alnu8Valid);
-
         if (validation(newUser.password, passValid)) {
             console.log("ay")
             document.getElementById("passError").innerText = ""
-            if (newUser.password == newUser.password2) {
+            if (newUser.password === newUser.password2) {
                 document.getElementById("pass2valid").innerText = "Passwords match"
                 document.getElementById("pass2Error").innerText = ""
 
                 if (validation(newUser.username, alnu8Valid)) {
                     document.getElementById("nameError").innerText = ""
-                    console.log("Do axios")
-                    // registerUser(newUser).then( () = > { return <Redirect to='/auditor' />}).catch( res => {console.log(res)})
+                    registerUser(newUser).then(() => { 
+                        return <Redirect to='/auditor' />
+                    }).catch( res => {
+                        console.log(res)
+                    })
                 } else {
                     document.getElementById("nameError").innerText = "Username must contain 1 Upper and 1 Lower case letter and a Number"
                 }
