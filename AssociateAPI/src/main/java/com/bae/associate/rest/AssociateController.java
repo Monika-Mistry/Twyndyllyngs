@@ -1,7 +1,5 @@
 package com.bae.associate.rest;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,13 +22,13 @@ public class AssociateController {
 	}
 
 //	@GetMapping("/getAssociateByDOB/{date}")
-//	public List<Associates> findAssociateByDateOfBirth(
+//	public Associates[] findAssociateByDateOfBirth(
 //			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate dateOfBirth) {
 //		return associateService.findByDateOfBirth(dateOfBirth);
 //	}
 
 	@GetMapping("/getAssociateByFullname/{forenames}/{surname}")
-	public List<Associates> findAssociateByFullname(@PathVariable("forenames") String forenames,
+	public Associates[] findAssociateByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
 		return associateService.findByForenamesAndSurname(forenames, surname);
 	}

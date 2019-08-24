@@ -26,13 +26,13 @@ public class Associates {
 	@Column(name = "associatesurname")
 	private String associateSurname;
 	@Column(name = "associatedateofbirth")
-	private String associateDateOfBirth;
+	private LocalDate associateDateOfBirth;
 
 	public Associates() {
 	}
 
 	public Associates(Long id, String forenames, String surname, LocalDate dateOfBirth, String associateForenames,
-			String associateSurname, String associateDateOfBirth) {
+			String associateSurname, LocalDate associateDateOfBirth) {
 		super();
 		this.id = id;
 		this.forenames = forenames;
@@ -91,11 +91,11 @@ public class Associates {
 		this.associateSurname = associateSurname;
 	}
 
-	public String getAssociateDateOfBirth() {
+	public LocalDate getAssociateDateOfBirth() {
 		return associateDateOfBirth;
 	}
 
-	public void setAssociateDateOfBirth(String associateDateOfBirth) {
+	public void setAssociateDateOfBirth(LocalDate associateDateOfBirth) {
 		this.associateDateOfBirth = associateDateOfBirth;
 	}
 
