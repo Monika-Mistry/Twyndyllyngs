@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
-import { validation, passValid, alnu8Valid, registerUser} from '../Constants/Constants.js';
+import { validation, passValid, alnu8Valid} from '../Constants/Constants.js';
+import { registerUser} from '../Constants/Routes.js';
+import { Redirect } from 'react-router-dom';
 
 export class CreateAnalyst extends Component {
 
