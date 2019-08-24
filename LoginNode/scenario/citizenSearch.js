@@ -44,7 +44,7 @@ router.post("/profile", (req, res, next) => {
         if (info !== undefined) {
             res.status(401).send(info.message);
         } else {
-            let id = req.id;
+            let id = req.body.id;
             getACitizenRequest(id).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
