@@ -32,7 +32,7 @@ public class AssociateWebMockTests {
 	
 	@Ignore
 	@Test
-	public void getAssociatesbyFullnameTest() throws Exception {
+	public void getAssociatesByPhoneNumberTest() throws Exception {
 		when(service.findAssociatesByPhonenumber("Aaron")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
 		
 		mockMvc.perform(get("/getAssociateByFullname/Aaron/Smith"))
