@@ -2,6 +2,7 @@ package com.bae.associate.rest;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,12 +24,12 @@ public class AssociateMockitoTests {
 	@Mock 
 	AssociateService service;
 	
-	@Test
+s	@Test
 	public void getAssociatesbyFullnameTest() {
-		Mockito.when(service.findByForenamesAndSurname("Aaron", "Smith")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
+		Mockito.when(service.findAssociatesByPhonenumber("07700 049488")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
 
-		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociateByFullname("Aaron", "Smith"));
-		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Smith");
+		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociatesByPhonenumber("Aaron"));
+		Mockito.verify(service).findAssociatesByPhonenumber("Aaron");
 	}
 		
 	

@@ -1,11 +1,13 @@
 package com.bae.associate.service;
 
-import com.bae.associate.domain.Associates;
+import java.util.ArrayList;
+
+import com.bae.associate.Associate;
 
 public interface AssociateService {
 
-//	List<Associates> findByDateOfBirth(LocalDate dateOfBirth);
+	ArrayList<Associate> findAssociatesByPhonenumber(String phoneNumber);
 
-	Associates[] findByForenamesAndSurname(String forenames, String surname);
+//	Associates[] findByForenamesAndSurname(String forenames, String surname);
 
 }

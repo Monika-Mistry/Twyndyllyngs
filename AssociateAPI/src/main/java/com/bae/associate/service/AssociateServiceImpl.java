@@ -1,9 +1,11 @@
 package com.bae.associate.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bae.associate.domain.Associates;
+import com.bae.associate.Associate;
 import com.bae.associate.repository.AssociateRepository;
 
 @Service
@@ -20,12 +22,15 @@ public class AssociateServiceImpl implements AssociateService {
 		this.associateRepository = associateRepository;
 	}
 
-//	public Associates[] findByDateOfBirth(LocalDate dateOfBirth) {
-//		return associateRepository.findByDateOfBirth(dateOfBirth);
-//	}
 
-	public Associates[] findByForenamesAndSurname(String forenames, String surname) {
-		return associateRepository.findByForenamesAndSurname(forenames, surname);
+	@Override
+	public ArrayList<Associate> findAssociatesByPhonenumber(String phoneNumber) {
+		return associateRepository.findAssociatesByPhonenumber(phoneNumber);
 	}
+
+
+//	public Associates[] findByForenamesAndSurname(String forenames, String surname) {
+//		return associateRepository.findByForenamesAndSurname(forenames, surname);
+//	}
 
 }

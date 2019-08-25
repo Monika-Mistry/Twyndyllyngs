@@ -1,11 +1,13 @@
 package com.bae.associate.rest;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.associate.domain.Associates;
+import com.bae.associate.Associate;
 import com.bae.associate.service.AssociateService;
 
 @RestController
@@ -21,15 +23,15 @@ public class AssociateController {
 		this.associateService = associateService;
 	}
 
-//	@GetMapping("/getAssociateByDOB/{date}")
-//	public Associates[] findAssociateByDateOfBirth(
-//			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate dateOfBirth) {
-//		return associateService.findByDateOfBirth(dateOfBirth);
-//	}
-
-	@GetMapping("/getAssociateByFullname/{forenames}/{surname}")
-	public Associates[] findAssociateByFullname(@PathVariable("forenames") String forenames,
-			@PathVariable("surname") String surname) {
-		return associateService.findByForenamesAndSurname(forenames, surname);
+	@GetMapping("/getAssociatesByPhonenumber/{phoneNumber}")
+	public ArrayList<Associate> findAssociatesByPhonenumber(
+			@PathVariable("phoneNumber") String phoneNumber) {
+		return associateService.findAssociatesByPhonenumber(phoneNumber);
 	}
+
+//	@GetMapping("/getAssociateByFullname/{forenames}/{surname}")
+//	public Associates[] findAssociateByFullname(@PathVariable("forenames") String forenames,
+//			@PathVariable("surname") String surname) {
+//		return associateService.findByForenamesAndSurname(forenames, surname);
+//	}
 }
