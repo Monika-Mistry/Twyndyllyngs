@@ -133,6 +133,7 @@ export class ScrollBar extends Component {
           wheel={wheel}
         />
         <hr />
+        <p>{this.props.data[0].forenames}</p>
       </div>
     );
   }

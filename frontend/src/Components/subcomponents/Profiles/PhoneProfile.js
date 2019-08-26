@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { PhoneHead } from './PhoneHeader.js'
 
 export default function Phone(props) {

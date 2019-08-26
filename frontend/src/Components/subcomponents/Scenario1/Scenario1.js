@@ -53,7 +53,7 @@ export class Scenario1 extends Component {
     }
 
     details = (element) => {
-
+        console.log(element)
         sessionStorage.setItem('forename', this.state.forename);
     }
 

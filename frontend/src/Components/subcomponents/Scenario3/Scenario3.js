@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { CarProfile } from '../Profiles/CarProfile.js';
 import { findCar } from '../Constants/Routes.js';
 import { alnuValid, validation } from '../Constants/Constants.js';
+import { VehicleProfile } from '../Profiles/VehicleProfile.js';
 
 export class Scenario3 extends Component {
 
     constructor() {
         super()
         this.state = {
-            data: []
+            vehicle: {registrationId: "e", registrationDate: "", vehicleRegistrationNo: "", make: "", model: "", colour: "", forenames: "", surname: "", address: "", dataOfBirth: "", driverLicenceId: ""}
         }
     }
 
@@ -58,7 +58,7 @@ export class Scenario3 extends Component {
                     </Form>
                 </div>
 
-                <CarProfile data={this.data} />
+                <VehicleProfile data={this.state.vehicle}/>
             </div>
 
         )

@@ -4,14 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
-export class CarProfile extends Component {
-
-    constructor(props) {
-        super(props)
-    }
+export class VehicleContainer extends Component {
 
     render() {
-        let car = this.props.registration;
+        let vehicle = this.props.data;
         return (
             <div>
                 <Container>
@@ -20,14 +16,14 @@ export class CarProfile extends Component {
                             <FontAwesomeIcon icon='car' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
                         </Col>
                         <Col sm={4} align="left">
-                            <p> Make: {car.make}</p>
-                            <p> Model: {car.model}</p>
-                            <p> Colour: {car.colour}</p>
+                            <p> Make: {vehicle.make}</p>
+                            <p> Model: {vehicle.model}</p>
+                            <p> Colour: {vehicle.colour}</p>
                         </Col>
                         <Col sm={4} align="left">
-                            <p> Registration No.: {car.vehicleRegistrationNo}</p>
-                            <p> Registration Date: {car.registrationDate}</p>
-                            <p> Registration Id: {car.registrationId}</p>
+                            <p> Registration No: {vehicle.vehicleRegistrationNo}</p>
+                            <p> Registration Date: {vehicle.registrationDate}</p>
+                            <p> Registration Id: {vehicle.registrationId}</p>
                         </Col>
                     </Row>
                 </Container>
