@@ -11,7 +11,7 @@ const getAllCitizenRequest = (forenames, surname) => {
 };
 
 const getACitizenRequest = (id) => {
-    return axios.get(coreApiCitizen + id);
+    return axios.get(coreApiCitizen + "getById/" + id);
 };
 
 router.get("/test", (req, res) => {
