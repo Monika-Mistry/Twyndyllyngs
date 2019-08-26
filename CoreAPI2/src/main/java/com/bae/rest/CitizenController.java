@@ -43,6 +43,11 @@ public class CitizenController extends Controller {
 		}
 
 	}
+	
+	@GetMapping("/getById/{citizenId}")
+	public ResponseEntity<Citizen> getCitizenById(@PathVariable("citizenId") String citizenId) {
+		return restTemplate.getForEntity(Constants.CITIZEN_ID_URL + citizenId, Citizen.class);
+	}
 
 	@GetMapping("/getCitizensByForenames/{forenames}")
 	private ResponseEntity<Citizen[]> getCitizenByForename(@PathVariable("forenames") String forenames) {
@@ -60,12 +65,6 @@ public class CitizenController extends Controller {
 	private ResponseEntity<Citizen[]> getCitizenByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
 		return restTemplate.getForEntity(Constants.CITIZEN_FULLNAME_URL + forenames + "/" + surname, Citizen[].class);
-
-	}
-
-	@GetMapping("/getCitizenById/{citizenId}")
-	private ResponseEntity<Citizen> getCitizenById(@PathVariable("citizenId") String citizenId) {
-		return restTemplate.getForEntity(Constants.CITIZEN_ID_URL + citizenId, Citizen.class);
 
 	}
 
