@@ -12,7 +12,7 @@ export function PhoneHead(props) {
                         <th>Value</th>
                     </tr>
                 </thead>
-                <PhoneRow data={props.data} />
+                <PhoneRow data={props.data}/>
             </Table>
         </div>
     )

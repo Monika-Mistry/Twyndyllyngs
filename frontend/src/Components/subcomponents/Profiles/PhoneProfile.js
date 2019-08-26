@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import { PhoneHead } from './PhoneHeader.js'
-export class Phone extends Component {
+
+export default function Phone(props) {
    
-    constructor(props) {
-        super(props)
-    }
    
-    render() {
         return(
             <div>
-                <p> Hello</p>
-                <PhoneHead date={this.props.data} />
+                <PhoneHead data={props.data} />
+                {/* <h3>Coming Soon</h3> */}
             </div>
         )
-    }
+  
 }

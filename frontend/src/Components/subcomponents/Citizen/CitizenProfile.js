@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ScrollBar } from '../ScrollBar/Scroll.js';
-import { Phone } from '../Profiles/PhoneProfile.js';
+import Phone  from '../Profiles/PhoneProfile.js';
 import { CarProfile } from '../Profiles/CarProfile.js';
 
 export class CitizenProfile extends Component {
@@ -28,7 +28,7 @@ export class CitizenProfile extends Component {
     onLoad = () => {
         this.setState({
             citizen: {citizenId: 4, forenames: "josh", surname: "brooks", dob: "today", gender: "M", pob: "earth", address: "yes"},
-            phone: { 1: {id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN:5 , recieverTowerId: 6}, 2: {id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7}},
+            phone: [{id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN:5 , recieverTowerId: 6}, {id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7}],
             vehicle: {registrationId: 1, registrationDate: "day", vehicleRegistrationNo: 2, make: "yes", model: "true", colour: "blue", forenames: "forename", surname: "surname", address: "england", dataOfBirth: "today", driverLicenceId: 3},
             associates: { 1: {citizenId: 1, forenames: "monika", surname: "mistry"}, 2: {citizenId: 2, forenames: "owen", surname: "miller"}, 3: {citizenId: 3, forenames: "rich", surname: "thi"}}
         });
@@ -89,8 +89,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        {/* <Phone data={this.state.phone} /> */}
-                        <p> HEllo</p>
+                        <Phone data={this.state.phone} />    
                     </Row>
                 </Container>
 

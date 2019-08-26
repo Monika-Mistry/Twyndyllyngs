@@ -7,7 +7,7 @@ export function PhoneRow(props) {
                 return (
                 <tr key={element.id}>
                     <td>
-                        {element.value}
+                        {element.callerMSISDN}
                     </td>
                 </tr>)
             })}
