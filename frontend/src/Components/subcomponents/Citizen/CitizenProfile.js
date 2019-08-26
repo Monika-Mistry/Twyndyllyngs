@@ -2,23 +2,36 @@ import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ScrollBar } from '../ScrollBar/Scroll.js';
+import { Phone } from '../Profiles/phone.js';
 
 export class CitizenProfile extends Component {
 
     constructor() {
         super()
         this.state = {
-            associates: [],
-            forename: sessionStorage.getItem('forename')
+            associates: ["hello", "bye bye", "aardvark"],
+            forename: sessionStorage.getItem('forename'),
+            surname: "",
+            dob: "",
+            gender: "",
+            pob: "",
+            address: "",
+            vehicle: [],
+            phone: [],
+            finances: []
         }
     }
 
-    fill = () => {
+    onLoad = () => {
+        this.setState = {
+            phone: ["hello", "trial"]
+        }
+        console.log(this.state.associates)
         sessionStorage.clear()
     }
 
     componentDidMount() {
-        sessionStorage.clear()
+        this.onLoad()
     }
 
     render() {
@@ -33,17 +46,16 @@ export class CitizenProfile extends Component {
                             <FontAwesomeIcon icon='user' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
                         </Col>
                         <Col sm={4} align="left">
-                            <p> Full Name: {this.state.forename} {sessionStorage.getItem('surname')}</p>
-                            <p> D.o.B : {sessionStorage.getItem('dob')} </p>
-                            <p> Gender : {sessionStorage.getItem('gen')} </p>
+                            <p> Full Name: {this.state.forename} {this.state.surname}</p>
+                            <p> D.o.B : {this.state.dob} </p>
+                            <p> Gender : {this.state.gender} </p>
                         </Col>
                         <Col sm={4} align="left">
-                            <p> Place of Birth: {sessionStorage.getItem('pob')}</p>
-                            <p> Address: {sessionStorage.getItem('address')} </p>
+                            <p> Place of Birth: {this.state.pob}</p>
+                            <p> Address: {this.state.address} </p>
                         </Col>
                     </Row>
                 </Container>
-
                 <br></br>
                 <br></br>
 
@@ -51,7 +63,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
 
-                    <ScrollBar />
+                    <ScrollBar data={this.state.associates}/>
 
                 </Container>
 
@@ -62,7 +74,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <p>hi</p>
+                        <p>{this.state.vehicle}</p>
                     </Row>
                 </Container>
                 <br></br>
@@ -72,7 +84,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <p>hi</p>
+                        <Phone data={this.state.phone} />
                     </Row>
                 </Container>
 
@@ -83,7 +95,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <p>hi</p>
+                        <p>{this.state.finances}</p>
                     </Row>
                 </Container>
 
