@@ -25,7 +25,6 @@ export class CreateAnalyst extends Component {
         }
 
         if (validation(newUser.password, passValid)) {
-            console.log("ay")
             document.getElementById("passError").innerText = ""
             if (newUser.password === newUser.password2) {
                 document.getElementById("pass2valid").innerText = "Passwords match"

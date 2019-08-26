@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findCitizens } from '../Constants/Routes.js';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { validation, alphavalid } from '../Constants/Constants.js';
 
 export class Scenario1 extends Component {
@@ -10,7 +10,9 @@ export class Scenario1 extends Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            forename: "hi",
+            profile: false
         };
     }
 
@@ -37,7 +39,7 @@ export class Scenario1 extends Component {
                 })
                 console.log(user)
             } else {
-                document.getElementById("searchError").innerText = "Search Criteria is invalid"
+                document.getElementById("searchError").innerText = "Search Criteria is invalid. \n Please do not enter any numbers or special characters."
             }
         }
     }
@@ -54,11 +56,13 @@ export class Scenario1 extends Component {
         console.log(element._id);
         console.log(element.forename);
 
-        sessionStorage.setItem('forename', element.forename);
-        window.open("/Profile");
+        sessionStorage.setItem('forename', this.state.forename);
     }
 
     render() {
+        if (this.state.profile) {
+            return <Redirect to='/Profile' />
+        }
         return (
             <div>
                 <Form onSubmit={this.findCitizens} className="search-form">
@@ -84,6 +88,12 @@ export class Scenario1 extends Component {
                 <br></br>
                 <br></br>
                 <p> <Link to='/Profile'>profile</Link></p>
+                <br></br>
+                <Link to='/Profile' onClick={this.details}>
+                    <Button >Profile</Button>
+                </Link>
+
+                <br></br>
                 <Scenario data={this.state.data} details={this.details} ></Scenario>
 
             </div>

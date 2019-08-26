@@ -5,17 +5,20 @@ import { ScrollBar } from '../ScrollBar/Scroll.js';
 
 export class CitizenProfile extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
+        this.state = {
+            associates: [],
+            forename: sessionStorage.getItem('forename')
+        }
     }
 
     fill = () => {
-        sessionStorage.setItem('forename', "john");
-        sessionStorage.setItem('surname', 'smith');
-        sessionStorage.setItem('dob', '13/05/87');
-        sessionStorage.setItem('gen', 'M');
-        sessionStorage.setItem('pob', 'England');
-        sessionStorage.setItem('address', 'drgdhghht');
+        sessionStorage.clear()
+    }
+
+    componentDidMount() {
+        sessionStorage.clear()
     }
 
     render() {
@@ -30,7 +33,7 @@ export class CitizenProfile extends Component {
                             <FontAwesomeIcon icon='user' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
                         </Col>
                         <Col sm={4} align="left">
-                            <p> Full Name: {sessionStorage.getItem('forename')} {sessionStorage.getItem('surname')}</p>
+                            <p> Full Name: {this.state.forename} {sessionStorage.getItem('surname')}</p>
                             <p> D.o.B : {sessionStorage.getItem('dob')} </p>
                             <p> Gender : {sessionStorage.getItem('gen')} </p>
                         </Col>

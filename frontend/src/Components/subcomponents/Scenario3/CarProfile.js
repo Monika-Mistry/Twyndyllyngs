@@ -10,8 +10,7 @@ export class CarProfile extends Component {
         }
         return (
             <div>
-                <p> Car Profile</p>
-                <p> {this.props.data}</p>
+                {page}
             </div>
         )
     }
