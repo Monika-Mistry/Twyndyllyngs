@@ -28,10 +28,12 @@ public class AssociateController {
 			@PathVariable("phoneNumber") String phoneNumber) {
 		return associateService.findAssociatesByPhonenumber(phoneNumber);
 	}
+	
+	@GetMapping("/getAssociatesByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ArrayList<Associate> findAssociatesByFullnameAndAddress(
+			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
+		return associateService.findAssociatesByFullnameAndAddress(forenames, surname, address);
+	}
 
-//	@GetMapping("/getAssociateByFullname/{forenames}/{surname}")
-//	public Associates[] findAssociateByFullname(@PathVariable("forenames") String forenames,
-//			@PathVariable("surname") String surname) {
-//		return associateService.findByForenamesAndSurname(forenames, surname);
-//	}
+
 }

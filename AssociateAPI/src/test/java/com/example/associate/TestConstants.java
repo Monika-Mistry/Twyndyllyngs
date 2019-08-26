@@ -1,7 +1,6 @@
 package com.example.associate;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +22,8 @@ public class TestConstants {
 			"23 LOW STREET, UPFORD, U45 1NV"
 			);
 	
-	public static final ArrayList<Associate> MOCK_ASSOCIATES_ARRAY = new ArrayList<Associate>();
-	
-	
+	public static ArrayList<Associate> MOCK_ASSOCIATES_ARRAY = new ArrayList<Associate>();
+			
 	
 	public static final ResponseEntity<ArrayList<Associate>> MOCK_ASSOCIATES_RESPONSE = new ResponseEntity<ArrayList<Associate>>(MOCK_ASSOCIATES_ARRAY, HttpStatus.OK);
 	

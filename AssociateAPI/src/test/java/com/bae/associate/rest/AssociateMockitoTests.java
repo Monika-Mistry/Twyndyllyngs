@@ -24,11 +24,19 @@ public class AssociateMockitoTests {
 	AssociateService service;
 	
 	@Test
-	public void getAssociatesbyPhoneNumberTest() {
+	public void getAssociatesByPhoneNumberTest() {
 		Mockito.when(service.findAssociatesByPhonenumber("07700 049488")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
 
 		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociatesByPhonenumber("07700 049488"));
 		Mockito.verify(service).findAssociatesByPhonenumber("07700 049488");
+	}
+	
+	@Test
+	public void getAssociatesByFullnameAndAddressTest() {
+		Mockito.when(service.findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
+
+		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX"));
+		Mockito.verify(service).findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX");
 	}
 		
 	

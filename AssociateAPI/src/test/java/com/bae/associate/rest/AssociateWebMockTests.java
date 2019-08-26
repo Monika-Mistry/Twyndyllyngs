@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
+import java.util.ArrayList;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.bae.associate.Associate;
 import com.bae.associate.service.AssociateService;
 import com.example.associate.TestConstants;
 
@@ -30,13 +33,13 @@ public class AssociateWebMockTests {
 	@MockBean
 	private AssociateService service;
 	
-	@Ignore
-	@Test
-	public void getAssociatesByPhoneNumberTest() throws Exception {
-		when(service.findAssociatesByPhonenumber("Aaron")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
-		
-		mockMvc.perform(get("/getAssociateByFullname/Aaron/Smith"))
-		.andExpect(content().string(containsString("Aaron"))).andDo(print());
-	}
+//	@Ignore
+//	@Test
+//	public void getAssociatesByPhoneNumberTest() throws Exception {
+//		when(service.findAssociatesByPhonenumber("07700 049488")).thenReturn((ArrayList<Associate>) TestConstants.MOCK_ASSOCIATES_1);
+//		
+//		mockMvc.perform(get("/getAssociateByPhonenumbere/07700 049488"))
+//		.andExpect(content().string(containsString("John"))).andDo(print());
+//	}
 
 }

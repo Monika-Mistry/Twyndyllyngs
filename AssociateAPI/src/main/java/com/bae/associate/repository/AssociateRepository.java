@@ -24,5 +24,20 @@ public interface AssociateRepository extends CrudRepository<PeopleMobile, Long> 
 			"ON numbers.receiverMSISDN = receiver.phoneNumber",
 			nativeQuery = true)	
 	ArrayList<Associate> findAssociatesByPhonenumber(@Param("phoneNumber")String phoneNumber);
+	
+	@Query(value = "SELECT receiver.forenames, receiver.surname, receiver.address, receiver.phoneNumber " + 
+			"FROM( " + 
+			"SELECT DISTINCT caller.forenames, caller.surname, mcr.receiverMSISDN " + 
+			"FROM MobileCallRecords as mcr " + 
+			"Join PeopleMobile AS caller " + 
+			"ON caller.phoneNumber = mcr.callerMSISDN " + 
+			"AND caller.forenames=:forenames  " + 
+			"AND caller.surname=:surname  " + 
+			"AND caller.address=:address  " + 
+			") AS numbers " + 
+			"JOIN PeopleMobile as receiver " + 
+			"ON numbers.receiverMSISDN = receiver.phoneNumber",
+			nativeQuery = true)	
+	ArrayList<Associate> findAssociatesByFullnameAndAddress(@Param("forenames") String forenames, @Param("surname") String surname, @Param("address") String address);
 
 }

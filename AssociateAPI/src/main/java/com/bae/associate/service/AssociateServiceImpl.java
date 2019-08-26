@@ -28,9 +28,11 @@ public class AssociateServiceImpl implements AssociateService {
 		return associateRepository.findAssociatesByPhonenumber(phoneNumber);
 	}
 
+	@Override
+	public ArrayList<Associate> findAssociatesByFullnameAndAddress(String forenames, String surname, String address) {
+		return associateRepository.findAssociatesByFullnameAndAddress(forenames, surname, address);
+	}
 
-//	public Associates[] findByForenamesAndSurname(String forenames, String surname) {
-//		return associateRepository.findByForenamesAndSurname(forenames, surname);
-//	}
+
 
 }
