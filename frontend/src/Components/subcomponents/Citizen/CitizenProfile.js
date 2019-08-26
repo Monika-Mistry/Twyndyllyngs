@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ScrollBar } from '../ScrollBar/Scroll.js';
-import { Phone } from '../Profiles/phone.js';
+import { Phone } from '../Profiles/PhoneProfile.js';
+import { CarProfile } from '../Profiles/CarProfile.js';
 
 export class CitizenProfile extends Component {
 
@@ -16,16 +17,22 @@ export class CitizenProfile extends Component {
             gender: "",
             pob: "",
             address: "",
-            vehicle: [],
-            phone: [],
+            vehicle: "regNo",
+            phone: null,
             finances: []
         }
     }
 
+    testing = () => {
+        console.log(this.state.phone)
+    }
+
+
+
     onLoad = () => {
-        this.setState = {
-            phone: ["hello", "trial"]
-        }
+        this.setState({
+            phone: [{id: "1", value: "Hello"}, {id: "2", value: "trial"}]
+        });
         console.log(this.state.associates)
         sessionStorage.clear()
     }
@@ -38,7 +45,7 @@ export class CitizenProfile extends Component {
         return (
             <div>
                 <p>Citizen Profile Page</p>
-                <button onClick={this.fill}>profile</button>
+                <button onClick={this.testing}>Show</button>
 
                 <Container>
                     <Row>
@@ -73,9 +80,7 @@ export class CitizenProfile extends Component {
                 <h3 align="left">Car:</h3>
 
                 <Container>
-                    <Row>
-                        <p>{this.state.vehicle}</p>
-                    </Row>
+                    <CarProfile registration={this.state.vehicle}/>
                 </Container>
                 <br></br>
                 <br></br>
@@ -84,7 +89,8 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <Phone data={this.state.phone} />
+                        {/* <Phone data={this.state.phone} /> */}
+                        <p> HEllo</p>
                     </Row>
                 </Container>
 

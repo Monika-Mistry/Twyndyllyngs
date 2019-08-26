@@ -5,7 +5,7 @@ export default function CitizenList(props) {
 
     return (
         <div>
-            <CitizenHeader data={props.data } details={props.details}/>
+            <CitizenHeader data={props.data} details={props.details}/>
         </div>
     )
 }

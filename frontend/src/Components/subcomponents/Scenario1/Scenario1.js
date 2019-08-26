@@ -85,10 +85,8 @@ export class Scenario1 extends Component {
                 <p id="searchError" style={{ color: 'red' }}></p>
                 <br></br>
                 <br></br>
-                <p> <Link to='/Profile'>profile</Link></p>
-                <br></br>
                 <Link to='/Profile' onClick={this.details}>
-                    <Button >Profile</Button>
+                    <Button>Profile</Button>
                 </Link>
 
                 <br></br>

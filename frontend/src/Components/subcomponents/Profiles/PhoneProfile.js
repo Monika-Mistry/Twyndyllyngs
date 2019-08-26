@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { PhoneHead } from './PhoneHeader.js'
 export class Phone extends Component {
    
     constructor(props) {
@@ -10,7 +10,7 @@ export class Phone extends Component {
         return(
             <div>
                 <p> Hello</p>
-                <p> {this.props.data[1]}</p>
+                <PhoneHead date={this.props.data} />
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { CarProfile } from './CarProfile.js';
+import { CarProfile } from '../Profiles/CarProfile.js';
 import { findCar } from '../Constants/Routes.js';
 import { alnuValid, validation } from '../Constants/Constants.js';
 
