@@ -11,9 +11,11 @@
 
 [4. Database](#data)
 
-[5. Authors](#auth)
+[5. Requests](#requests)
 
-[6. Acknowledgements](#ack)
+[6. Authors](#auth)
+
+[7. Acknowledgements](#ack)
 
 <a name="arch"></a>
 # 0. Architecture
@@ -59,8 +61,13 @@ No passwords are sent to the front end.
 The user database is a MySQL database hosted on a Google Cloud Services VM.
 This is accessed through the Sequelizer node_module and a password which is .gitignored. 
 
+<a name="requests"></a>
+# 5. Requests
+
+User requests from the front end are validated in the API and then forwarded to the core API. The Login service acts as a gateway to the other services in the system where only authorised users can access the data. It communicates over port 8002.
+
 <a name="auth"></a>
-# 5. Authors
+# 6. Authors
 
 1. Rich Harris
 2. Owen Miller
@@ -69,6 +76,6 @@ This is accessed through the Sequelizer node_module and a password which is .git
 5. Josh Brooks
 
 <a name="ack"></a>
-# 6. Acknowledgements
+# 7. Acknowledgements
 
 * QA consulting and our fantastic instructors.
