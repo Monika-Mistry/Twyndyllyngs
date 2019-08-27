@@ -33,10 +33,10 @@ public class PeopleBankCardMockitoTests {
 		List<PeopleBankCard> MOCK_LIST = new ArrayList<>();
 		MOCK_LIST.add(TestConstants.MOCK_BANK_ACCOUNT_1);
 		
-		Mockito.when(repository.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(MOCK_LIST);
-		assertArrayEquals(TestConstants.MOCK_BANK_ACCOUNT_ARRAY, service.findByForenamesAndSurname("Aaron", "Aarvark"));
+		Mockito.when(repository.findByForenamesAndSurnameAndHomeAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ")).thenReturn(MOCK_LIST);
+		assertArrayEquals(TestConstants.MOCK_BANK_ACCOUNT_ARRAY, service.findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ"));
 		
-		Mockito.verify(repository).findByForenamesAndSurname("Aaron", "Aarvark");
+		Mockito.verify(repository).findByForenamesAndSurnameAndHomeAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ");
 	}
 	
 }

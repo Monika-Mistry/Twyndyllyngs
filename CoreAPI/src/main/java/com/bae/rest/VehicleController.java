@@ -34,18 +34,18 @@ public class VehicleController extends Controller {
 
 		CarObject carObject = new CarObject(vehicleLocation.getBody(), vehicleRegistration.getBody());
 
-		return new ResponseEntity<CarObject>(carObject, HttpStatus.OK);
+		return new ResponseEntity<>(carObject, HttpStatus.OK);
 	}
 
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
-	private ResponseEntity<VehicleLocations[]> getVehicleLocation(
+	public ResponseEntity<VehicleLocations[]> getVehicleLocation(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
 		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocations[].class);
 
 	}
 
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
-	private ResponseEntity<VehicleRegistration[]> getVehicleRegistration(
+	public ResponseEntity<VehicleRegistration[]> getVehicleRegistration(
 			@PathVariable("vehicleRegistrationNo") String vehicleReg) {
 		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL + vehicleReg, VehicleRegistration[].class);
 
