@@ -1,12 +1,12 @@
 package com.bae.mobile.service;
 
-import com.bae.mobile.domain.MobileCallRecord;
+import com.bae.mobile.domain.MobileCallRecords;
 
 public interface MobileCallRecordService {
 	
-	MobileCallRecord[] findByCaller(String caller);
+	MobileCallRecords[] findByCaller(String caller);
 	
-	MobileCallRecord[] findByReceiver(String receiver);
+	MobileCallRecords[] findByReceiver(String receiver);
 	
-	MobileCallRecord[] findByCallerOrReceiver(String caller, String receiver);
+	MobileCallRecords[] findByCallerOrReceiver(String caller, String receiver);
 }
