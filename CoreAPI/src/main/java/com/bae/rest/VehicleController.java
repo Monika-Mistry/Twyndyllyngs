@@ -34,7 +34,7 @@ public class VehicleController extends Controller {
 
 		CarObject carObject = new CarObject(vehicleLocation.getBody(), vehicleRegistration.getBody());
 
-		return new ResponseEntity<CarObject>(carObject, HttpStatus.OK);
+		return new ResponseEntity<>(carObject, HttpStatus.OK);
 	}
 
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")

@@ -32,21 +32,21 @@ public class CitizenController extends Controller {
 		if (forename.equals("null")) {
 			ResponseEntity<Citizen[]> citizenSurname = getCitizenBySurname(surname);
 			Citizen[] citizen = citizenSurname.getBody();
-			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
+			return new ResponseEntity<>(citizen, HttpStatus.OK);
 		} else if (surname.equals("null")) {
 			ResponseEntity<Citizen[]> citizenForename = getCitizenByForename(forename);
 			Citizen[] citizen = citizenForename.getBody();
-			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
+			return new ResponseEntity<>(citizen, HttpStatus.OK);
 
 		} else if (address.equals("null")) {
 			ResponseEntity<Citizen[]> citizenFullname = getCitizenByFullname(forename, surname);
 			Citizen[] citizen = citizenFullname.getBody();
-			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
+			return new ResponseEntity<>(citizen, HttpStatus.OK);
 	
 		} else {
 			ResponseEntity<Citizen[]> citizenFullnameAndAddress = getCitizenByFullnameAndAddress(forename, surname, address);
 			Citizen[] citizen = citizenFullnameAndAddress.getBody();
-			return new ResponseEntity<Citizen[]>(citizen, HttpStatus.OK);
+			return new ResponseEntity<>(citizen, HttpStatus.OK);
 		}
 
 	}
