@@ -1,4 +1,4 @@
-package com.bae.associate;
+package com.bae.associate.domain;
 
 public interface Associate {
 

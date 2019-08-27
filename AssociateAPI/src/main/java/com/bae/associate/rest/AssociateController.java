@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.associate.Associate;
+import com.bae.associate.domain.Associate;
 import com.bae.associate.service.AssociateService;
 
 @RestController
@@ -23,13 +23,13 @@ public class AssociateController {
 		this.associateService = associateService;
 	}
 
-	@GetMapping("/getAssociatesByPhonenumber/{phoneNumber}")
+	@GetMapping("/getAssociatesByPhoneNumber/{phoneNumber}")
 	public ArrayList<Associate> findAssociatesByPhonenumber(
 			@PathVariable("phoneNumber") String phoneNumber) {
 		return associateService.findAssociatesByPhonenumber(phoneNumber);
 	}
 	
-	@GetMapping("/getAssociatesByFullnameAndAddress/{forenames}/{surname}/{address}")
+	@GetMapping("/getAssociatesByFullNameAndAddress/{forenames}/{surname}/{address}")
 	public ArrayList<Associate> findAssociatesByFullnameAndAddress(
 			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
 		return associateService.findAssociatesByFullnameAndAddress(forenames, surname, address);

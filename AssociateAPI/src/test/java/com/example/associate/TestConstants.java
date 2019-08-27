@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.bae.associate.Associate;
-import com.bae.associate.AssociateImpl;
+import com.bae.associate.domain.Associate;
+import com.bae.associate.domain.AssociateImpl;
 
 public class TestConstants {
 	
