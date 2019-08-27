@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bae.mobile.domain.MobileCallRecord;
+import com.bae.mobile.domain.MobileCallRecords;
 import com.bae.mobile.repository.MobileCallRecordRepository;
 
 @Service
@@ -22,27 +22,27 @@ public class MobileCallRecordServiceImplementation implements MobileCallRecordSe
 	}
 	
 
-	public MobileCallRecord[] findByCaller(String caller) {
+	public MobileCallRecords[] findByCaller(String caller) {
 		
-		List<MobileCallRecord> callRecordsList = mobileCallRecordsRepository.findByCallerMSISDN(caller);
+		List<MobileCallRecords> callRecordsList = mobileCallRecordsRepository.findByCallerMSISDN(caller);
 		
-		return callRecordsList.toArray(new MobileCallRecord[callRecordsList.size()]);
+		return callRecordsList.toArray(new MobileCallRecords[callRecordsList.size()]);
 	}
 
 
-	public MobileCallRecord[] findByReceiver(String receiver) {
+	public MobileCallRecords[] findByReceiver(String receiver) {
 		
-		List<MobileCallRecord> callRecordsList = mobileCallRecordsRepository.findByReceiverMSISDN(receiver);
+		List<MobileCallRecords> callRecordsList = mobileCallRecordsRepository.findByReceiverMSISDN(receiver);
 		
-		return callRecordsList.toArray(new MobileCallRecord[callRecordsList.size()]);
+		return callRecordsList.toArray(new MobileCallRecords[callRecordsList.size()]);
 	}
 
 	
-	public MobileCallRecord[] findByCallerOrReceiver(String caller, String receiver) {
+	public MobileCallRecords[] findByCallerOrReceiver(String caller, String receiver) {
 		
-		List<MobileCallRecord> callRecordsList = mobileCallRecordsRepository.findByCallerMSISDNOrReceiverMSISDN(caller, receiver);
+		List<MobileCallRecords> callRecordsList = mobileCallRecordsRepository.findByCallerMSISDNOrReceiverMSISDN(caller, receiver);
 		
-		return callRecordsList.toArray(new MobileCallRecord[callRecordsList.size()]);
+		return callRecordsList.toArray(new MobileCallRecords[callRecordsList.size()]);
 	}
 
 }

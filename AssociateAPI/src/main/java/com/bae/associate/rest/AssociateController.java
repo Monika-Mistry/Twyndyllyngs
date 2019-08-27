@@ -24,15 +24,15 @@ public class AssociateController {
 	}
 
 	@GetMapping("/getAssociatesByPhoneNumber/{phoneNumber}")
-	public ArrayList<Associate> findAssociatesByPhonenumber(
+	public Associate[] findAssociatesByPhonenumber(
 			@PathVariable("phoneNumber") String phoneNumber) {
 		return associateService.findAssociatesByPhonenumber(phoneNumber);
 	}
 	
 	@GetMapping("/getAssociatesByFullNameAndAddress/{forenames}/{surname}/{address}")
-	public ArrayList<Associate> findAssociatesByFullnameAndAddress(
+	public Associate[] findAssociatesByFullNameAndAddress(
 			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
-		return associateService.findAssociatesByFullnameAndAddress(forenames, surname, address);
+		return associateService.findAssociatesByFullNameAndAddress(forenames, surname, address);
 	}
 
 

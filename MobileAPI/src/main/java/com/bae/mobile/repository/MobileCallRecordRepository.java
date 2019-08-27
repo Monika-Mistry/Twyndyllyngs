@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.bae.mobile.domain.MobileCallRecord;
+import com.bae.mobile.domain.MobileCallRecords;
 
 @Repository
-public interface MobileCallRecordRepository extends CrudRepository<MobileCallRecord, Integer>{
+public interface MobileCallRecordRepository extends CrudRepository<MobileCallRecords, Integer>{
 
-	public List<MobileCallRecord> findByCallerMSISDN(String callerMSISDN);
+	public List<MobileCallRecords> findByCallerMSISDN(String callerMSISDN);
 	
-	public List<MobileCallRecord> findByReceiverMSISDN(String receiverMSISDN);
+	public List<MobileCallRecords> findByReceiverMSISDN(String receiverMSISDN);
 	
-	public List<MobileCallRecord> findByCallerMSISDNOrReceiverMSISDN(String callerMSISDN, String receiverMSISDN);
+	public List<MobileCallRecords> findByCallerMSISDNOrReceiverMSISDN(String callerMSISDN, String receiverMSISDN);
 }

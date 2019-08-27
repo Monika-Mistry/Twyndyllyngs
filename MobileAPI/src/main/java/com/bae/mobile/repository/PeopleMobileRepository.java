@@ -17,4 +17,6 @@ public interface PeopleMobileRepository extends CrudRepository<PeopleMobile, Int
 	public List<PeopleMobile> findByForenamesAndSurname(String forenames, String surname);
 	
 	public List<PeopleMobile> findByPhoneNumber(String phoneNumber);
+
+	public List<PeopleMobile> findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
 }

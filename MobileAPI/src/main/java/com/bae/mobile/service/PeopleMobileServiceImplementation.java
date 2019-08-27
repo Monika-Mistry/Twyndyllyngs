@@ -49,4 +49,11 @@ public class PeopleMobileServiceImplementation implements PeopleMobileService {
 		return peopleMobileList.toArray(new PeopleMobile[peopleMobileList.size()]);
 	}
 
+	@Override
+	public PeopleMobile[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address) {
+		List<PeopleMobile> peopleMobileList = peopleMobileRepository.findByForenamesAndSurnameAndAddress(forenames, surname, address);
+
+		return peopleMobileList.toArray(new PeopleMobile[peopleMobileList.size()]);
+	}
+
 }

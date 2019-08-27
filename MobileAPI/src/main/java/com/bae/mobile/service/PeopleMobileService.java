@@ -8,6 +8,7 @@ public interface PeopleMobileService {
 	PeopleMobile[] findBySurname(String surname);
 	PeopleMobile[] findByForenamesAndSurname(String forenames, String surname);
 	PeopleMobile[] findByPhoneNumber(String phoneNumber);
+	PeopleMobile[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
 	
 	
 }

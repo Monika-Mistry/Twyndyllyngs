@@ -10,4 +10,10 @@ public class Constants {
 	public static final String CITIZEN_FULLNAME_URL = "http://citizen:8003/getCitizensByFullname/";
 	public static final String CITIZEN_FULLNAME_AND_ADDRESS_URL = "http://citizen:8003/getCitizensByFullnameAndAddress/";
 	public static final String CITIZEN_ID_URL = "http://citizen:8003/getCitizenById/";
+	
+	public static final String ASSOCIATE_FULLNAME_ADDRESS_URL = "http://associates:8007/getAssociatesByFullNameAndAddress/";
+	public static final String ASSOCIATE_PHONE_NUMBER_URL = "http://associates:8007/getAssociatesByPhoneNumber/";
+	
+	public static final String MOBILE_CALL_RECORDS_URL = "http://mobile:8006/getCallRecordsByCaller/";
+	public static final String PEOPLE_MOBILE_URL = "http://mobile:8006/getMobileByFullnameAndAddress/";
 }

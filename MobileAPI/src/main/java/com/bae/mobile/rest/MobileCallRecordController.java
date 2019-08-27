@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.mobile.domain.MobileCallRecord;
+import com.bae.mobile.domain.MobileCallRecords;
 import com.bae.mobile.service.MobileCallRecordService;
 
 @RestController
@@ -23,21 +23,21 @@ public class MobileCallRecordController {
 	}
 	
 	@GetMapping("/getCallRecordsByCaller/{caller}")
-	public ResponseEntity<MobileCallRecord[]> findCallRecordsByCaller(@PathVariable("caller") String caller){
+	public ResponseEntity<MobileCallRecords[]> findCallRecordsByCaller(@PathVariable("caller") String caller){
 		
 		return new ResponseEntity<>(callRecordsService.findByCaller(caller), HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/getCallRecordsByReceiver/{receiver}")
-	public ResponseEntity<MobileCallRecord[]> findCallRecordsByReceiver(@PathVariable("receiver") String receiver){
+	public ResponseEntity<MobileCallRecords[]> findCallRecordsByReceiver(@PathVariable("receiver") String receiver){
 		
 		return new ResponseEntity<>(callRecordsService.findByReceiver(receiver), HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/getCallRecordsByCallerOrReceiver/{caller}/{receiver}")
-	public ResponseEntity<MobileCallRecord[]> findCallRecordsByCallerOrReceiver(@PathVariable("caller") String caller, @PathVariable("receiver") String receiver){
+	public ResponseEntity<MobileCallRecords[]> findCallRecordsByCallerOrReceiver(@PathVariable("caller") String caller, @PathVariable("receiver") String receiver){
 		
 		return new ResponseEntity<>(callRecordsService.findByCallerOrReceiver(caller, receiver), HttpStatus.OK);
 		
