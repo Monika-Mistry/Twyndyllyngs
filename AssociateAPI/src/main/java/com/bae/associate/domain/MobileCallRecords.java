@@ -26,7 +26,7 @@ public class MobileCallRecords {
 	@Column(name = "receivertowerid")
 	private String receiverTowerId;
 	
-	public MobileCallRecords(Long id, Date timestamp, String callerMSISDN, String callCellTowerId,
+	public MobileCallRecords(Long id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
 			String receiverMSISDN, String receiverTowerId) {
 		super();
 		this.id = id;
