@@ -61,5 +61,17 @@ public class CitizenWebMockTest {
 				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
 
 	}
+	
+	@Test
+	public void getCitizensByFullnameAndAddressTest() throws Exception {
+
+		when(service.findByForenamesAndSurnameAndAddress("Aaron", "Aarvark", "34 Megaroad Megatown M6 7RQ")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
+
+		mockMvc.perform(get("/getCitizensByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ"))
+				.andExpect(content().string(containsString("Aaron")))
+				.andExpect(content().string(containsString("34 Megaroad Megatown M6 7RQ")))
+				.andExpect(content().string(containsString("Aarvark"))).andDo(print());
+
+	}
 
 }

@@ -48,6 +48,15 @@ public class CitizenMockitoTests {
 		assertEquals(TestConstants.MOCK_CITIZEN_1_RESPONSE, controller.findCitizensByFullname("Aaron", "Aarvark"));
 		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Aarvark");
 	}
+	
+	@Test
+	public void getCitizensByFullnameAndAddressTest() {
+
+		Mockito.when(service.findByForenamesAndSurnameAndAddress("Aaron", "Aarvark", "34 Megaroad Megatown M6 7RQ")).thenReturn(TestConstants.MOCK_CITIZEN_1_ARRAY);
+
+		assertEquals(TestConstants.MOCK_CITIZEN_1_RESPONSE, controller.findCitizensByFullname("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ"));
+		Mockito.verify(service).findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ");
+	}
 
 	@Test
 	public void getCitizenByIdDoesExistTest() {
