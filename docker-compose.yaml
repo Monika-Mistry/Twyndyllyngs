@@ -53,7 +53,7 @@ services:
             - {target: 8003, protocol: tcp}
     mobile:
         build:
-            context: ./MobileApi
+            context: ./MobileAPI
             dockerfile: Dockerfile
             args: 
                 - PASSWORD=${PASSWORD}
