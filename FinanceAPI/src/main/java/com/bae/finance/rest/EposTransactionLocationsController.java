@@ -22,25 +22,14 @@ public class EposTransactionLocationsController {
 		this.eposService = eposService;
 	}
 	
-	@GetMapping("/getEposTransactionsByForenames")
-	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByForenames(@PathVariable("forenames") String forenames){
+	
+	@GetMapping("/getEposTransactionsByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByForenamesAndSurname(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address){
 		
-		return new ResponseEntity<EposTransactionLocations[]>(eposService.findByForenames(forenames), HttpStatus.OK);
+		return new ResponseEntity<EposTransactionLocations[]>(eposService.findByForenamesAndSurnameAndAddress(forenames, surname, address), HttpStatus.OK);
 	}
 	
-	@GetMapping("/getEposTransactionsBySurname")
-	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsBySurname(@PathVariable("surname") String surname){
-		
-		return new ResponseEntity<EposTransactionLocations[]>(eposService.findBySurname(surname), HttpStatus.OK);
-	}
-	
-	@GetMapping("/getEposTransactionsByForenamesAndSurname")
-	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByForenamesAndSurname(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname){
-		
-		return new ResponseEntity<EposTransactionLocations[]>(eposService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
-	}
-	
-	@GetMapping("/getEposTransactionsByCardNumber")
+	@GetMapping("/getEposTransactionsByCardNumber/{cardNumber}")
 	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByCardNumber(@PathVariable("cardNumber") String cardNumber){
 		
 		return new ResponseEntity<EposTransactionLocations[]>(eposService.findByCardNumber(cardNumber), HttpStatus.OK);

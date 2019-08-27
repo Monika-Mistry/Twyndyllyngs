@@ -20,24 +20,10 @@ public class EposTransactionLocationsServiceImplementation implements EposTransa
 	}
 
 
-	public EposTransactionLocations[] findByForenames(String forenames) {
-		
-		List<EposTransactionLocations> eposTransactionList = eposRepository.findByForenames(forenames);
-		
-		return eposTransactionList.toArray(new EposTransactionLocations[eposTransactionList.size()]);
-	}
 
-
-	public EposTransactionLocations[] findBySurname(String surname) {
+	public EposTransactionLocations[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address) {
 		
-		List<EposTransactionLocations> eposTransactionList = eposRepository.findBySurname(surname);
-		
-		return eposTransactionList.toArray(new EposTransactionLocations[eposTransactionList.size()]);
-	}
-
-	public EposTransactionLocations[] findByForenamesAndSurname(String forenames, String surname) {
-		
-		List<EposTransactionLocations> eposTransactionList = eposRepository.findByForenamesAndSurname(forenames, surname);
+		List<EposTransactionLocations> eposTransactionList = eposRepository.findByForenamesAndSurnameAndHomeAddress(forenames, surname, address);
 		
 		return eposTransactionList.toArray(new EposTransactionLocations[eposTransactionList.size()]);
 		

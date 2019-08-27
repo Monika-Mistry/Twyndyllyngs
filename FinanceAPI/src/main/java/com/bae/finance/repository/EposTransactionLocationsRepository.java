@@ -10,11 +10,8 @@ import com.bae.finance.domain.EposTransactionLocations;
 @Repository
 public interface EposTransactionLocationsRepository extends CrudRepository<EposTransactionLocations, Long>{
 
-	public List<EposTransactionLocations> findByForenames(String forenames);
 	
-	public List<EposTransactionLocations> findBySurname(String surname);
-	
-	public List<EposTransactionLocations> findByForenamesAndSurname(String forenames, String surname);
+	public List<EposTransactionLocations> findByForenamesAndSurnameAndHomeAddress(String forenames, String surname, String homeAddress);
 	
 	public List<EposTransactionLocations> findByCardNumber(String cardNumber);
 	
