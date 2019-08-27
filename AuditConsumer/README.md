@@ -36,7 +36,7 @@
 <a name="auth"></a>
 # 4. Authors
 
-1. Rich Harris
+[1. Rich Harris] (https://github.com/Monika-Mistry)
 2. Owen Miller
 3. Thi Nguyen
 4. Monika Mistry
