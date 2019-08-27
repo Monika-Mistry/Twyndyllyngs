@@ -36,7 +36,8 @@
 <a name="auth"></a>
 # 4. Authors
 
-[1. Rich Harris] (https://github.com/Monika-Mistry)
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+[1. Rich Harris](https://github.com/Monika-Mistry)
 2. Owen Miller
 3. Thi Nguyen
 4. Monika Mistry
