@@ -80,9 +80,10 @@ public class TestConstants {
 	public static final ResponseEntity<MobileCallRecords[]> MOCK_CALL_RECORD_RESPONSE = 
 			new ResponseEntity<>(MOCK_CALL_RECORD_ARRAY, HttpStatus.OK);
 	
-	public static final String PEOPLE_MOBILE_FULLNAME_AND_ADDRESS = "http://mobile:8006/getCallRecordsByCaller/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
+	public static final String PEOPLE_MOBILE_FULLNAME_AND_ADDRESS = "http://mobile:8006/getMobileByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
 
-	public static final String CALL_RECORDS_PHONENUMBER = "http://mobile:8006/getMobileByFullnameAndAddress/01234567890";
+	public static final String CALL_RECORDS_PHONENUMBER = "http://mobile:8006/getCallRecordsByCaller/01234567890";
 
+	
 	
 }
