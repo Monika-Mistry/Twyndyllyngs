@@ -24,7 +24,7 @@ public class PeopleBankCardController {
 	@GetMapping("/getBankAccountDetailsByFullname/{forenames}/{surname}")
 	public ResponseEntity<PeopleBankCard[]> findBankAccountDetailsByFullname(@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname) {
-		return new ResponseEntity<PeopleBankCard[]>(peopleBankCardService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
+		return new ResponseEntity<>(peopleBankCardService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
 	}
 
 }
