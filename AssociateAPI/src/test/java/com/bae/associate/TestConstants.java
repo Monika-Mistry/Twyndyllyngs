@@ -1,4 +1,4 @@
-package com.example.associate;
+package com.bae.associate;
 
 import java.util.ArrayList;
 

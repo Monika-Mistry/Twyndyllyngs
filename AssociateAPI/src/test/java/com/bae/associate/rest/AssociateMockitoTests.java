@@ -10,8 +10,8 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bae.associate.TestConstants;
 import com.bae.associate.service.AssociateService;
-import com.example.associate.TestConstants;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
