@@ -6,6 +6,18 @@ services:
             - {type: bind, source: ./nginx/nginx.conf, target: /etc/nginx/nginx.conf}
         ports:
             - {target: 80, published: 80, protocol: tcp}
+    login:
+        build:
+            context: ./LoginNode
+            dockerfile: Dockerfile
+        ports:
+            - {target: 8002, protocol: tcp}
+    core:
+        build:
+            context: ./CoreAPI
+            dockerfile: Dockerfile
+        ports:
+            - {target: 8000, protocol: tcp}
     vehicle:
         build:
             context: ./VehicleAPI
@@ -22,3 +34,24 @@ services:
                 - PASSWORD=${PASSWORD}
         ports:
             - {target: 8003, protocol: tcp}
+    mobile:
+        build:
+            context: ./MobileApi
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8006, protocol: tcp}
+    associate:
+        build:
+            context: ./AssociateAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8007, protocol: tcp}
+    activemq:
+        image: 'rmohr/activemq:latest'
+        ports:
+            - {target: 8161, published: 8161, protocol: tcp}
+            - {target: 61616, published: 61616, protocol: tcp}   
