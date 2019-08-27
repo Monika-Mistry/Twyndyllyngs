@@ -8,7 +8,7 @@ import com.bae.domain.SentRequest;
 
 public abstract class Controller {
 	
-	private JmsTemplate jmsTemplate;
+private JmsTemplate jmsTemplate;
 	
 	public Controller(@Autowired JmsTemplate jmsTemplate) {
 		this.jmsTemplate = jmsTemplate;
@@ -18,4 +18,5 @@ public abstract class Controller {
 		SentRequest sentRequest = new SentRequest(request);	
 		jmsTemplate.convertAndSend("AuditQueue", sentRequest);
 	}
+
 }

@@ -6,12 +6,12 @@ const axios = require('axios');
 
 const coreApiCitizen = "http://core:8000/citizen/";
 
-const getAllCitizenRequest = (forenames, surname) => {
-    return axios.get(coreApiCitizen + forenames + "/" + surname);
+const getAllCitizenRequest = (forenames, surname, address) => {
+    return axios.get(coreApiCitizen + forenames + "/" + surname + "/" + address);
 };
 
-const getACitizenRequest = (id) => {
-    return axios.get(coreApiCitizen + "getById/" + id);
+const getACitizenRequest = (forenames, surname, address) => {
+    return axios.get(coreApiCitizen + "getProfile/" + forenames + "/" + surname + "/" + address);
 };
 
 router.get("/test", (req, res) => {
@@ -29,7 +29,8 @@ router.post("/", (req, res, next) => {
         } else {
             let forenames = req.body.forenames;
             let surname = req.body.surname;
-            getAllCitizenRequest(forenames, surname).then(response => {
+            let address = req.body.address;
+            getAllCitizenRequest(forenames, surname, address).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
         }
@@ -44,8 +45,10 @@ router.post("/profile", (req, res, next) => {
         if (info !== undefined) {
             res.status(401).send(info.message);
         } else {
-            let id = req.body.id;
-            getACitizenRequest(id).then(response => {
+            let forenames = req.body.forenames;
+            let surname = req.body.surname;
+            let address = req.body.address;
+            getACitizenRequest(forenames, surname, address).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
         }
