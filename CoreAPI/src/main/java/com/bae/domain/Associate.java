@@ -11,7 +11,6 @@ public class Associate {
 	
 	public Associate() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Associate(String forenames, String surname, String address) {
