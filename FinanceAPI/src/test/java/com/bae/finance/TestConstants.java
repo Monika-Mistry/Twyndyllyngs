@@ -16,7 +16,7 @@ import com.bae.finance.domain.EposTransactionLocations;
 import com.bae.finance.domain.PeopleBankCard;
 
 public class TestConstants {
-
+ 
 	public static final PeopleBankCard MOCK_BANK_ACCOUNT_1 = new PeopleBankCard(12345678L, "Aaron" , "Aarvark" , "123456", 
 			"Mega Bank", "1234567891234567", "10-07-73" , "34 Megaroad Megatown M6 7RQ", LocalDate.of(1990, 01, 01));
 
@@ -38,7 +38,7 @@ public class TestConstants {
 	(MOCK_ATM_TRANSACTION_ARRAY, HttpStatus.OK);
 
 	
-	
+ 	
 	
 	public static final EposTransactionLocations MOCK_EPOS_TRANSACTIONS = new EposTransactionLocations(1L, 1L, "123456", "Aaron" , "Aarvark",
 			LocalDate.of(1990, 01, 01), "34 Megaroad Megatown M6 7RQ", "1234567891234567", Timestamp.valueOf("2019-08-27 10:10:10.0"), 37.89,
