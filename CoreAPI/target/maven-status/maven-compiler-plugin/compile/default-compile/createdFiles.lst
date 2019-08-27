@@ -1,0 +1,12 @@
+com\bae\domain\Request.class
+com\bae\rest\Controller.class
+com\bae\domain\Citizen.class
+com\bae\CoreApi2Application.class
+com\bae\AppConfig.class
+com\bae\domain\VehicleRegistration.class
+com\bae\domain\CarObject.class
+com\bae\rest\CitizenController.class
+com\bae\rest\VehicleController.class
+com\bae\domain\VehicleLocations.class
+com\bae\domain\SentRequest.class
+com\bae\rest\Constants.class
