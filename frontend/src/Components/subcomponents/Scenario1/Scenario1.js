@@ -24,8 +24,10 @@ export class Scenario1 extends Component {
         let user = {
             forenames: this.nullify(e.target[0].value),
             surname: this.nullify(e.target[1].value),
-            address: "null"
+            address: this.nullify(e.target[2].value)
         }
+
+        console.log((e.target[2].value))
 
         if (user.forenames === "null" && user.surname === "null") {
             document.getElementById("searchError").innerText = "Please Fill at least 1 search box"
@@ -78,10 +80,16 @@ export class Scenario1 extends Component {
                             <Input type="text" name="forname" placeholder="enter forename" />
                         </Col>
                         <Col>
-                            <Label for="forname">Surname:</Label>
+                            <Label for="surname">Surname:</Label>
                         </Col>
                         <Col>
                             <Input type="text" name="surname" placeholder="enter surname" />
+                        </Col>
+                        <Col>
+                            <Label for="address">Address:</Label>
+                        </Col>
+                        <Col>
+                            <Input type="text" name="address" placeholder="enter address here" />
                         </Col>
                         <Col>
                             <Button>Search</Button>
@@ -90,11 +98,6 @@ export class Scenario1 extends Component {
                 </Form>
                 <p id="searchError" style={{ color: 'red' }}></p>
                 <br></br>
-                <br></br>
-                <Link to='/Profile' onClick={this.details}>
-                    <Button>Profile</Button>
-                </Link>
-
                 <br></br>
                 <Scenario data={this.state.data} details={this.details} ></Scenario>
 

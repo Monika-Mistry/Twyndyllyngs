@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
@@ -64,7 +63,7 @@ export class CitizenProfile extends Component {
                 <Container>
                     <Row>
                         <Col sm={2}>
-                            <FontAwesomeIcon icon='user' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
+                            <img src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} style={{ width: 100, height: 100 }}></img>
                         </Col>
                         <Col sm={4} align="left">
                             <p> Full Name: {this.state.citizen.forenames} {this.state.citizen.surname}</p>
