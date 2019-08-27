@@ -8,5 +8,6 @@ public interface CitizenService {
 	Citizen[] findBySurname(String surname);
 	Citizen[] findByForenamesAndSurname(String forenames, String surname);
 	Citizen findById(Long citizenId);
+	Citizen[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
 	
 }
