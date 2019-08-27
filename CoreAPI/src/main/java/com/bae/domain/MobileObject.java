@@ -11,7 +11,6 @@ public class MobileObject {
 	
 	public MobileObject() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public MobileObject(MobileCallRecords[] mobileCallRecord, PeopleMobile[] peopleMobile) {
