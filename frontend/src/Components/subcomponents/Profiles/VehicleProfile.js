@@ -24,7 +24,7 @@ export class VehicleProfile extends Component {
                         </Col>
                         <Col sm={4} align="left">
                             <p> Full Name: {vehicle.forenames} {vehicle.surname}</p>
-                            <p> D.o.B : {vehicle.dob} </p>
+                            <p> Date of Brith : {vehicle.dateOfBirth} </p>
                             <p> Driving Licence: {vehicle.driverLicenceId} </p>
                         </Col>
                         <Col sm={4} align="left">

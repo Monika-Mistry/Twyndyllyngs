@@ -23,7 +23,6 @@ export class VehicleContainer extends Component {
                         <Col sm={4} align="left">
                             <p> Registration No: {vehicle.vehicleRegistrationNo}</p>
                             <p> Registration Date: {vehicle.registrationDate}</p>
-                            <p> Registration Id: {vehicle.registrationId}</p>
                         </Col>
                     </Row>
                 </Container>
