@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
+import { loginUser } from './Constants/Routes.js'
 
 export class Login extends Component {
 
@@ -20,16 +21,13 @@ export class Login extends Component {
             password: e.target[1].value
         }
 
-        let value = "analyst"
-        this.props.onLogin(value)
+        loginUser(user).then( response => {
+            sessionStorage.setItem("JWToken", response.data.token)
+            this.props.onLogin(response.data.usertype)
+        }).catch( response => {
+            console.error(response)
+        })
     }
-
-    audit = () => {
-        let value = "auditor"
-        this.props.onLogin(value)
-    }
-
-    
 
     render() {
 
@@ -65,11 +63,6 @@ export class Login extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
-                <br></br>
-                <br></br>
-                <Link to='/auditor' onClick={this.audit}>
-                    <button> Audit </button>
-                </Link>
                 <p> <Link to='/forgot'> Forgotten Password?</Link></p>
             </div>
         )

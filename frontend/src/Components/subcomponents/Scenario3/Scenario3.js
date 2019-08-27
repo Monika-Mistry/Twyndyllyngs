@@ -24,6 +24,7 @@ export class Scenario3 extends Component {
                     this.setState = {
                         data: response.data
                     }
+                    console.log(response.data)
                 }).catch( response => {
                     console.log(response)
                 })

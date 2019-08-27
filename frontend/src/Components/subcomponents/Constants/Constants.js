@@ -1,6 +1,4 @@
-export const loginApi = "/server/";
-
-export const ACCESS_TOKEN = 'accessToken';
+export const loginApi = "http://35.197.253.209/";
 
 export const passValid = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
 export const alnu8Valid = new RegExp("^(?=.[A-Za-z0-9])(?=.{8,})");
@@ -11,12 +9,10 @@ export const numValud = new RegExp("^(?=.*[0-9])");
 export const latValid = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
 export const longValid = /^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
-export const headers = {
+export const header = {
     headers: {
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*",
+        Authorization : `JWT ${sessionStorage.getItem("JWToken")}`}
     }
-}
 
 export function validation(value, valid) {
     if (valid.test(value)) {

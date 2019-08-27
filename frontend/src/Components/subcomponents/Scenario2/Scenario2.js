@@ -33,12 +33,13 @@ export class Scenario2 extends Component {
         if (validation(values.latitude, latValid)) {
             if (validation(values.longitude, longValid)) {
                 console.log(values)
+                document.getElementById("latlongerror").innerText = ""
             } else {
-                console.log("nope")
+                document.getElementById("latlongerror").innerText = "Longitude must be between -180 and 180"
             }
             
         } else {
-            console.log(" big nope")
+            document.getElementById("latlongerror").innerText = "Latitude must be between -90 and 90"
         }
 
         
@@ -69,6 +70,7 @@ export class Scenario2 extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
+                <p id="latlongerror" style={{ color: 'red' }}> </p>
                 <DateRangePicker
                     onChange={this.onDateChange}
                     value={this.state.date}

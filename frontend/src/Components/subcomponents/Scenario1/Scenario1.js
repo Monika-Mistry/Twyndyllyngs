@@ -35,9 +35,10 @@ export class Scenario1 extends Component {
                         data: response.data
                     })
                 }).catch(response => {
-                    console.error(response);
+                    console.error(response.message);
                 })
                 console.log(user)
+                console.log(sessionStorage.getItem('JWToken'))
             } else {
                 document.getElementById("searchError").innerText = "Search Criteria is invalid. \n Please do not enter any numbers or special characters."
             }

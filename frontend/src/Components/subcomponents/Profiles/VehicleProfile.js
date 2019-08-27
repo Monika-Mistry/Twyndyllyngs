@@ -10,15 +10,15 @@ export class VehicleProfile extends Component {
         return (
             <div>
 
-                <Container>
+                <Container align='left'>
                     <VehicleContainer data={vehicle} />
                 </Container>
                 <br></br>
                 <br></br>
                 <h3 align="left">Current Owner:</h3>
                 <br></br>
-                <Container>
-                <Row>
+                <Container align="left">
+                    <Row>
                         <Col sm={2}>
                             <FontAwesomeIcon icon='user' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
                         </Col>
