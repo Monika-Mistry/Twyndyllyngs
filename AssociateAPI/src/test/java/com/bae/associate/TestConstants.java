@@ -15,13 +15,7 @@ public class TestConstants {
 			"Smith", 
 			"16 HIGH ROAD, UPFORD, U43 2DX"
 			);
-	
-	public static final Associate MOCK_ASSOCIATES_2 = new AssociateImpl(
-			"Ian", 
-			"Owen", 
-			"23 LOW STREET, UPFORD, U45 1NV"
-			);
-	
+
 	public static ArrayList<Associate> MOCK_ASSOCIATES_ARRAY = new ArrayList<Associate>();
 			
 	
