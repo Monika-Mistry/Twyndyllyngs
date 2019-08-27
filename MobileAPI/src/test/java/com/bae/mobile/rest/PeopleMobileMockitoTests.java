@@ -55,6 +55,14 @@ public class PeopleMobileMockitoTests {
 		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Aarvark");
 	}
 	
+	@Test
+	public void getMobileDetailsByFullnameAndAddress() {
+		Mockito.when(service.findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ")).thenReturn(TestConstants.MOCK_PERSON_MOBILE_ARRAY);
+		
+		assertEquals(TestConstants.MOCK_PERSON_MOBILE_RESPONSE, controller.findMobileByFullname("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ"));
+		Mockito.verify(service).findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ");
+	}
+	
 	
 	@Test
 	public void getMobileDetailsByPhoneNumberTest() {

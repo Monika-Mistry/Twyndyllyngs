@@ -24,13 +24,13 @@ public class AssociateServiceTest {
 
 	@BeforeClass
 	public static void setup() {
-		TestConstants.MOCK_ASSOCIATES_ARRAY.add(TestConstants.MOCK_ASSOCIATES_1);
+		TestConstants.MOCK_ASSOCIATES_ARRAYLIST.add(TestConstants.MOCK_ASSOCIATES_1);
 	}
 
 	@Test
 	public void findAssociatesByPhoneNumberTest() {
 		Mockito.when(repository.findAssociatesByPhonenumber("07700 049488"))
-				.thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
+				.thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAYLIST);
 
 		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, service.findAssociatesByPhonenumber("07700 049488"));
 		Mockito.verify(repository).findAssociatesByPhonenumber("07700 049488");
@@ -38,11 +38,11 @@ public class AssociateServiceTest {
 
 	@Test
 	public void findAssociatesByFullNameAndAddressTest() {
-		Mockito.when(repository.findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX"))
-				.thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
+		Mockito.when(repository.findAssociatesByFullNameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX"))
+				.thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAYLIST);
 
-		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, service.findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX"));
-		Mockito.verify(repository).findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX");
+		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, service.findAssociatesByFullNameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX"));
+		Mockito.verify(repository).findAssociatesByFullNameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX");
 	}
 
 }
