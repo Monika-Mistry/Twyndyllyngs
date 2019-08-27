@@ -111,11 +111,6 @@ export class ScrollBar extends Component {
 
     const menu = this.menuItems;
 
-    const valueStyle = {
-      margin: "5px 10px",
-      display: "inline-block"
-    };
-
     return (
       <div className="App">
 
@@ -138,6 +133,7 @@ export class ScrollBar extends Component {
           wheel={wheel}
         />
         <hr />
+        <p>{this.props.data[0].forenames}</p>
       </div>
     );
   }

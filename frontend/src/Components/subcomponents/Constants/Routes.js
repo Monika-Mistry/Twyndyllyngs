@@ -1,14 +1,24 @@
 import axios from 'axios';
-import { coreApi } from './Constants.js'
+import { loginApi, header} from './Constants.js'
 
-export function findByForename(forename) {
-    return axios.get(coreApi + "/getCitizensByForenames/user/" + forename)
+export function findCitizens(citizens) {
+    return axios.post(loginApi + "getCitizenDetails/", citizens, header)
+    
 }
 
-export function findBySurname(Surname) {
-    return axios.get(coreApi + "/getCitizensBySurname/user/" + Surname)
+
+export function findCar(vehicleRegistrationNo) {
+    return axios.post(loginApi + "getCarDetails/", vehicleRegistrationNo, header)
 }
 
-export function findByFullName(forename, surname) {
-    return axios.get(coreApi + "/getCitizensByFullname/user/" + forename + "/" + surname)
+export function findCitizenById(id) {
+    return axios.post(loginApi + "getCitizenDetails/Profile", id, header)
+}
+
+export function registerUser(newUser) {
+    return axios.post(loginApi + "registerUser", newUser, header)
+}
+
+export function loginUser(user) {
+    return axios.post(loginApi + "loginUser", user)
 }

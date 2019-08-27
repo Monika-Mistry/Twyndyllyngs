@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export function CitizenRow(props) {
     return (
@@ -20,9 +21,9 @@ export function CitizenRow(props) {
                     <td>
                         {element.homeAddress}
                     </td>
-                    <td>{<Button onClick={() => {props.details(element)}} data={element.name}>
+                    <td>{<Link onClick={() => {props.details(element)}} data={element.name}>
                             Details
-                 </Button>}</td>
+                 </Link>}</td>
                 </tr>)
             })}
 
