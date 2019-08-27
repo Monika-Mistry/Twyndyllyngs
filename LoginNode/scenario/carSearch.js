@@ -28,7 +28,8 @@ router.post("/", (req, res, next) => {
             
             getCarRequest(vehicleReg).then(response => {
                 res.setHeader("Content-Type", "application/json");
-                res.json(response.data);
+                console.log("data: ", response.data);
+                res.send(response.data);
             }).catch(err => { console.error(err) })
         }
     })(req, res, next);
