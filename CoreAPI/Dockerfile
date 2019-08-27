@@ -6,8 +6,8 @@ RUN [ "mvn" , "package" ]
 
 FROM java:8
 
-COPY --from=build target/CoreAPI2-0.0.1-SNAPSHOT.jar /opt/CoreAPI2-0.0.1-SNAPSHOT.jar
+COPY --from=build target/CoreAPI-0.0.1-SNAPSHOT.jar /opt/CoreAPI-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8000
 
-ENTRYPOINT [ "java" , "-jar" , "/opt/CoreAPI2-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT [ "java" , "-jar" , "/opt/CoreAPI-0.0.1-SNAPSHOT.jar" ]
