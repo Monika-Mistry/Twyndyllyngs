@@ -8,7 +8,7 @@ import com.bae.domain.SentRequest;
 import com.bae.repository.AuditRepository;
 
 @Component
-public class AuditListenerImpl implements AuditListener {
+public class AuditListenerImpl {
 
 	private AuditRepository repository;
 
@@ -18,11 +18,9 @@ public class AuditListenerImpl implements AuditListener {
 
 	@JmsListener(destination = "AuditQueue", containerFactory = "jmsFactory")
 	public void receiveMessage(SentRequest sentRequest) {
-		 System.out.println("Received <" + sentRequest + ">");
-		 
-		 repository.save(sentRequest);
-		 
-		 System.out.println(sentRequest + " processed ...");
+		System.out.println("Received <" + sentRequest + ">");
+		repository.save(sentRequest);
+		System.out.println(sentRequest + " processed ...");
 	}
 
 }

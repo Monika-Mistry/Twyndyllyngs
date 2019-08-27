@@ -1,21 +1,25 @@
 package com.bae.domain;
 
 import java.sql.Timestamp;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="audit")
 public class SentRequest {
-	
-	@Id
+
 	private String id;
-	
+
 	private String username;
-	
+
 	private String searchItem;
-	
+
 	private Timestamp timestamp;
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -39,6 +43,15 @@ public class SentRequest {
 	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
-	
 
+	public SentRequest() {
+	}
+
+	public SentRequest(SentRequest request) {
+		super();
+		this.id = request.getId();
+		this.username = request.getUsername();
+		this.searchItem = request.getSearchItem();
+		this.timestamp = request.getTimestamp();
+	}
 }
