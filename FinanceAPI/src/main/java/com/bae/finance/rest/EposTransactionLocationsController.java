@@ -24,11 +24,11 @@ public class EposTransactionLocationsController {
 	
 	
 	@GetMapping("/getEposTransactionsByFullnameAndAddress/{forenames}/{surname}/{address}")
-	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByForenamesAndSurname(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address){
+	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByFullnameAndAddress(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address){
 		
 		return new ResponseEntity<EposTransactionLocations[]>(eposService.findByForenamesAndSurnameAndAddress(forenames, surname, address), HttpStatus.OK);
 	}
-	
+ 	
 	@GetMapping("/getEposTransactionsByCardNumber/{cardNumber}")
 	public ResponseEntity<EposTransactionLocations[]> findEposTransactionsByCardNumber(@PathVariable("cardNumber") String cardNumber){
 		
