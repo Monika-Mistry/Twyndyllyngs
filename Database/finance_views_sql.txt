@@ -1,0 +1,77 @@
+CREATE VIEW EposTransactionLocations AS
+SELECT \
+PeopleBankAccount.bankAccountId, \
+PeopleBankAccount.accountNo, \
+PeopleBankAccount.forenames, \
+PeopleBankAccount.surname, \
+PeopleBankAccount.dateOfBirth, \
+PeopleBankAccount.homeAddress, \
+BankCard.cardNumber, \
+EposTransactions.timestamp, \
+EposTransactions.amount, \
+EposTransactions.eposid, \
+EposTransactions.id, \
+Epos.vendor, \
+Epos.streetName, \
+Epos.postCode, \
+Epos.latitude, \
+Epos.longitude
+FROM EposTransactions
+INNER JOIN Epos ON EposTransactions.eposid=Epos.id
+INNER JOIN BankCard ON EposTransactions.bankCard=BankCard.cardNumber
+INNER JOIN PeopleBankAccount ON BankCard.accountNo=PeopleBankAccount.accountNo;
+
+
+CREATE VIEW AtmTransactionLocations AS
+SELECT \
+AtmTransactions.atmId, \
+AtmTransactions.type, \
+AtmTransactions.amount, \
+AtmTransactions.id, \
+AtmTransactions.timestamp, \
+AtmPoint.operator, \
+AtmPoint.streetName, \
+AtmPoint.postcode, \
+AtmPoint.latitude, \
+AtmPoint.longitude, \
+PeopleBankAccount.bankAccountId, \
+PeopleBankAccount.accountNo, \
+PeopleBankAccount.forenames, \
+PeopleBankAccount.surname, \
+PeopleBankAccount.dateOfBirth, \
+PeopleBankAccount.homeAddress, \
+BankCard.cardNumber
+FROM AtmTransactions
+INNER JOIN AtmPoint ON AtmPoint.atmId=AtmTransactions.atmId
+INNER JOIN BankCard ON BankCard.cardNumber=AtmTransactions.bankCardNumber
+INNER JOIN PeopleBankAccount ON PeopleBankAccount.accountNo=BankCard.accountNo
+
+
+CREATE VIEW PeopleBankCard AS
+SELECT \
+PeopleBankAccount.bankAccountId, \
+PeopleBankAccount.accountNo, \
+BankCard.sortCode, \
+PeopleBankAccount.bank, \
+PeopleBankAccount.forenames, \
+PeopleBankAccount.surname, \
+PeopleBankAccount.dateOfBirth, \
+PeopleBankAccount.homeAddress, \
+BankCard.cardNumber
+FROM BankCard
+INNER JOIN PeopleBankAccount ON PeopleBankAccount.bankAccountId=BankCard.bankAccountId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
