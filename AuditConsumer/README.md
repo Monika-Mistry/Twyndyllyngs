@@ -36,12 +36,11 @@
 <a name="auth"></a>
 # 4. Authors
 
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-[1. Rich Harris](https://github.com/Monika-Mistry)
-2. Owen Miller
-3. Thi Nguyen
-4. Monika Mistry
-5. Josh Brooks
+1. [Rich Harris](https://github.com/RJHarrisUK "Rich's GitHub")
+2. [Owen Miller](https://github.com/biomiller "Owen's GitHub")
+3. [Thi Nguyen](https://github.com/thi6 "Thi's GitHub")
+4. [Monika Mistry](https://github.com/Monika-Mistry "Monika's GitHub")
+5. [Josh Brooks](https://github.com/jjbrooks251 "Josh's Github")
 
 <a name="ack"></a>
 # 5. Acknowledgements
