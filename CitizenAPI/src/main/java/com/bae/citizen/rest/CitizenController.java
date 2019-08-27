@@ -39,6 +39,15 @@ public class CitizenController {
 		return new ResponseEntity<Citizen[]>(citizenService.findByForenamesAndSurname(forenames, surname),
 				HttpStatus.OK);
 	}
+	
+	@GetMapping("/getCitizensByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<Citizen[]> findCitizensByFullname(
+			@PathVariable("forenames") String forenames,
+			@PathVariable("surname") String surname,
+			@PathVariable("address") String address) {
+		return new ResponseEntity<Citizen[]>(citizenService.findByForenamesAndSurnameAndAddress(forenames, surname, address),
+				HttpStatus.OK);
+	}
 
 	@GetMapping("/getCitizenById/{citizenId}")
 	public Citizen findCitizenById(@PathVariable("citizenId") Long citizenId) {

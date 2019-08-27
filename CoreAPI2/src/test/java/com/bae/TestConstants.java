@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.bae.domain.CarObject;
 import com.bae.domain.Citizen;
 import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
@@ -20,6 +19,7 @@ public class TestConstants {
 	public static final String CITIZEN_FORENAME = "http://citizen:8003/getCitizensByForenames/Crazy";
 	public static final String CITIZEN_SURNAME = "http://citizen:8003/getCitizensBySurname/Ivan";
 	public static final String CITIZEN_FULLNAME = "http://citizen:8003/getCitizensByFullname/Crazy/Ivan";
+	public static final String CITIZEN_FULLNAME_AND_ADDRESS = "http://citizen:8003/getCitizensByFullnameAndAddress/Crazy/Ivan/543 Crazy Street, Crazy Town, CR 4ZY";
 
 	public static final Citizen[] MOCK_CITIZEN_ARRAY = { MOCK_CITIZEN };
 

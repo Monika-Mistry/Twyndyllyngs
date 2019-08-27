@@ -49,6 +49,14 @@ public class CitizenServiceImplementation implements CitizenService{
 		
 		return citizenRepository.findById(citizenId).orElse(null);
 	}
+
+
+	@Override
+	public Citizen[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address) {
+		List<Citizen> citizensList = citizenRepository.findByForenamesAndSurnameAndHomeAddress(forenames, surname, address);
+		
+		return citizensList.toArray(new Citizen[citizensList.size()]);
+	}
 	
 
 }
