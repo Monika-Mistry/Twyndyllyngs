@@ -11,7 +11,9 @@ export class Scenario1 extends Component {
         super();
         this.state = {
             data: [],
-            forename: "hi",
+            forenames: "",
+            surname: "",
+            address: "",
             profile: false
         };
     }
@@ -21,7 +23,8 @@ export class Scenario1 extends Component {
 
         let user = {
             forenames: this.nullify(e.target[0].value),
-            surname: this.nullify(e.target[1].value)
+            surname: this.nullify(e.target[1].value),
+            address: "null"
         }
 
         if (user.forenames === "null" && user.surname === "null") {
@@ -55,7 +58,9 @@ export class Scenario1 extends Component {
 
     details = (element) => {
         console.log(element)
-        sessionStorage.setItem('forename', this.state.forename);
+        sessionStorage.setItem('forenames', element.forenames);
+        sessionStorage.setItem('surname', element.surname);
+        sessionStorage.setItem('address', element.homeAddress);
     }
 
     render() {
@@ -73,7 +78,7 @@ export class Scenario1 extends Component {
                             <Input type="text" name="forname" placeholder="enter forename" />
                         </Col>
                         <Col>
-                            <Label for="forname">Surename:</Label>
+                            <Label for="forname">Surname:</Label>
                         </Col>
                         <Col>
                             <Input type="text" name="surname" placeholder="enter surname" />
