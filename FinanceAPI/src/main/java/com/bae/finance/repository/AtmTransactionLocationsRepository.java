@@ -10,12 +10,8 @@ import com.bae.finance.domain.AtmTransactionLocations;
 
 @Repository
 public interface AtmTransactionLocationsRepository extends CrudRepository<AtmTransactionLocations, Long>{
-
-	public List<AtmTransactionLocations> findByForenames(String forenames);
 	
-	public List<AtmTransactionLocations> findBySurname(String surname);
-	
-	public List<AtmTransactionLocations> findByForenamesAndSurname(String forenames, String surname);
+	public List<AtmTransactionLocations> findATMTransactionsByForenamesAndSurnameAndHomeAddress(String forenames, String surname, String address);
 
 	public List<AtmTransactionLocations> findByCardNumber(String cardNumber);
 	

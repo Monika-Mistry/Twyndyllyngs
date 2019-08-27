@@ -21,22 +21,11 @@ public class AtmTransactionLocationsController {
 		this.transactionLocationsService = transactionLocationsService;
 	}
 	
-	@GetMapping("/getAtmTransactionsByForenames/{forenames}")
-	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsByForenames(@PathVariable("forenames") String forenames) {
-		
-		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findByForenames(forenames), HttpStatus.OK);
-	}
 	
-	@GetMapping("/getAtmTransactionsBySurname/{surname}")
-	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsBySurname(@PathVariable("surname") String surname) {
+	@GetMapping("/getAtmTransactionsByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsByFullnameAndAddress(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
 		
-		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findBySurname(surname), HttpStatus.OK);
-	}
-	
-	@GetMapping("/getAtmTransactionsByForenamesAndSurname/{forenames}/{surname}")
-	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsByForenames(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname) {
-		
-		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
+		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findATMTransactionsByFullnameAndAddress(forenames, surname, address), HttpStatus.OK);
 	}
 	
 	@GetMapping("/getAtmTransactionsByCardNumber/{cardNumber}")

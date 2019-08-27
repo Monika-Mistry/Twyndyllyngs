@@ -21,23 +21,10 @@ public class AtmTransactionLocationsServiceImplementation implements AtmTransact
 		this.atmTransactionLocationsRepository = atmTransactionLocationsRepository;
 	}
 
-	
-	public AtmTransactionLocations[] findByForenames(String forenames) {
-		
-		List<AtmTransactionLocations> transactionList = atmTransactionLocationsRepository.findByForenames(forenames);
-		
-		return transactionList.toArray(new AtmTransactionLocations[transactionList.size()]);
-	}
 
 	
-	public AtmTransactionLocations[] findBySurname(String surname) {
-		List<AtmTransactionLocations> transactionList = atmTransactionLocationsRepository.findBySurname(surname);
-		return transactionList.toArray(new AtmTransactionLocations[transactionList.size()]);
-	}
-
-	
-	public AtmTransactionLocations[] findByForenamesAndSurname(String forenames, String surname) {
-		List<AtmTransactionLocations> transactionList = atmTransactionLocationsRepository.findByForenamesAndSurname(forenames, surname);
+	public AtmTransactionLocations[] findATMTransactionsByFullnameAndAddress(String forenames, String surname, String address) {
+		List<AtmTransactionLocations> transactionList = atmTransactionLocationsRepository.findATMTransactionsByForenamesAndSurnameAndHomeAddress(forenames, surname, address);
 		return transactionList.toArray(new AtmTransactionLocations[transactionList.size()]);
 	}
 
