@@ -16,6 +16,6 @@ ENV ENV_PASSWORD=${PASSWORD}
 
 COPY --from=build target/MobileAPI-0.0.1-SNAPSHOT.jar /opt/MobileAPI-0.0.1-SNAPSHOT.jar
 
-EXPOSE 8000
+EXPOSE 8006
 
 ENTRYPOINT java -jar -Djasypt.encryptor.password=${ENV_PASSWORD} /opt/MobileAPI-0.0.1-SNAPSHOT.jar

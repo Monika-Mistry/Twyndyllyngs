@@ -22,3 +22,11 @@ services:
                 - PASSWORD=${PASSWORD}
         ports:
             - {target: 8003, protocol: tcp}
+    mobile:
+        build:
+            context: ./MobileAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8006, protocol: tcp}
