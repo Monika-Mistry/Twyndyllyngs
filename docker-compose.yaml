@@ -11,7 +11,7 @@ services:
             - webapp
     webapp:
         build:
-            contex: ./frontend
+            context: ./frontend
             dockerfile: Dockerfile
         ports:
             - {target: 3000, protocol: tcp}
