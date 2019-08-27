@@ -1,6 +1,6 @@
 package com.bae.associate.domain;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class MobileCallRecords {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name = "timestamp")
-	private Date timestamp;
+	private Timestamp timestamp;
 	@Column(name = "callermsisdn")
 	private String callerMSISDN;
 	@Column(name = "callcelltowerid")
@@ -47,10 +47,10 @@ public class MobileCallRecords {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getTimestamp() {
+	public Timestamp getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
 	public String getCallerMSISDN() {
