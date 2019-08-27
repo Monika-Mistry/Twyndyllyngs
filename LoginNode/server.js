@@ -19,4 +19,10 @@ require('./routes/loginUser')(app);
 require('./routes/findUsers.js')(app);
 require('./routes/registerUser.js')(app);
 
+const carSearch = require('./scenario/carSearch.js');
+const citizenSearch = require('./scenario/citizenSearch.js');
+
+app.use("/getCarDetails",carSearch);
+app.use("/getCitizenDetails", citizenSearch);
+
 module.exports = app;
