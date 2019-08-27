@@ -28,23 +28,6 @@ public class PeopleMobile {
 	@Column(name="network")
 	private String network;
 	
-	
-	public PeopleMobile(Long id, String forenames, String surname, String address, LocalDate dateOfBirth,
-			String phoneNumber, String network) {
-		super();
-		this.id = id;
-		this.forenames = forenames;
-		this.surname = surname;
-		this.address = address;
-		this.dateOfBirth = dateOfBirth;
-		this.phoneNumber = phoneNumber;
-		this.network = network;
-	}
-	
-	public PeopleMobile() {
-		super();
-	}
-	
 	public Long getId() {
 		return id;
 	}
