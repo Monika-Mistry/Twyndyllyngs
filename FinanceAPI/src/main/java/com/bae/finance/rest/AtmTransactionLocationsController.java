@@ -25,13 +25,13 @@ public class AtmTransactionLocationsController {
 	@GetMapping("/getAtmTransactionsByFullnameAndAddress/{forenames}/{surname}/{address}")
 	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsByFullnameAndAddress(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
 		
-		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findATMTransactionsByFullnameAndAddress(forenames, surname, address), HttpStatus.OK);
+		return new ResponseEntity<>(transactionLocationsService.findATMTransactionsByFullnameAndAddress(forenames, surname, address), HttpStatus.OK);
 	}
 	
 	@GetMapping("/getAtmTransactionsByCardNumber/{cardNumber}")
 	public ResponseEntity<AtmTransactionLocations[]> findATMTransactionsByCardNumber(@PathVariable("cardNumber") String cardNumber) {
 		
-		return new ResponseEntity<AtmTransactionLocations[]>(transactionLocationsService.findByCardNumber(cardNumber), HttpStatus.OK);
+		return new ResponseEntity<>(transactionLocationsService.findByCardNumber(cardNumber), HttpStatus.OK);
 	}
 	
 }
