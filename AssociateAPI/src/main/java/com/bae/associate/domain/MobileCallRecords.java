@@ -26,21 +26,6 @@ public class MobileCallRecords {
 	@Column(name = "receivertowerid")
 	private String receiverTowerId;
 	
-	public MobileCallRecords(Long id, Timestamp timestamp, String callerMSISDN, String callCellTowerId,
-			String receiverMSISDN, String receiverTowerId) {
-		super();
-		this.id = id;
-		this.timestamp = timestamp;
-		this.callerMSISDN = callerMSISDN;
-		this.callCellTowerId = callCellTowerId;
-		this.receiverMSISDN = receiverMSISDN;
-		this.receiverTowerId = receiverTowerId;
-	}
-	
-	public MobileCallRecords() {
-		super();
-	}
-	
 	public Long getId() {
 		return id;
 	}

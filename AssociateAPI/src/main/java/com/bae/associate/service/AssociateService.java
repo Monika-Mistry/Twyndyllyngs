@@ -2,7 +2,7 @@ package com.bae.associate.service;
 
 import java.util.ArrayList;
 
-import com.bae.associate.Associate;
+import com.bae.associate.domain.Associate;
 
 public interface AssociateService {
 

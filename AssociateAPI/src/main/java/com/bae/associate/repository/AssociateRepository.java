@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.bae.associate.Associate;
+import com.bae.associate.domain.Associate;
 import com.bae.associate.domain.PeopleMobile;
 
 public interface AssociateRepository extends CrudRepository<PeopleMobile, Long> {

@@ -1,4 +1,4 @@
-package com.example.associate;
+package com.bae.associate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

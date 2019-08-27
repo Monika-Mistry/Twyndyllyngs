@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bae.associate.Associate;
+import com.bae.associate.domain.Associate;
 import com.bae.associate.repository.AssociateRepository;
 
 @Service
