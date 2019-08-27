@@ -1,0 +1,5 @@
+CREATE VIEW Associates AS
+SELECT DISTINCT caller.id, caller.forenames AS forenames, caller.surname AS surname, caller.dateOfBirth AS dateOfBirth,receiver.forenames AS associateForenames, receiver.surname AS associateSurname, receiver.dateOfBirth AS associateDateOfBirth
+FROM MobileCallRecords
+JOIN PeopleMobile AS caller ON MobileCallRecords.callerMSISDN=caller.phoneNumber
+JOIN PeopleMobile AS receiver ON MobileCallRecords.receiverMSISDN=receiver.phoneNumber;
