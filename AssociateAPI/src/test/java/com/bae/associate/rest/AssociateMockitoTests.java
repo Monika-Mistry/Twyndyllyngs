@@ -2,6 +2,7 @@ package com.bae.associate.rest;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,6 +24,11 @@ public class AssociateMockitoTests {
 	@Mock 
 	AssociateService service;
 	
+	@BeforeClass
+	public static void setup() {
+		TestConstants.MOCK_ASSOCIATES_ARRAY.add(TestConstants.MOCK_ASSOCIATES_1);
+	}
+	
 	@Test
 	public void getAssociatesByPhoneNumberTest() {
 		Mockito.when(service.findAssociatesByPhonenumber("07700 049488")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
@@ -33,10 +39,10 @@ public class AssociateMockitoTests {
 	
 	@Test
 	public void getAssociatesByFullnameAndAddressTest() {
-		Mockito.when(service.findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
+		Mockito.when(service.findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX")).thenReturn(TestConstants.MOCK_ASSOCIATES_ARRAY);
 
-		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX"));
-		Mockito.verify(service).findAssociatesByFullnameAndAddress("Sarah", "White", "19 HIGH ROAD, UPFORD, U43 7DX");
+		assertEquals(TestConstants.MOCK_ASSOCIATES_ARRAY, controller.findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX"));
+		Mockito.verify(service).findAssociatesByFullnameAndAddress("John", "Smith", "16 HIGH ROAD, UPFORD, U43 2DX");
 	}
 		
 	
