@@ -27,7 +27,17 @@ In fulfilment of the final group project for week 16 of QA Academy.
 
 <a name="brief"></a>
 ## Brief
-[insert brief here]
+
+A client works at an investigation agency. As part of their job they need to analyse a large amount of secure data provided by a third-party provider. The data includes records from various different database tables.
+
+#### Scenario 1: A person has been detained
+A person has been detained by an investigator. They would like to find out more information about the suspect using the data provided. They only have the suspect’s name and would like to search the data to determine more information about the suspect’s background.
+
+#### Scenario 2: An incident has occurred
+An incident has occurred and the investigation team are on the case. The team needs to find out who was in the vicinity of the incident at that particular point in time. They want to find out the details of potential suspects using location and time-stamped data.
+
+#### Scenario 3: Suspect flees the scene
+A suspect is fleeing the scene of an incident in a car. The number plate of the car has been reported to the investigation agency. The investigators need to narrow down a suspect using the reported number plate and find out where else they have been.
 
 <a name="solution"></a>
 ### Solution
