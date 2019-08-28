@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
-import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords} from '../Constants/Routes.js';
+import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
 
 export class CitizenProfile extends Component {
 
@@ -77,6 +77,14 @@ export class CitizenProfile extends Component {
                 })
             }).catch(response => {
                 console.log(response)
+            })
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findAssociates(user).then(response => {
+            this.setState({
+                associates: response.data[0]
             })
         }).catch(response => {
             console.log(response)

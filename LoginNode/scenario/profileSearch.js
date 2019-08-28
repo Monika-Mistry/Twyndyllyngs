@@ -7,10 +7,11 @@ const axios = require('axios');
 const coreApiVehicle = "http://core:8000/vehicle/findVehicleByFullnameAndAddress/";
 const coreApiMobile = "http://core:8000/mobile/getMobileByFullnameAndAddress/";
 const coreApiRecords = "http://core:8000/mobile/getCallRecordsByCaller/";
-
+const coreApiassociates = "http://core:8000/associate/getAssociatesByFullNameAndAddress/";
 
 const vehiclePath = "/vehicle"
 const mobilePath = "/mobile"
+const associatePath = "/associates"
 
 
 const getVehicleRequest = (forenames, surname, address) => {
@@ -23,6 +24,10 @@ const getMobileRequest = (forenames, surname, address) => {
 
 const getPhoneRecords = (number) => {
     return axios.get(coreApiRecords + "/" + number);
+};
+
+const getAssociateRequest = (forenames, surname, address) => {
+    return axios.get(coreApiassociates + "/" + forenames + "/" + surname + "/" + address);
 };
 
 const makeRequest = (path, method) => {
@@ -48,6 +53,8 @@ const makeRequest = (path, method) => {
 makeRequest(vehiclePath, getVehicleRequest)
 
 makeRequest(mobilePath, getMobileRequest)
+
+makeRequest(associatePath, getAssociateRequest)
 
 router.post("/phoneRecords", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {

@@ -18,6 +18,12 @@ export function findPhoneRecords(number) {
     return axios.post(loginApi + "ProfileDetails/phoneRecords/", number, header)
 }
 
+export function findAssociates(citizen) {
+    return axios.post(loginApi + "ProfileDetails/associates/", citizen, header)
+}
+
+findAssociates
+
 export function findCar(vehicleRegistrationNo) {
     return axios.post(loginApi + "getCarDetails/", vehicleRegistrationNo, header)
 }
