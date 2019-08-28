@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import { Col, Container, Row, Collapse, Card, CardBody, Button } from 'reactstrap';
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
@@ -18,8 +18,29 @@ export class CitizenProfile extends Component {
             vehicle: [],
             phone: [],
             finances: [],
-            associates2: []
+            associates2: [],
+            associatesCollapse: false,
+            carCollapse: false,
+            phoneCollapse: false,
+            transactionsCollapse: false
+
         }
+    }
+
+    toggleAssociates = () => {
+        this.setState({ associatesCollapse: !this.state.associatesCollapse });
+    }
+
+    toggleCar = () => {
+        this.setState({ carCollapse: !this.state.carCollapse });
+    }
+
+    togglePhone = () => {
+        this.setState({ phoneCollapse: !this.state.phoneCollapse });
+    }
+
+    toggleTransactions = () => {
+        this.setState({ transactionsCollapse: !this.state.transactionsCollapse });
     }
 
     show = () => {
@@ -61,9 +82,9 @@ export class CitizenProfile extends Component {
             <div>
                 <Container>
 
-                <h1 className="information-header" align="center"><u>Profile</u></h1>
-                
-                <br></br>
+                    <h1 className="information-header" align="center"><u>Profile</u></h1>
+
+                    <br></br>
 
                     <Row>
                         <Col sm={2}>
@@ -83,18 +104,29 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="center"><u>Associates</u></h3>
-                
-                <br></br>
+                <Button color="primary" onClick={this.toggle} style={{
+                    alignSelf: 'stretch'
+                }}>View Associates</Button>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card>
+                        <CardBody>
 
-                <Container>
+                            <h3 align="center"><u>Associates</u></h3>
 
-                    <ScrollBar data={this.state.associates} />
+                            <br></br>
 
-                </Container>
+                            <Container>
 
-                <br></br>
-                <br></br>
+                                <ScrollBar data={this.state.associates} />
+
+                            </Container>
+
+                            <br></br>
+                            <br></br>
+
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
                 <h3 align="center"><u>Car</u></h3>
 
