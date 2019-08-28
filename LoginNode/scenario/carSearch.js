@@ -6,8 +6,8 @@ const axios = require('axios');
 
 const coreApiCar = "http://core:8000/vehicle/";
 
-const getCarRequest = vehicleReg => {
-    return axios.get(coreApiCar + vehicleReg);
+const getCarRequest = (username, vehicleReg) => {
+    return axios.get(coreApiCar + username+ "/" + vehicleReg);
 };
 
 router.get("/test", (req, res) => {
