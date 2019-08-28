@@ -15,16 +15,17 @@ public class PeopleBankCardController {
 
 	private PeopleBankCardService peopleBankCardService;
 
-
 	@Autowired
 	public PeopleBankCardController(PeopleBankCardService peopleBankCardService) {
 		this.peopleBankCardService = peopleBankCardService;
 	}
 
-	@GetMapping("/getBankAccountDetailsByFullname/{forenames}/{surname}")
-	public ResponseEntity<PeopleBankCard[]> findBankAccountDetailsByFullname(@PathVariable("forenames") String forenames,
-			@PathVariable("surname") String surname) {
-		return new ResponseEntity<>(peopleBankCardService.findByForenamesAndSurname(forenames, surname), HttpStatus.OK);
+	@GetMapping("/getBankAccountDetailsByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<PeopleBankCard[]> findBankAccountDetailsByFullnameAndAddress(
+			@PathVariable("forenames") String forenames, 
+			@PathVariable("surname") String surname,
+			@PathVariable("address") String address) {
+		return new ResponseEntity<>(peopleBankCardService.findByForenamesAndSurnameAndAddress(forenames, surname, address), HttpStatus.OK);
 	}
 
 }

@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+    auditconsumer:
+        image: rjharrisuk/auditconsumer
+        depends_on:
+        - activemq
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+        - {target: 8008, protocol: tcp}
+    activemq:
+        image: rmohr/activemq
+        ports:
+        - {target: 8161, published: 8161, protocol: tcp}
+    mongo:
+        image: mongo
+        ports:
+        - {target: 27001, published: 27001, protocol: tcp}

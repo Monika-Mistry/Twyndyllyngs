@@ -26,10 +26,10 @@ public class PeopleBankCardMockitoTests {
 	@Test
 	public void getBankCardDetailsByFullnameTest() {
 		
-		Mockito.when(service.findByForenamesAndSurname("Aaron", "Aarvark")).thenReturn(TestConstants.MOCK_BANK_ACCOUNT_ARRAY);
+		Mockito.when(service.findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ")).thenReturn(TestConstants.MOCK_BANK_ACCOUNT_ARRAY);
 
-		assertEquals(TestConstants.MOCK_BANK_ACCOUNT_RESPONSE, controller.findBankAccountDetailsByFullname("Aaron", "Aarvark"));
-		Mockito.verify(service).findByForenamesAndSurname("Aaron", "Aarvark");
+		assertEquals(TestConstants.MOCK_BANK_ACCOUNT_RESPONSE, controller.findBankAccountDetailsByFullnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ"));
+		Mockito.verify(service).findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ");
 	}
 	
 	

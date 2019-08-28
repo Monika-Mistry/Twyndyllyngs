@@ -10,5 +10,5 @@ import com.bae.finance.domain.PeopleBankCard;
 @Repository
 public interface PeopleBankCardRepository extends CrudRepository<PeopleBankCard, Long> {
 	
-	public List<PeopleBankCard> findByForenamesAndSurname(String forenames, String surname);
+	public List<PeopleBankCard> findByForenamesAndSurnameAndHomeAddress(String forenames, String surname, String address);
 }
