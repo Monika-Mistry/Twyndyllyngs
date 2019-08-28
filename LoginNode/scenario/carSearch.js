@@ -8,7 +8,7 @@ const axios = require('axios');
 const coreApiCar = "http://core:8000/vehicle/";
 
 const getCarRequest = vehicleReg => {
-    return axios.get(coreApiCar + vehicleReg, Headers);
+    return axios.get(coreApiCar + vehicleReg);
 };
 
 router.get("/test", (req, res) => {
@@ -27,8 +27,6 @@ router.post("/", (req, res, next) => {
             let vehicleReg = req.body.vehicleRegistrationNo;
             
             getCarRequest(vehicleReg).then(response => {
-                res.setHeader("Content-Type", "application/json");
-                console.log("data: ", response.data);
                 res.send(response.data);
             }).catch(err => { console.error(err) })
         }
