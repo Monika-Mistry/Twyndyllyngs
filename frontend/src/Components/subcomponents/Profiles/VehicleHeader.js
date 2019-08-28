@@ -7,7 +7,7 @@ export function VehicleHeader(props) {
     return (
         <div>
             <Table>
-                <thead>
+                <thead className="table-header">
                     <tr>
                         <th>Time Stamp</th>
                         <th>Street Address</th>

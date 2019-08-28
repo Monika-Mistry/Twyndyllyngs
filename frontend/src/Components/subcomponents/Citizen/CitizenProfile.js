@@ -59,18 +59,22 @@ export class CitizenProfile extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.show} >click</button>
                 <Container>
+
+                <h1 className="information-header" align="center"><u>Profile</u></h1>
+                
+                <br></br>
+
                     <Row>
                         <Col sm={2}>
                             <img src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} style={{ width: 100, height: 100 }}></img>
                         </Col>
-                        <Col sm={4} align="left">
+                        <Col sm={4} align="center">
                             <p> Full Name: {this.state.citizen.forenames} {this.state.citizen.surname}</p>
                             <p> D.o.B : {this.state.citizen.dateOfBirth} </p>
                             <p> Gender : {this.state.citizen.sex} </p>
                         </Col>
-                        <Col sm={4} align="left">
+                        <Col sm={4} align="center">
                             <p> Place of Birth: {this.state.citizen.placeOfBirth}</p>
                             <p> Address: {this.state.citizen.homeAddress} </p>
                         </Col>
@@ -79,7 +83,9 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="left">Associates:</h3>
+                <h3 align="center"><u>Associates</u></h3>
+                
+                <br></br>
 
                 <Container>
 
@@ -90,7 +96,9 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="left">Car:</h3>
+                <h3 align="center"><u>Car</u></h3>
+
+                <br></br>
 
                 <Container>
                     <VehicleContainer data={this.state.vehicle} />
@@ -98,7 +106,9 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="left">Phones:</h3>
+                <h3 align="center"><u>Phones</u></h3>
+
+                <br></br>
 
                 <Container>
                     <Row>
@@ -109,7 +119,9 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="left">Transactions:</h3>
+                <h3 align="center"><u>Transactions</u></h3>
+
+                <br></br>
 
                 <Container>
                     <Row>
