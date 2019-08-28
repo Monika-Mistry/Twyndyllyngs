@@ -109,7 +109,7 @@ export class CitizenProfile extends Component {
                 <Button color="primary" onClick={this.toggleAssociates} style={{
                     alignSelf: 'stretch'
                 }}>View Associates</Button>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.state.associatesCollapse}>
                     <Card>
                         <CardBody>
 
@@ -129,7 +129,7 @@ export class CitizenProfile extends Component {
                 <Button color="primary" onClick={this.toggleCar} style={{
                     alignSelf: 'stretch'
                 }}>View Vehicle Details</Button>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.state.carCollapse}>
                     <Card>
                         <CardBody>
 
@@ -148,7 +148,7 @@ export class CitizenProfile extends Component {
                 <Button color="primary" onClick={this.togglePhone} style={{
                     alignSelf: 'stretch'
                 }}>View Phone Calls</Button>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.state.phoneCollapse}>
                     <Card>
                         <CardBody>
 
@@ -171,7 +171,7 @@ export class CitizenProfile extends Component {
                 <Button color="primary" onClick={this.toggleTransactions} style={{
                     alignSelf: 'stretch'
                 }}>View Financial Transactions</Button>
-                <Collapse isOpen={this.state.collapse}>
+                <Collapse isOpen={this.state.transactionsCollapse}>
                     <Card>
                         <CardBody>
 
