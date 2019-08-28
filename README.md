@@ -42,7 +42,10 @@ A suspect is fleeing the scene of an incident in a car. The number plate of the 
 <a name="solution"></a>
 ### Solution
 
-Project Chameleon delivers an application utilising microservices to perform various tasks. Security played a key role in structuring the delivered product and ...
+Project Chameleon delivers a sovereign stand-alone data searching application. 
+* Microserviced architecture is used to ensure development best practices, with a mixture of local and cloud-hosted environments for development. 
+* Security was the primary consideration when designing, structuring, and developing the project. 
+* The final product is entirely cloud hosted on multiple VMs on the Google Cloud Platform. 
 
 <a name="architecture"></a>
 ## Architecture
@@ -87,6 +90,13 @@ The SonarQube static analysis shows minor code smells relating to entity constru
 
 <a name="limitations"></a>
 ## Application Limitations
+* Funding - £30 budget for cloud resources and cloud database solutions were out of our budget. The application has been deployed using a free trial on GCP which also had resource restrictions:
+> Your free trial credit applies to all GCP resources, except that you cannot:
+> Have more than 8 cores (or virtual CPUS) running at the same time.
+> Add GPUs to your instances.
+> Request a quota increase. For an overview of Compute Engine quotas, see Resource Quotas.
+* Time - The scope of the project was very short.
+* Team - Team composition did not reflect a standard team structure, team consisted of all junior developers.
 
 <a name="nextsteps"></a>
 ## Aspirations for the Future
