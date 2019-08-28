@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
 import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
@@ -23,8 +22,10 @@ export class CitizenProfile extends Component {
         }
     }
 
-    show = () => {
-        console.log(this.state.citizen)
+    details = (element) => {
+        sessionStorage.setItem('forenames', element.forenames);
+        sessionStorage.setItem('surname', element.surname);
+        sessionStorage.setItem('address', element.address);
     }
 
     onLoad = () => {
@@ -98,7 +99,6 @@ export class CitizenProfile extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.show} >click</button>
                 <Container>
                     <Row>
                         <Col sm={2}>
@@ -122,7 +122,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
 
-                    <ScrollBar data={this.state.associates} />
+                    <AssociateHead data={this.state.associates} details={this.details}/>
 
                 </Container>
 

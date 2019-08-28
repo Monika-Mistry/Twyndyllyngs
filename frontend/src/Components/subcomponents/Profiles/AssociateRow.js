@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export function CitizenRow(props) {
+export function AssociateRow(props) {
     return (
 
         <tbody>
@@ -15,10 +15,7 @@ export function CitizenRow(props) {
                         {element.surname}
                     </td>
                     <td>
-                        {element.dateOfBirth}
-                    </td>
-                    <td>
-                        {element.homeAddress}
+                        {element.address}
                     </td>
                     <td>{<Link to='/Profile' onClick={() => {props.details(element)}} data={element.name}>
                             Details
