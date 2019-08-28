@@ -21,7 +21,7 @@ export function CitizenRow(props) {
                     <td>
                         {element.homeAddress}
                     </td>
-                    <td>{<Link onClick={() => {props.details(element)}} data={element.name}>
+                    <td>{<Link to='/Profile' onClick={() => {props.details(element)}} data={element.name}>
                             Details
                  </Link>}</td>
                 </tr>)
