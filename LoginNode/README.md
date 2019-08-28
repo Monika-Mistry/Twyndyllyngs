@@ -11,20 +11,22 @@
 
 [4. Database](#data)
 
-[5. Authors](#auth)
+[5. Requests](#requests)
 
-[6. Acknowledgements](#ack)
+[6. Authors](#auth)
+
+[7. Acknowledgements](#ack)
 
 <a name="arch"></a>
 # 0. Architecture
 
 ### Module Architecture
 
-![Module Architecture](Module.png)
+![Module Architecture](/Documentation/Architecture/Modules/Login.PNG)
 
 ### Application Architecture
 
-![Application Architecture](Application.png)
+![Application Architecture](/Documentation/Architecture/Application.PNG)
 
 <a name="node"></a>
 # 1. Node
@@ -59,16 +61,21 @@ No passwords are sent to the front end.
 The user database is a MySQL database hosted on a Google Cloud Services VM.
 This is accessed through the Sequelizer node_module and a password which is .gitignored. 
 
-<a name="auth"></a>
-# 5. Authors
+<a name="requests"></a>
+# 5. Requests
 
-1. Rich Harris
-2. Owen Miller
-3. Thi Nguyen
-4. Monika Mistry
-5. Josh Brooks
+User requests from the front end are validated in the API and then forwarded to the core API. The Login service acts as a gateway to the other services in the system where only authorised users can access the data. It communicates over port 8002.
+
+<a name="auth"></a>
+# 6. Authors
+
+1. [Rich Harris](https://github.com/RJHarrisUK "Rich's GitHub")
+2. [Owen Miller](https://github.com/biomiller "Owen's GitHub")
+3. [Thi Nguyen](https://github.com/thi6 "Thi's GitHub")
+4. [Monika Mistry](https://github.com/Monika-Mistry "Monika's GitHub")
+5. [Josh Brooks](https://github.com/jjbrooks251 "Josh's Github")
 
 <a name="ack"></a>
-# 6. Acknowledgements
+# 7. Acknowledgements
 
 * QA consulting and our fantastic instructors.
