@@ -25,6 +25,6 @@ const profileSearch = require('./scenario/profileSearch.js');
 
 app.use("/getCarDetails",carSearch);
 app.use("/getCitizenDetails", citizenSearch);
-app.use("ProfileDetails", profileSearch);
+app.use("/ProfileDetails", profileSearch);
 
 module.exports = app;
