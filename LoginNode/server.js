@@ -21,8 +21,10 @@ require('./routes/registerUser.js')(app);
 
 const carSearch = require('./scenario/carSearch.js');
 const citizenSearch = require('./scenario/citizenSearch.js');
+const profilesearch = require('./scenario/profilesearch.js');
 
 app.use("/getCarDetails",carSearch);
 app.use("/getCitizenDetails", citizenSearch);
+app.use("/getProfileDetails", profilesearch);
 
 module.exports = app;
