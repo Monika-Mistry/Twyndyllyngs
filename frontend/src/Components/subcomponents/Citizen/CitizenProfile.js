@@ -86,7 +86,7 @@ export class CitizenProfile extends Component {
 
         findAssociates(user).then(response => {
             this.setState({
-                associates: response.data[0]
+                associates: response.data
             })
         }).catch(response => {
             console.log(response)
