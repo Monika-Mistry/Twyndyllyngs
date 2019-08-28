@@ -21,7 +21,6 @@ public class VehicleController {
 		this.vehicleService = vehicleService;
 	}
 	
-	
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
 	public ResponseEntity<VehicleRegistration[]> getVehiclesByRegistrationNo(@PathVariable("vehicleRegistrationNo") String vehicleRegistrationNo) {
 
@@ -32,6 +31,12 @@ public class VehicleController {
 	public ResponseEntity<VehicleLocations[]> getLocationsByRegistrationNo(@PathVariable("vehicleRegistrationNo") String vehicleRegistrationNo) {
 
 		return new ResponseEntity<>(vehicleService.findLocationsByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findVehicleByForenameSurnameAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<VehicleRegistration[]> findVehicleByForenameSurnameAddress(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
+
+		return new ResponseEntity<>(vehicleService.findVehicleByForenameSurnameAddress(forenames, surname, address), HttpStatus.OK);
 	}
 
 }

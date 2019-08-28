@@ -11,5 +11,7 @@ import com.bae.vehicle.domain.VehicleRegistration;
 public interface VehicleRegistrationRepository extends CrudRepository<VehicleRegistration, Long> {
 	
 	public List<VehicleRegistration> findByVehicleRegistrationNo(String vehicleRegistrationNo);
+	
+	public List<VehicleRegistration> findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
 
 }

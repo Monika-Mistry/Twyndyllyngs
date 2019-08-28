@@ -2,6 +2,7 @@ package com.bae.vehicle.rest;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -41,6 +42,14 @@ public class VehicleMockitoTests {
 		assertEquals(TestConstants.MOCK_VEHICLE_LOCATIONS_RESPONSE, controller.getLocationsByRegistrationNo("CRA 55Y"));
 		Mockito.verify(service).findLocationsByVehicleRegistrationNo("CRA 55Y");
 		
+	}
+	
+	@Test
+	public void getVechileByForenameSurnameAddressTest() {
+		Mockito.when(service.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY")).thenReturn(TestConstants.MOCK_VEHICLE_REGISTRATION_1_ARRAY);
+
+		assertEquals(TestConstants.MOCK_VEHICLE_REGISTRATION_RESPONSE, controller.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CRA 55Y"));
+		Mockito.verify(service).findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CRA 55Y");
 	}
 
 }

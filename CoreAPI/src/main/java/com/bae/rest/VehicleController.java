@@ -50,5 +50,14 @@ public class VehicleController extends Controller {
 		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL + vehicleReg, VehicleRegistration[].class);
 
 	}
+	
+	@GetMapping("/findVehicleByForenameSurnameAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<VehicleRegistration[]> findVehicleByForenameSurnameAddress(
+			@PathVariable("forenames") String forenames, 
+			@PathVariable("surname") String surname, 
+			@PathVariable("address") String address) {
+
+		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION2_URL + forenames + surname + address, VehicleRegistration[].class);
+	}
 
 }
