@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,8 +28,8 @@ public class VehicleControllerTest {
 	@Mock
 	private RestTemplate restTemplate;
 
-//	@Mock
-//	private JmsTemplate jmsTemplate;
+	@Mock
+	private JmsTemplate jmsTemplate;
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -39,7 +40,7 @@ public class VehicleControllerTest {
 
 		doReturn(TestConstants.MOCK_VEHICLE_LOCATION_RESPONSE).when(restTemplate)
 				.getForEntity(TestConstants.VEHICLE_LOCATION, VehicleLocations[].class);
-		ResponseEntity<CarObject> response = controller.getCarDetails("CRA 55Y");
+		ResponseEntity<CarObject> response = controller.getCarDetails("CRA 55Y", "Test");
 		
 		assertEquals(TestConstants.MOCK_VEHICLE_LOCATION, response.getBody().getVehicleLocation());
 		assertEquals(TestConstants.MOCK_VEHICLE_REGISTRATION, response.getBody().getVehicleRegistration());
