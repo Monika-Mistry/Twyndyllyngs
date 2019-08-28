@@ -52,6 +52,6 @@ public class VehicleWebMockTests {
 		when(service.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY")).thenReturn(TestConstants.MOCK_VEHICLE_REGISTRATION_1_ARRAY);
 
 		mockMvc.perform(get("/findVehicleByForenameSurnameAddress/Crazy/Ivan/543 Crazy Street, Crazy Town, CR 4ZY"))
-		.andExpect(content().string(containsString("CRA 55Y"))).andDo(print());
+		.andExpect(content().string(containsString("CR 4ZY"))).andDo(print());
 	}
 }
