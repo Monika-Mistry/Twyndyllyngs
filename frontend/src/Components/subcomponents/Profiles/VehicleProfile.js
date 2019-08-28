@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 
 export class VehicleProfile extends Component {
 
+
+
     details = () => {
         sessionStorage.setItem('forenames', this.props.data.forenames);
         sessionStorage.setItem('surname', this.props.data.surname);
         sessionStorage.setItem('address', this.props.data.address);
     }
-
     render() {
         let vehicle = this.props.data;
         return (
