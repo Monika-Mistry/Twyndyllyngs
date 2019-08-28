@@ -14,11 +14,11 @@
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/AssociateAPI.png)
+![Module Architecture](/Documentation/Architecture/Modules/AssociateAPI.PNG)
 
 ### Application Architecture
 
-![Application Architecture](/Documentation/Architecture/Application.png)
+![Application Architecture](/Documentation/Architecture/Application.PNG)
 
 <a name="service"></a>
 # 1. Associate Service
