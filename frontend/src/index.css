@@ -55,8 +55,8 @@ code {
   font-family: "Montserrat", sans-serif;
 }
 
-.chameleon-body {
-  padding-top: 100px;
+.chameleon-navbar {
+  padding-bottom: 100px;
 }
 
 .login-form{
@@ -67,7 +67,7 @@ code {
 
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;    
 }

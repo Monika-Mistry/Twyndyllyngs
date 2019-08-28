@@ -41,7 +41,7 @@ export class Login extends Component {
         }
         return (
             <div>
-            <div className="container chameleon-body login-form">
+            <div className="container login-form">
                 <Form onSubmit={this.login} className="search-form">
                     <FormGroup row>
                     <Label for="username">Username:</Label>
