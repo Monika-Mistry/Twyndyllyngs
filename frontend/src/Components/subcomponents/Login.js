@@ -15,14 +15,15 @@ export class Login extends Component {
 
     login = (e) => {
         e.preventDefault();
-
+        
         let user = {
             username: e.target[0].value,
             password: e.target[1].value
         }
-
+        
         loginUser(user).then( response => {
             sessionStorage.setItem("JWToken", response.data.token)
+            sessionStorage.setItem("username", user.username);
             this.props.onLogin(response.data.usertype)
         }).catch( response => {
             console.error(response)

@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,8 +24,8 @@ public class CitizenControllerTest {
 	@Mock
 	private RestTemplate restTemplate;
 
-//	@Mock
-//	private JmsTemplate jmsTemplate;
+	@Mock
+	private JmsTemplate jmsTemplate;
 
 	@Test
 	public void findByForenameTest() {
@@ -32,7 +33,7 @@ public class CitizenControllerTest {
 		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).getForEntity(TestConstants.CITIZEN_FORENAME,
 				Citizen[].class);
 
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "null", "null"));
+		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "null", "null", "Test"));
 
 		verify(restTemplate).getForEntity(TestConstants.CITIZEN_FORENAME, Citizen[].class);
 
@@ -44,7 +45,7 @@ public class CitizenControllerTest {
 		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).getForEntity(TestConstants.CITIZEN_SURNAME,
 				Citizen[].class);
 
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("null", "Ivan", "null"));
+		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("null", "Ivan", "null", "Test"));
 
 		verify(restTemplate).getForEntity(TestConstants.CITIZEN_SURNAME, Citizen[].class);
 	}
@@ -54,7 +55,7 @@ public class CitizenControllerTest {
 
 		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).getForEntity(TestConstants.CITIZEN_FULLNAME,
 				Citizen[].class);
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "Ivan", "null"));
+		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "Ivan", "null", "Test"));
 
 		verify(restTemplate).getForEntity(TestConstants.CITIZEN_FULLNAME, Citizen[].class);
 	}
@@ -64,7 +65,7 @@ public class CitizenControllerTest {
 
 		doReturn(TestConstants.MOCK_CITIZEN_RESPONSE).when(restTemplate).getForEntity(TestConstants.CITIZEN_FULLNAME_AND_ADDRESS,
 				Citizen[].class);
-		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "Ivan", "543 Crazy Street, Crazy Town, CR 4ZY"));
+		assertEquals(TestConstants.MOCK_CITIZEN_RESPONSE, controller.getAllCitizens("Crazy", "Ivan", "543 Crazy Street, Crazy Town, CR 4ZY", "Test"));
 
 		verify(restTemplate).getForEntity(TestConstants.CITIZEN_FULLNAME_AND_ADDRESS, Citizen[].class);
 	}

@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,6 +24,7 @@ public class AssociateControllerTest {
 	@Mock
 	private RestTemplate restTemplate;
 	
+	
 	@Test
 	public void getAssociatesByFullNameAndAddressTest() {
 
@@ -32,7 +34,8 @@ public class AssociateControllerTest {
 		assertEquals(TestConstants.MOCK_ASSOCIATE_RESPONSE, controller.getAssociatesByFullNameAndAddress(
 				"John", 
 				"Smith", 
-				"16 HIGH ROAD, UPFORD, U43 2DX"));
+				"16 HIGH ROAD, UPFORD, U43 2DX"
+				));
 
 		verify(restTemplate).getForEntity(TestConstants.ASSOCIATE_FULLNAME_AND_ADDRESS, Associate[].class);
 
