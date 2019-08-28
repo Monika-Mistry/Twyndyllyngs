@@ -24,22 +24,22 @@ public class AssociateController extends Controller {
 	}
 	
 
-	@GetMapping("/getAssociatesByFullNameAndAddress/{forename}/{surname}/{address}")
+	@GetMapping("/getAssociatesByFullNameAndAddress/{forenames}/{surname}/{address}")
 	public ResponseEntity<Associate[]> getAssociatesByFullNameAndAddress(
 			@PathVariable("forenames") String forenames, 
 			@PathVariable("surname") String surname,
-			@PathVariable("address") String address) 
+			@PathVariable("address") String address
+			)
 	{
-
 			return restTemplate.getForEntity(Constants.ASSOCIATE_FULLNAME_ADDRESS_URL + forenames + "/" + surname + "/" +  address, Associate[].class);
 	}
 	
 	
 	@GetMapping("/getAssociatesByPhoneNumber/{phoneNumber}")
 	public ResponseEntity<Associate[]> getAssociatesByPhoneNumber(
-			@PathVariable("phoneNumber") String phoneNumber) 
+			@PathVariable("phoneNumber") String phoneNumber
+			) 
 	{
-
 			return restTemplate.getForEntity(Constants.ASSOCIATE_PHONE_NUMBER_URL + phoneNumber, Associate[].class);
 	}
 	

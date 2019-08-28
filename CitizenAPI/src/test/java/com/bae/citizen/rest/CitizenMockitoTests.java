@@ -58,13 +58,6 @@ public class CitizenMockitoTests {
 		Mockito.verify(service).findByForenamesAndSurnameAndAddress("Aaron", "Aarvark","34 Megaroad Megatown M6 7RQ");
 	}
 
-	@Test
-	public void getCitizenByIdDoesExistTest() {
 
-		Mockito.when(service.findById(12345L)).thenReturn(TestConstants.MOCK_CITIZEN_1);
-
-		assertEquals(TestConstants.MOCK_CITIZEN_1, controller.findCitizenById(12345L));
-		Mockito.verify(service).findById(12345L);
-	}
 
 }

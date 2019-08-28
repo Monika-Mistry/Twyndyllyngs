@@ -49,10 +49,4 @@ public class CitizenController {
 				HttpStatus.OK);
 	}
 
-	@GetMapping("/getCitizenById/{citizenId}")
-	public Citizen findCitizenById(@PathVariable("citizenId") Long citizenId) {
-
-		return citizenService.findById(citizenId);
-	}
-
 }
