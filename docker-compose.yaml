@@ -66,4 +66,12 @@ services:
                 - PASSWORD=${PASSWORD}
         ports:
             - {target: 8007, protocol: tcp}   
+    finance:
+        build:
+            context: ./FinanceAPI
+            dockerfile: Dockerfile
+            args: 
+                - PASSWORD=${PASSWORD}
+        ports:
+            - {target: 8005, protocol: tcp}   
 

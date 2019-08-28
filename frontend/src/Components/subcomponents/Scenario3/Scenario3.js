@@ -10,43 +10,46 @@ export class Scenario3 extends Component {
     constructor() {
         super()
         this.state = {
-            vehicle: {address: "",
-            colour: "",
-            dateOfBirth: "",
-            driverLicenceId: " ",
-            forenames: " ",
-            make: "",
-            model: "",
-            registrationDate: "",
-            registrationId: "",
-            surname: "",
-            vehicleRegistrationNo: ""},
+            vehicle: {
+                address: "",
+                colour: "",
+                dateOfBirth: "",
+                driverLicenceId: " ",
+                forenames: " ",
+                make: "",
+                model: "",
+                registrationDate: "",
+                registrationId: "",
+                surname: "",
+                vehicleRegistrationNo: ""
+            },
             location: [],
-            notFound:""
+            notFound: ""
         }
     }
-    
+
     CarSearch = (e) => {
         e.preventDefault();
         let reg = {
-            vehicleRegistrationNo : e.target[0].value,
+            vehicleRegistrationNo: e.target[0].value,
             username: sessionStorage.getItem("username")
         }
 
         if (validation(reg.vehicleRegistrationNo, alnuValid)) {
             if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
-                document.getElementById("regError").innerText = ""; 
-                findCar(reg).then( response => {
-                    if (response.data===[]){
+                document.getElementById("regError").innerText = "";
+                findCar(reg).then(response => {
+                    if (response.data === []) {
                         document.getElementById("regInput").placeholder = "Vehicle not found."
-                        this.setState({notFound:"Vehicle not Found."})
+                        this.setState({ notFound: "Vehicle not Found." })
                     } else {
-                    this.setState({
-                        vehicle: response.data.vehicleRegistration[0],
-                        location: response.data.vehicleLocation
-                    })
-                    console.log(response.data);
-                }).catch( response => {
+                        this.setState({
+                            vehicle: response.data.vehicleRegistration[0],
+                            location: response.data.vehicleLocation
+                        })
+                        console.log(response.data);
+                    }
+                }).catch(response => {
                     console.log(response);
                 })
             } else {
@@ -83,8 +86,8 @@ export class Scenario3 extends Component {
                     <p>{this.state.notFound}</p>
                 </div>
 
-                <VehicleProfile data={this.state.vehicle}/>
-                <VehicleHeader data={this.state.location}/>
+                <VehicleProfile data={this.state.vehicle} />
+                <VehicleHeader data={this.state.location} />
             </div>
 
         )
