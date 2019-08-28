@@ -14,7 +14,7 @@
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/Vehicle.PNG)
+![Module Architecture](/Documentation/Architecture/Modules/VehicleAPI.PNG)
 
 ### Application Architecture
 
