@@ -16,4 +16,14 @@ public class Constants {
 	
 	public static final String MOBILE_CALL_RECORDS_URL = "http://mobile:8006/getCallRecordsByCaller/";
 	public static final String PEOPLE_MOBILE_URL = "http://mobile:8006/getMobileByFullnameAndAddress/";
+	
+	public static final String ATM_TRANSACTION_LOCATIONS_URL = "http://finance:8005/getAtmTransactionsByFullnameAndAddress/";
+	public static final String ATM_TRANSACTION_CARD_NUMBER_URL = "http://finance:8005/getAtmTransactionsByCardNumber/";
+	
+	public static final String EPOS_TRANSACTION_LOCATIONS_URL = "http://finance:8005/getEposTransactionsByFullnameAndAddress/";
+	public static final String EPOS_TRANSACTION_CARD_NUMBER_URL = "http://finance:8005/getEposTransactionsByCardNumber/";
+
+	public static final String BANK_ACCOUNT_DETAILS_URL = "http://finance:8005/getBankAccountDetailsByFullnameAndAddress/";
+
+	
 }

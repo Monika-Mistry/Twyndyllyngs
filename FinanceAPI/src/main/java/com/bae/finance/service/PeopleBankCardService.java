@@ -4,5 +4,5 @@ import com.bae.finance.domain.PeopleBankCard;
 
 public interface PeopleBankCardService {
 
-	PeopleBankCard[] findByForenamesAndSurname(String forenames, String surname);
+	PeopleBankCard[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
 }

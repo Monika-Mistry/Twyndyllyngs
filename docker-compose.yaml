@@ -65,4 +65,5 @@ services:
             args: 
                 - PASSWORD=${PASSWORD}
         ports:
-            - {target: 8007, protocol: tcp}
+            - {target: 8007, protocol: tcp}   
+

@@ -11,8 +11,10 @@ export const longValid = /^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
 export const header = {
     headers: {
-        Authorization : `JWT ${sessionStorage.getItem("JWToken")}`}
+        'Content-Type': `application/json`,
+        'Authorization': `JWT ${sessionStorage.getItem("JWToken")}`
     }
+}
 
 export function validation(value, valid) {
     if (valid.test(value)) {

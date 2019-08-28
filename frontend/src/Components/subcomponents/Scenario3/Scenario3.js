@@ -3,36 +3,51 @@ import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findCar } from '../Constants/Routes.js';
 import { alnuValid, validation } from '../Constants/Constants.js';
 import { VehicleProfile } from '../Profiles/VehicleProfile.js';
+import { VehicleHeader } from '../Profiles/VehicleHeader.js';
 
 export class Scenario3 extends Component {
 
     constructor() {
         super()
         this.state = {
-            vehicle: {registrationId: "e", registrationDate: "", vehicleRegistrationNo: "", make: "", model: "", colour: "", forenames: "", surname: "", address: "", dataOfBirth: "", driverLicenceId: ""}
+            vehicle: {address: "",
+            colour: "",
+            dateOfBirth: "",
+            driverLicenceId: " ",
+            forenames: " ",
+            make: "",
+            model: "",
+            registrationDate: "",
+            registrationId: "",
+            surname: "",
+            vehicleRegistrationNo: ""},
+            location: []
         }
     }
-
+    
     CarSearch = (e) => {
         e.preventDefault();
-        let reg = e.target[0].value
+        let reg = {
+            vehicleRegistrationNo : e.target[0].value
+        }
 
-        if (validation(reg, alnuValid)) {
-            if (reg.length >= 6 && reg.length <= 8) {
-                document.getElementById("regError").innerText = ""
+        if (validation(reg.vehicleRegistrationNo, alnuValid)) {
+            if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
+                document.getElementById("regError").innerText = ""; 
                 findCar(reg).then( response => {
-                    this.setState = {
-                        data: response.data
-                    }
-                    console.log(response.data)
+                    this.setState({
+                        vehicle: response.data.vehicleRegistration[0],
+                        location: response.data.vehicleLocation
+                    })
+                    console.log(response.data);
                 }).catch( response => {
-                    console.log(response)
+                    console.log(response);
                 })
             } else {
-                document.getElementById("regError").innerText = "Reg needs to be between 6 to 8 characters long, Remember Spaces"
+                document.getElementById("regError").innerText = "Reg needs to be between 6 to 8 characters long, Remember Spaces";
             }
         } else {
-            document.getElementById("regError").innerText = "A car registration requires numbers and letters"
+            document.getElementById("regError").innerText = "A car registration requires numbers and letters";
         }
     }
 
@@ -60,6 +75,7 @@ export class Scenario3 extends Component {
                 </div>
 
                 <VehicleProfile data={this.state.vehicle}/>
+                <VehicleHeader data={this.state.location}/>
             </div>
 
         )
