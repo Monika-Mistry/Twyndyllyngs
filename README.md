@@ -8,9 +8,10 @@ In fulfilment of the final group project for week 16 of QA Academy.
   
 [Architecture](#architecture)
   * [Multi Tier Architechture Diagram](#mla)
+  * [Component Hierarchy] (#comphier)
   
 [Wireframes](#wireframes)
-  * [ link to dynamic wireframes ]
+  * [ link to dynamic wireframes ](https://xd.adobe.com/view/599b62f7-9972-4b4e-55b9-dce92bf4cd81-2faa/)
   
 [Testing](#testing)
 
