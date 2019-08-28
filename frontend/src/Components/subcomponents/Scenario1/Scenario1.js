@@ -25,7 +25,7 @@ export class Scenario1 extends Component {
             forenames: this.nullify(e.target[0].value),
             surname: this.nullify(e.target[1].value),
             address: this.nullify(e.target[2].value),
-            username: sesstionStorage.getItem("username")
+            username: sessionStorage.getItem("username")
         }
 
         console.log((e.target[2].value))
