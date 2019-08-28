@@ -50,14 +50,14 @@ export class RouterHome extends Component {
                 <div>
                     <NavBar currentUser={this.state.loggedIn} logout={this.reset}/>
                     <Route exact path='/' render={() => <Login onLogin={this.onLogin} refer={this.state.redirectToReferrer} role={this.state.loggedIn} />} />
-                    <PrivateRoute path='/analyst' component={Analyst} />
-                    <PrivateRoute path='/auditor' component={Audit} />
-                    <PrivateRoute path='/CreateAnalyst' component={CreateAnalyst} /> 
-                    <PrivateRoute path='/SuspectSearch' component={Scenario1} /> 
-                    <PrivateRoute path='/AreaSearch' component={Scenario2} /> 
-                    <PrivateRoute path='/CarDatabase' component={Scenario3} /> 
-                    <PrivateRoute path='/LocationMap' component={LocationMap} /> 
-                    <PrivateRoute path='/Profile' component={CitizenProfile} /> 
+                    <Route path='/analyst' component={Analyst} />
+                    <Route path='/auditor' component={Audit} />
+                    <Route path='/CreateAnalyst' component={CreateAnalyst} /> 
+                    <Route path='/SuspectSearch' component={Scenario1} /> 
+                    <Route path='/AreaSearch' component={Scenario2} /> 
+                    <Route path='/CarDatabase' component={Scenario3} /> 
+                    <Route path='/LocationMap' component={LocationMap} /> 
+                    <Route path='/Profile' component={CitizenProfile} /> 
                     <Route path='/forgot' render={() => <ForgottenPassword />} />
                     <Footer />
                 </div>

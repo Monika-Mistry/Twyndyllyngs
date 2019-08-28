@@ -104,16 +104,14 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <Button color="primary" onClick={this.toggle} style={{
+                <h3 style={{"padding-top":"40px"}} align="center"><u>Associates</u></h3>
+                
+                <Button color="primary" onClick={this.toggleAssociates} style={{
                     alignSelf: 'stretch'
                 }}>View Associates</Button>
                 <Collapse isOpen={this.state.collapse}>
                     <Card>
                         <CardBody>
-
-                            <h3 align="center"><u>Associates</u></h3>
-
-                            <br></br>
 
                             <Container>
 
@@ -121,6 +119,23 @@ export class CitizenProfile extends Component {
 
                             </Container>
 
+
+                        </CardBody>
+                    </Card>
+                </Collapse>
+
+                <h3 style={{"padding-top":"40px"}} align="center"><u>Vehicle</u></h3>
+
+                <Button color="primary" onClick={this.toggleCar} style={{
+                    alignSelf: 'stretch'
+                }}>View Vehicle Details</Button>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card>
+                        <CardBody>
+
+                            <Container>
+                                <VehicleContainer data={this.state.vehicle} />
+                            </Container>
                             <br></br>
                             <br></br>
 
@@ -128,38 +143,47 @@ export class CitizenProfile extends Component {
                     </Card>
                 </Collapse>
 
-                <h3 align="center"><u>Car</u></h3>
+                <h3 style={{"padding-top":"40px"}} align="center"><u>Phones</u></h3>
 
-                <br></br>
+                <Button color="primary" onClick={this.togglePhone} style={{
+                    alignSelf: 'stretch'
+                }}>View Phone Calls</Button>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card>
+                        <CardBody>
 
-                <Container>
-                    <VehicleContainer data={this.state.vehicle} />
-                </Container>
-                <br></br>
-                <br></br>
+                            <Container>
+                                <Row>
+                                    <Phone data={this.state.phone} />
+                                </Row>
+                            </Container>
 
-                <h3 align="center"><u>Phones</u></h3>
+                            <br></br>
+                            <br></br>
 
-                <br></br>
 
-                <Container>
-                    <Row>
-                        <Phone data={this.state.phone} />
-                    </Row>
-                </Container>
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
-                <br></br>
-                <br></br>
+                <h3 style={{"padding-top":"40px"}} align="center"><u>Transactions</u></h3>
 
-                <h3 align="center"><u>Transactions</u></h3>
+                <Button color="primary" onClick={this.toggleTransactions} style={{
+                    alignSelf: 'stretch'
+                }}>View Financial Transactions</Button>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card>
+                        <CardBody>
 
-                <br></br>
+                            <Container>
+                                <Row>
+                                    <p> Coming Soon {this.state.finances}</p>
+                                </Row>
+                            </Container>
 
-                <Container>
-                    <Row>
-                        <p> Coming Soon {this.state.finances}</p>
-                    </Row>
-                </Container>
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
 
             </div>
