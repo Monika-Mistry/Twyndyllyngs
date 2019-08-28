@@ -20,8 +20,8 @@ public class PeopleBankCardServiceImplementation implements PeopleBankCardServic
 	}
 
 	
-	public PeopleBankCard[] findByForenamesAndSurname(String forenames, String surname) {
-		List<PeopleBankCard> bankCardList = peopleBankCardRepository.findByForenamesAndSurname(forenames, surname);
+	public PeopleBankCard[] findByForenamesAndSurnameAndAddress(String forenames, String surname, String address) {
+		List<PeopleBankCard> bankCardList = peopleBankCardRepository.findByForenamesAndSurnameAndHomeAddress(forenames, surname, address);
 		
 		return bankCardList.toArray(new PeopleBankCard[bankCardList.size()]);
 	}

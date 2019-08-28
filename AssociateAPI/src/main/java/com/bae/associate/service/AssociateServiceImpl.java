@@ -1,6 +1,6 @@
 package com.bae.associate.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +23,18 @@ public class AssociateServiceImpl implements AssociateService {
 	}
 
 
-	public ArrayList<Associate> findAssociatesByPhonenumber(String phoneNumber) {
-		return associateRepository.findAssociatesByPhonenumber(phoneNumber);
+	public Associate[] findAssociatesByPhonenumber(String phoneNumber) {
+		
+		List<Associate> associateList = associateRepository.findAssociatesByPhonenumber(phoneNumber);
+		
+		return associateList.toArray(new Associate[associateList.size()]);
 	}
 
-	public ArrayList<Associate> findAssociatesByFullnameAndAddress(String forenames, String surname, String address) {
-		return associateRepository.findAssociatesByFullnameAndAddress(forenames, surname, address);
+	public Associate[] findAssociatesByFullNameAndAddress(String forenames, String surname, String address) {
+		
+		List<Associate> associateList =  associateRepository.findAssociatesByFullNameAndAddress(forenames, surname, address);
+		
+		return associateList.toArray(new Associate[associateList.size()]);
 	}
 
 

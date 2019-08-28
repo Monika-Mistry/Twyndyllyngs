@@ -4,11 +4,10 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 
-
 const coreApiCar = "http://core:8000/vehicle/";
 
-const getCarRequest = vehicleReg => {
-    return axios.get(coreApiCar + vehicleReg, Headers);
+const getCarRequest = (username, vehicleReg) => {
+    return axios.get(coreApiCar + username+ "/" + vehicleReg);
 };
 
 router.get("/test", (req, res) => {
@@ -25,10 +24,8 @@ router.post("/", (req, res, next) => {
             res.status(401).send(info.message);
         } else {
             let vehicleReg = req.body.vehicleRegistrationNo;
-            
-            getCarRequest(vehicleReg).then(response => {
-                res.setHeader("Content-Type", "application/json");
-                console.log("data: ", response.data);
+            let username = req.body.username;
+            getCarRequest(username, vehicleReg).then(response => {
                 res.send(response.data);
             }).catch(err => { console.error(err) })
         }

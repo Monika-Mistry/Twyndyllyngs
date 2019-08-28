@@ -30,7 +30,7 @@ export class RouterHome extends Component {
             loggedIn: null,
             redirectToReferrer: false
         })
-        sessionStorage.removeItem("JWToken")
+        sessionStorage.clear()
     }
 
     onLogin = (user) => {

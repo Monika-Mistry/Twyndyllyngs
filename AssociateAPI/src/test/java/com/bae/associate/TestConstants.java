@@ -16,9 +16,11 @@ public class TestConstants {
 			"16 HIGH ROAD, UPFORD, U43 2DX"
 			);
 
-	public static ArrayList<Associate> MOCK_ASSOCIATES_ARRAY = new ArrayList<Associate>();
+	public static ArrayList<Associate> MOCK_ASSOCIATES_ARRAYLIST = new ArrayList<Associate>();
+	
+	public static Associate[] MOCK_ASSOCIATES_ARRAY = {MOCK_ASSOCIATES_1};
 			
 	
-	public static final ResponseEntity<ArrayList<Associate>> MOCK_ASSOCIATES_RESPONSE = new ResponseEntity<ArrayList<Associate>>(MOCK_ASSOCIATES_ARRAY, HttpStatus.OK);
+	public static final ResponseEntity<Associate[]> MOCK_ASSOCIATES_RESPONSE = new ResponseEntity<Associate[]>(MOCK_ASSOCIATES_ARRAY, HttpStatus.OK);
 	
 }
