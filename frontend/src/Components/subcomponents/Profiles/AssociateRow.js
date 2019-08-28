@@ -7,7 +7,7 @@ export function AssociateRow(props) {
         <tbody>
             {props.data.map(element => {
                 return (
-                <tr key={element.citizenId}>
+                <tr key={element.forenames}>
                     <td>
                         {element.forenames}
                     </td>
