@@ -57,7 +57,9 @@ public class VehicleControllerTest {
 		
 		assertEquals(TestConstants.MOCK_VEHICLE_REG_RESPONSE, controller.findVehicleByForenameSurnameAddress("Crazy", "Ivan", "543 Crazy Street, Crazy Town, CR 4ZY"));
 
-		verify(restTemplate).getForEntity(TestConstants.VEHICLE_REGISTRATION_NAME_ADD, VehicleRegistration[].class);
+		verify(restTemplate).getForEntity(TestConstants.VEHICLE_REGISTRATION_NAME_ADD
+				
+				, VehicleRegistration[].class);
 		
 	}
 	
