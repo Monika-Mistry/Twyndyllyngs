@@ -1,4 +1,4 @@
-export const loginApi = "http://35.197.253.209/";
+export const loginApi = "/login/";
 
 export const passValid = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
 export const alnu8Valid = new RegExp("^(?=.[A-Za-z0-9])(?=.{8,})");
