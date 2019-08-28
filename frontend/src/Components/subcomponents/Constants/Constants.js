@@ -12,7 +12,8 @@ export const longValid = /^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 export const header = {
     headers: {
         'Content-Type': `application/json`,
-        'Authorization': `JWT ${sessionStorage.getItem("JWToken")}`
+        'Authorization': `JWT ${sessionStorage.getItem("JWToken")}`,
+        'username': `${sessionStorage.getItem("username")}`
     }
 }
 
