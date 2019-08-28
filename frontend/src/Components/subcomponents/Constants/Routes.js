@@ -22,8 +22,6 @@ export function findAssociates(citizen) {
     return axios.post(loginApi + "ProfileDetails/associates/", citizen, header)
 }
 
-findAssociates
-
 export function findCar(vehicleRegistrationNo) {
     return axios.post(loginApi + "getCarDetails/", vehicleRegistrationNo, header)
 }
