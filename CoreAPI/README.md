@@ -1,4 +1,4 @@
-Final Project: Core Service
+# Final Project: Core Service
 
 ## Index
 [0. Architecture](#arch)
@@ -14,7 +14,7 @@ Final Project: Core Service
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/CoreAPI.PNG)
+![Module Architecture](/Documentation/Architecture/Modules/Core.PNG)
 
 ### Application Architecture
 
