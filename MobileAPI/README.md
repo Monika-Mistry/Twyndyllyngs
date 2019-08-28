@@ -14,11 +14,11 @@
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/MobileAPI.png)
+![Module Architecture](/Documentation/Architecture/Modules/MobileAPI.PNG)
 
 ### Application Architecture
 
-![Application Architecture](/Documentation/Architecture/Application.png)
+![Application Architecture](/Documentation/Architecture/Application.PNG)
 
 <a name="service"></a>
 # 1. Mobile Service
