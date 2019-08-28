@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
 import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
+import { AssociateHead } from '../Profiles/AssociateHead.js';
 
 export class CitizenProfile extends Component {
 
