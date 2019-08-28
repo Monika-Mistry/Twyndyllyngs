@@ -49,9 +49,4 @@ services:
             args: 
                 - PASSWORD=${PASSWORD}
         ports:
-            - {target: 8007, protocol: tcp}
-    activemq:
-        image: 'rmohr/activemq:latest'
-        ports:
-            - {target: 8161, published: 8161, protocol: tcp}
-            - {target: 61616, published: 61616, protocol: tcp}   
+            - {target: 8007, protocol: tcp}   
