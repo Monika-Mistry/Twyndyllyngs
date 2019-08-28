@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
-import { findCitizens, findCitizenVehicle, findCitizenMobile } from '../Constants/Routes.js';
+import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords} from '../Constants/Routes.js';
 
 export class CitizenProfile extends Component {
 
@@ -16,8 +16,8 @@ export class CitizenProfile extends Component {
             associates: ["hello", "bye bye", "aardvark"],
             citizen: { citizenId: "", forenames: "", surname: "", dob: "", gender: "", pob: "", address: "" },
             vehicle: [],
-            records: [],
             mobile:[],
+            callRecords:[],
             finances: [],
             associates2: []
         }
@@ -43,7 +43,7 @@ export class CitizenProfile extends Component {
 
             this.setState({
                 citizen: response.data[0],
-                records: [{ id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN: 5, recieverTowerId: 6 }, { id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7 }],
+                callRecords: [{ id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN: 5, recieverTowerId: 6 }, { id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7 }],
                 vehicle: { registrationId: 1, registrationDate: "day", vehicleRegistrationNo: 2, make: "yes", model: "true", colour: "blue", forenames: "forename", surname: "surname", address: "england", dataOfBirth: "today", driverLicenceId: 3 },
                 associates: [{ citizenId: 1, forenames: "monika", surname: "mistry" }, { citizenId: 2, forenames: "owen", surname: "miller" }, { citizenId: 3, forenames: "rich", surname: "thi" }],
                 associates2: [{ forenames: "monika" }, { forenames: "owen" }, { forenames: "rich" }]
@@ -65,6 +65,19 @@ export class CitizenProfile extends Component {
                 mobile: response.data[0]
             })
             console.log(response.data[0])
+        }).then(() => {
+
+            let number = {
+                number: this.state.mobile.phoneNumber
+            }
+
+            findPhoneRecords(number).then(response => {
+                this.setState({
+                    callRecords: response.data
+                })
+            }).catch(response => {
+                console.log(response)
+            })
         }).catch(response => {
             console.log(response)
         })
@@ -120,7 +133,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <Phone data={this.state.records} />
+                        <Phone data={this.state.callRecords} />
                     </Row>
                 </Container>
 
