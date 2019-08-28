@@ -6,18 +6,34 @@ services:
             - {type: bind, source: ./nginx/nginx.conf, target: /etc/nginx/nginx.conf}
         ports:
             - {target: 80, published: 80, protocol: tcp}
+        depends_on:
+            - login
+            - webapp
+    webapp:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - {target: 3000, protocol: tcp}
     login:
         build:
             context: ./LoginNode
             dockerfile: Dockerfile
         ports:
             - {target: 8002, protocol: tcp}
+        depends_on:
+            - core
     core:
         build:
             context: ./CoreAPI
             dockerfile: Dockerfile
         ports:
             - {target: 8000, protocol: tcp}
+        depends_on:
+            - vehicle
+            - citizen
+            - mobile
+            - associate
     vehicle:
         build:
             context: ./VehicleAPI
@@ -50,3 +66,4 @@ services:
                 - PASSWORD=${PASSWORD}
         ports:
             - {target: 8007, protocol: tcp}   
+
