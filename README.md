@@ -10,12 +10,14 @@ In fulfilment of the final group project for week 16 of QA Academy.
   * [Multi Tier Architechture Diagram](#mla)
   
 [Wireframes](#wireframes)
-  * [ link to dynamic wireframes ](https://xd.adobe.com/view/599b62f7-9972-4b4e-55b9-dce92bf4cd81-2faa/)
+  * [Link to Dynamic High-Fidelity Wireframes](https://xd.adobe.com/view/599b62f7-9972-4b4e-55b9-dce92bf4cd81-2faa/)
   
 [Testing](#testing)
 
 [Deployment](#depl)
   * [Technologies Used](#tech)
+
+[Limitations](#limitations)
   
 [Aspirations for the Future](#nextsteps)
 
@@ -73,12 +75,25 @@ The SonarQube static analysis shows minor code smells relating to entity constru
 * Database - mongo, mySQL
 * Languages - Java, JavaScript, Git, SQL, HTML/CSS
 
+<a name="limitations"></a>
+## Application Limitations
+
 <a name="nextsteps"></a>
 ## Aspirations for the Future
 
-* Using machine learning (ML)/artificial intelligence (AI) to suggest linked data to the end user
-* End users can create a publishable final report containing resulting analysis
-* 
+* Using machine learning (ML)/artificial intelligence (AI) to suggest and refine suggestions of linked data to the end user.
+* End users can publish a final report containing their analysis.
+* Enable the user interface to add records to the database.
+* Enable the map as the primary user interface.
+* Optimise for both desktop and mobile.
+* All of the immediate above to enable operation staff to directly feed into the database with live observations.
+* Refine the UI through user acceptance testing and user feedback to enable user flow.
+* Code for heat mapping of suspect activity on the geographic display.
+* Modify to allow live steaming data captured live to display on the user interface, instead of – or in addition to – the static database entries.
+* Enhance security of endpoints, services, and database through extra layers of encryption and containerisation.
+* Speed up the database responses through a thorough schema of indexes.
+* Develop connective interface architecture to enable the application to “plug-and-play” into different database technologies or streams, allowing the product to more easily be sold off-the-shelf.
+* Develop future-proofed technology agnostic end-points to enable the application to remain current as back-end architecture changes over time.
 
 <a name="auth"></a>
 ## Authors
