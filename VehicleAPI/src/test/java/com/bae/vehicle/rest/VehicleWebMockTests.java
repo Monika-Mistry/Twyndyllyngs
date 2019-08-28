@@ -45,4 +45,12 @@ public class VehicleWebMockTests {
 		mockMvc.perform(get("/getLocationsByRegistrationNo/CRA 55Y"))
 		.andExpect(content().string(containsString("CRA 55Y"))).andDo(print());
 	}
+	
+	@Test 
+	public void getVehicleByForenameSurnameAddress() throws Exception {
+		when(service.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY")).thenReturn(TestConstants.MOCK_VEHICLE_REGISTRATION_1_ARRAY);
+
+		mockMvc.perform(get("/findVehicleByFullnameAndAddress/Crazy/Ivan/543 Crazy Street, Crazy Town, CR 4ZY"))
+		.andExpect(content().string(containsString("CR 4ZY"))).andDo(print());
+	}
 }

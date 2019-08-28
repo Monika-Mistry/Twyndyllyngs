@@ -37,6 +37,8 @@ public class TestConstants {
 	//Car Controller Test
 	public static final String VEHICLE_LOCATION = "http://vehicle:8004/getLocationsByRegistrationNo/CRA 55Y";
 	public static final String VEHICLE_REGISTRATION = "http://vehicle:8004/getVehiclesByRegistrationNo/CRA 55Y";
+	public static final String VEHICLE_REGISTRATION_NAME_ADD = "http://vehicle:8004/findVehicleByFullnameAndAddress/Crazy/Ivan/543 Crazy Street, Crazy Town, CR 4ZY";
+	
 	
 	public static final VehicleLocations[] MOCK_VEHICLE_LOCATION = { new VehicleLocations(2L, 10L,
 			new Timestamp(System.currentTimeMillis()), "CRA 55Y", "Crazy Street", 0.00000, 0.000000) };

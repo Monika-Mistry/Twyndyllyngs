@@ -33,5 +33,11 @@ public class VehicleController {
 
 		return new ResponseEntity<>(vehicleService.findLocationsByVehicleRegistrationNo(vehicleRegistrationNo), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findVehicleByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<VehicleRegistration[]> findVehicleByForenameSurnameAddress(@PathVariable("forenames") String forenames, @PathVariable("surname") String surname, @PathVariable("address") String address) {
+
+		return new ResponseEntity<>(vehicleService.findVehicleByForenameSurnameAddress(forenames, surname, address), HttpStatus.OK);
+	}
 
 }
