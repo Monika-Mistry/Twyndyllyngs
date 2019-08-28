@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export class Footer extends Component {
     render() {
         return (
-            <MDBFooter className="font-small pt-4 mt-4 chameleon-dark footer">
+            <MDBFooter className="font-small pt-4 mt-4 chameleon-dark">
                 <MDBContainer fluid className="text-center text-md-left">
                     <MDBRow>
                         <MDBCol md="4">

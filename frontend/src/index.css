@@ -12,6 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
+html {
+  height: 100%;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Open Sans", "Segoe UI", "Roboto", "Oxygen",
@@ -19,6 +24,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100%;
+  padding-bottom:250px;
 }
 
 h3 {
@@ -56,7 +64,7 @@ code {
 }
 
 .chameleon-navbar {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .login-form{
@@ -65,12 +73,30 @@ code {
   align-items: center;
 }
 
+.table-header{
+  background-color: #465362;
+  color:#ffffff;
+}
 
-.footer {
-  padding-top:200px;
-  position: fixed;
+.footerfix{height:4rem;}
+footer{
+  position: absolute;
+  right: 0;
   bottom: 0;
-  width: 100%;    
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #222;
+}
+
+
+.profile{
+  padding-bottom:60px;
+}
+
+.information-header{
+  font-family: "Cabin", sans-serif;
+  font-size: 20;
 }
 
 

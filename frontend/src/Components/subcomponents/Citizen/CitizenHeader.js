@@ -7,12 +7,12 @@ export default function CitizenHeader(props) {
     return (
         <div>
             <Table>
-                <thead>
+                <thead className="table-header chameleon-grey">
                     <tr>
                         <th>Forenames</th>
                         <th>Surname</th>
                         <th>Date Of Birth</th>
-                        <th>address</th>
+                        <th>Address</th>
                         <th>See More</th>
                     </tr>
                 </thead>

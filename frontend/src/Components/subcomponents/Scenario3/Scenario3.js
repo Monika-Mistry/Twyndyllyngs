@@ -55,7 +55,8 @@ export class Scenario3 extends Component {
     render() {
         return (
             <div>
-                <p>Suspect Fleeing</p>
+                <h1><u>Vehicle Information</u></h1>
+                <br></br>
                 <div className="container">
                     <Form onSubmit={this.CarSearch}>
                         <FormGroup row>

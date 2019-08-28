@@ -81,8 +81,8 @@ export class NavBar extends Component {
         }
 
         return (
-            <div>
-                <Navbar className="chameleon-dark chameleon-navbar" dark expand="md">
+            <div className="chameleon-navbar navbar-fixed-bottom">
+                <Navbar className="chameleon-dark " dark expand="md">
                     <NavbarBrand tag={RRNavLink} to={user}>
                         <img
                             style={{ width: 69, height: 69 }}
