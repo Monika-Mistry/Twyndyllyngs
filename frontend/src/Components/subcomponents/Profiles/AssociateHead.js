@@ -15,7 +15,7 @@ export function AssociateHead(props) {
                         <th>See More</th>
                     </tr>
                 </thead>
-                <AssociateRow data={props.data} details={props.details}/>
+                <AssociateRow data={props.data}/>
             </Table>
         </div>
     )

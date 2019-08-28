@@ -22,12 +22,6 @@ export class CitizenProfile extends Component {
         }
     }
 
-    details = (element) => {
-        sessionStorage.setItem('forenames', element.forenames);
-        sessionStorage.setItem('surname', element.surname);
-        sessionStorage.setItem('address', element.address);
-    }
-
     onLoad = () => {
 
         let user = {
@@ -122,7 +116,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
 
-                    <AssociateHead data={this.state.associates} details={this.details}/>
+                    <AssociateHead data={this.state.associates}/>
 
                 </Container>
 
@@ -140,6 +134,14 @@ export class CitizenProfile extends Component {
                 <h3 align="left">Phones:</h3>
 
                 <Container>
+                    <Row>
+                        <Col>
+                        <p> Phone Network: {this.state.mobile.network}</p>
+                        </Col>
+                        <Col>
+                        <p>Phone Number: {this.state.mobile.phoneNumber}</p>
+                        </Col>
+                    </Row>
                     <Row>
                         <Phone data={this.state.callRecords} />
                     </Row>

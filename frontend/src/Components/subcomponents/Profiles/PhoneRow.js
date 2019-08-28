@@ -7,7 +7,16 @@ export function PhoneRow(props) {
                 return (
                 <tr key={element.id}>
                     <td>
-                        {element.callerMSISDN}
+                        {element.timestamp}
+                    </td>
+                    <td>
+                        {element.receiverMSISDN}
+                    </td>
+                    <td>
+                        {element.callCellTowerId}
+                    </td>
+                    <td>
+                        {element.receiverTowerId}
                     </td>
                 </tr>)
             })}
