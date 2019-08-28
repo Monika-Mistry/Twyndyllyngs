@@ -45,6 +45,16 @@ public class PeopleMobileController {
 		
 	}
 	
+	@GetMapping("/getMobileByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<PeopleMobile[]> findMobileByFullname(
+			@PathVariable("forenames") String forenames, 
+			@PathVariable("surname") String surname,
+			@PathVariable("address") String address) {
+		
+		return new ResponseEntity<>(peopleMobileService.findByForenamesAndSurnameAndAddress(forenames, surname, address), HttpStatus.OK);
+		
+	}
+	
  	
 	@GetMapping("/getMobileByNumber/{phoneNumber}")
 	public ResponseEntity<PeopleMobile[]> findMobilebyPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {

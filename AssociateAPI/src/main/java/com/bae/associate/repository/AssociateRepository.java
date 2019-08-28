@@ -38,6 +38,6 @@ public interface AssociateRepository extends CrudRepository<PeopleMobile, Long> 
 			"JOIN PeopleMobile as receiver " + 
 			"ON numbers.receiverMSISDN = receiver.phoneNumber",
 			nativeQuery = true)	
-	ArrayList<Associate> findAssociatesByFullnameAndAddress(@Param("forenames") String forenames, @Param("surname") String surname, @Param("address") String address);
+	ArrayList<Associate> findAssociatesByFullNameAndAddress(@Param("forenames") String forenames, @Param("surname") String surname, @Param("address") String address);
 
 }
