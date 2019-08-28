@@ -57,9 +57,9 @@ public class TestConstants {
 			"16 HIGH ROAD, UPFORD, U43 2DX"
 			);
 	
-	public static final String ASSOCIATE_FULLNAME_AND_ADDRESS = "http://associates:8007/getAssociatesByFullNameAndAddress/John/Smith/16 HIGH ROAD, UPFORD, U43 2DX";
+	public static final String ASSOCIATE_FULLNAME_AND_ADDRESS = "http://associate:8007/getAssociatesByFullNameAndAddress/John/Smith/16 HIGH ROAD, UPFORD, U43 2DX";
 
-	public static final String ASSOCIATE_PHONENUMBER = "http://associates:8007/getAssociatesByPhoneNumber/01234 567890";
+	public static final String ASSOCIATE_PHONENUMBER = "http://associate:8007/getAssociatesByPhoneNumber/01234 567890";
 
 	
 	public static final Associate[] MOCK_ASSOCIATE_ARRAY = {MOCK_ASSOCIATE};
