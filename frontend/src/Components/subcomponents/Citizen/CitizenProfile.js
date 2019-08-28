@@ -16,7 +16,8 @@ export class CitizenProfile extends Component {
             associates: ["hello", "bye bye", "aardvark"],
             citizen: { citizenId: "", forenames: "", surname: "", dob: "", gender: "", pob: "", address: "" },
             vehicle: [],
-            phone: [],
+            records: [],
+            mobile:[],
             finances: [],
             associates2: []
         }
@@ -42,7 +43,7 @@ export class CitizenProfile extends Component {
 
             this.setState({
                 citizen: response.data[0],
-                phone: [{ id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN: 5, recieverTowerId: 6 }, { id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7 }],
+                records: [{ id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN: 5, recieverTowerId: 6 }, { id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7 }],
                 vehicle: { registrationId: 1, registrationDate: "day", vehicleRegistrationNo: 2, make: "yes", model: "true", colour: "blue", forenames: "forename", surname: "surname", address: "england", dataOfBirth: "today", driverLicenceId: 3 },
                 associates: [{ citizenId: 1, forenames: "monika", surname: "mistry" }, { citizenId: 2, forenames: "owen", surname: "miller" }, { citizenId: 3, forenames: "rich", surname: "thi" }],
                 associates2: [{ forenames: "monika" }, { forenames: "owen" }, { forenames: "rich" }]
@@ -55,6 +56,15 @@ export class CitizenProfile extends Component {
             this.setState({
                 vehicle: response.data[0]
             })
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findCitizenMobile(user).then(response => {
+            this.setState({
+                mobile: response.data[0]
+            })
+            console.log(response.data[0])
         }).catch(response => {
             console.log(response)
         })
@@ -110,7 +120,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <Phone data={this.state.phone} />
+                        <Phone data={this.state.records} />
                     </Row>
                 </Container>
 
