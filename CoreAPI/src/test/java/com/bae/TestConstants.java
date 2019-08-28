@@ -7,11 +7,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.bae.domain.Associate;
+import com.bae.domain.AtmTransactionLocations;
 import com.bae.domain.Citizen;
+import com.bae.domain.EposTransactionLocations;
 import com.bae.domain.MobileCallRecords;
+import com.bae.domain.PeopleBankCard;
 import com.bae.domain.PeopleMobile;
 import com.bae.domain.VehicleLocations;
 import com.bae.domain.VehicleRegistration;
+
 
 public class TestConstants {
 
@@ -83,6 +87,46 @@ public class TestConstants {
 	public static final String PEOPLE_MOBILE_FULLNAME_AND_ADDRESS = "http://mobile:8006/getMobileByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
 
 	public static final String CALL_RECORDS_PHONENUMBER = "http://mobile:8006/getCallRecordsByCaller/01234567890";
+
+	//Finance Controller Test
+	
+	public static final PeopleBankCard MOCK_BANK_ACCOUNT = new PeopleBankCard(12345678L, "Aaron" , "Aarvark" , "123456", 
+			"Mega Bank", "1234567891234567", "10-07-73" , "34 Megaroad Megatown M6 7RQ", LocalDate.of(1990, 01, 01));
+
+	public static final PeopleBankCard[] MOCK_BANK_ACCOUNT_ARRAY = {MOCK_BANK_ACCOUNT};
+
+
+	public static final ResponseEntity<PeopleBankCard[]> MOCK_BANK_ACCOUNT_RESPONSE = new ResponseEntity<PeopleBankCard[]>(MOCK_BANK_ACCOUNT_ARRAY, HttpStatus.OK);
+
+	
+	public static final AtmTransactionLocations MOCK_ATM_TRANSACTIONS = new AtmTransactionLocations(1L, "Cash Withdrawal", 100, 1L, Timestamp.valueOf("2019-08-27 10:10:10.0"), 
+			"Natwest", "Megaroad", "M6 7RQ", 0.666666, 0.666666, 1L, "Aaron" , "Aarvark" , "1", LocalDate.of(1990, 01, 01), "34 Megaroad Megatown M6 7RQ",
+			"1234567891234567");
+	
+	public static final AtmTransactionLocations[] MOCK_ATM_TRANSACTION_ARRAY = {MOCK_ATM_TRANSACTIONS};
+	
+	public static final ResponseEntity<AtmTransactionLocations[]> MOCK_ATM_TRANSACTION_RESPONSE = new ResponseEntity<AtmTransactionLocations[]>
+	(MOCK_ATM_TRANSACTION_ARRAY, HttpStatus.OK);
+	
+	public static final EposTransactionLocations MOCK_EPOS_TRANSACTIONS = new EposTransactionLocations(1L, 1L, "123456", "Aaron" , "Aarvark",
+			LocalDate.of(1990, 01, 01), "34 Megaroad Megatown M6 7RQ", "1234567891234567", Timestamp.valueOf("2019-08-27 10:10:10.0"), 37.89,
+			1234L, "Builder", "Megaroad", "M6 7RQ", 0.666666, 0.666666);
+		
+	
+	public static final EposTransactionLocations[] MOCK_EPOS_TRANSACTION_ARRAY = {MOCK_EPOS_TRANSACTIONS};
+	
+	public static final ResponseEntity<EposTransactionLocations[]> MOCK_EPOS_TRANSACTION_RESPONSE = new ResponseEntity<EposTransactionLocations[]>
+	(MOCK_EPOS_TRANSACTION_ARRAY, HttpStatus.OK);
+	
+	public static final String PEOPLE_BANK_CARD_FULLNAME_AND_ADDRESS = "http://finance:8005/getBankAccountDetailsByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
+
+	public static final String EPOS_TRANSACTIONS_FULLNAME_AND_ADDRESS = "http://finance:8005/getEposTransactionsByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
+
+	public static final String EPOS_TRANSACTIONS_CARD_NUMBER = "http://finance:8005/getEposTransactionsByCardNumber/1234567891234567";
+	
+	public static final String ATM_TRANSACTIONS_FULLNAME_AND_ADDRESS = "http://finance:8005/getAtmTransactionsByFullnameAndAddress/Aaron/Aarvark/34 Megaroad Megatown M6 7RQ";
+
+	public static final String ATM_TRANSACTIONS_CARD_NUMBER = "http://finance:8005/getAtmTransactionsByCardNumber/1234567891234567";
 
 	
 	
