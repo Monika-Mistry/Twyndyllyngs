@@ -39,7 +39,7 @@ export class Scenario3 extends Component {
             if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
                 document.getElementById("regError").innerText = "";
                 findCar(reg).then(response => {
-                    if (response.data === []) {
+                    if (response.data.vehicleRegistration === [] && response.data.vehicleLocation === []) {
                         document.getElementById("regInput").placeholder = "Vehicle not found."
                         this.setState({ notFound: "Vehicle not Found." })
                     } else {
