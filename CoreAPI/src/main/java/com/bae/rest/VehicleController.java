@@ -64,7 +64,7 @@ public class VehicleController extends Controller {
 			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname,
 			@PathVariable("address") String address) {
 
-		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION2_URL + forenames + surname + address, VehicleRegistration[].class);
+		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION2_URL + forenames + "/" + surname +"/" +  address, VehicleRegistration[].class);
 	}
 
 }
