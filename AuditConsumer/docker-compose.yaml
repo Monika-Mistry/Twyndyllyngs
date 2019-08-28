@@ -11,8 +11,9 @@ services:
             - {target: 8008, protocol: tcp}
     activemq:
         image: rmohr/activemq
-        ports:
+       ports:
             - {target: 8161, published: 8161, protocol: tcp}
+            - {target: 61616, published: 61616, protocol: tcp}
     mongo:
         image: mongo
         ports:
