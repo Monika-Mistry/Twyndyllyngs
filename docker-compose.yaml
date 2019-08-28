@@ -34,7 +34,6 @@ services:
             - citizen
             - mobile
             - associate
-            - activemq
     vehicle:
         build:
             context: ./VehicleAPI
@@ -67,18 +66,3 @@ services:
                 - PASSWORD=${PASSWORD}
         ports:
             - {target: 8007, protocol: tcp}
-    activemq:
-        image: 'rmohr/activemq:latest'
-        ports:
-            - {target: 8161, published: 8161, protocol: tcp}
-            - {target: 61616, published: 61616, protocol: tcp}
-    audit:
-        build:
-            context: ./AuditConsumer
-            dockerfile: Dockerfile
-        ports:
-            - {target: 8008, protocol: tcp}
-    mongo:
-        image: mongo
-        ports:
-            - {target: 27001, published: 27001, protocol: tcp}
