@@ -22,11 +22,11 @@
 
 ### Module Architecture
 
-![Module Architecture](Module.png)
+![Module Architecture](/Documentation/Architecture/Modules/Login.PNG)
 
 ### Application Architecture
 
-![Application Architecture](Application.png)
+![Application Architecture](/Documentation/Architecture/Application.PNG)
 
 <a name="node"></a>
 # 1. Node
