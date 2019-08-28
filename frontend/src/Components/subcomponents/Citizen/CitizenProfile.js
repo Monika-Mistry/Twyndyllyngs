@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
-import { findCitizens, findCitizenVehicle } from '../Constants/Routes.js';
+import { findCitizens, findCitizenVehicle, findCitizenMobile } from '../Constants/Routes.js';
 
 export class CitizenProfile extends Component {
 
