@@ -30,10 +30,10 @@ public class VehicleController extends Controller {
 		this.restTemplate = restTemplate;
 	}
 
-	@GetMapping("/{vehicleReg}")
+	@GetMapping("/{username}/{vehicleReg}")
 	public ResponseEntity<CarObject> getCarDetails(
 			@PathVariable("vehicleReg") String vehicleReg,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 
 		ResponseEntity<VehicleLocations[]> vehicleLocation = getVehicleLocation(vehicleReg, username);
 		ResponseEntity<VehicleRegistration[]> vehicleRegistration = getVehicleRegistration(vehicleReg, username);

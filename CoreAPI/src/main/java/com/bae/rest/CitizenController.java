@@ -28,12 +28,12 @@ public class CitizenController extends Controller {
 		this.restTemplate = restTemplate;
 	}
 
-	@GetMapping("/{forename}/{surname}/{address}")
+	@GetMapping("/{username}/{forename}/{surname}/{address}")
 	public ResponseEntity<Citizen[]> getAllCitizens(
 			@PathVariable("forename") String forename,
 			@PathVariable("surname") String surname, 
 			@PathVariable("address") String address,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 		if (forename.equals("null")) {
 			ResponseEntity<Citizen[]> citizenSurname = getCitizenBySurname(surname, username);
 			Citizen[] citizen = citizenSurname.getBody();
@@ -57,10 +57,10 @@ public class CitizenController extends Controller {
 	}
 
 
-	@GetMapping("/getCitizensByForenames/{forenames}")
+	@GetMapping("/getCitizensByForenames/{username}/{forenames}")
 	public ResponseEntity<Citizen[]> getCitizenByForename(
 			@PathVariable("forenames") String forenames,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 		
 		sendToQueue(new Request(username,"/getCitizensBySurname/" + forenames, new Timestamp(System.currentTimeMillis())));
 		
@@ -68,10 +68,10 @@ public class CitizenController extends Controller {
 
 	}
 
-	@GetMapping("/getCitizensBySurname/{surname}")
+	@GetMapping("/getCitizensBySurname/{username}/{surname}")
 	public ResponseEntity<Citizen[]> getCitizenBySurname(
 			@PathVariable("surname") String surname,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 		
 		sendToQueue(new Request(username,"/getCitizensBySurname/" + surname, new Timestamp(System.currentTimeMillis())));
 
@@ -79,23 +79,23 @@ public class CitizenController extends Controller {
 
 	}
 
-	@GetMapping("/getCitizensByFullname/{forenames}/{surname}")
+	@GetMapping("/getCitizensByFullname/{username}{forenames}/{surname}")
 	public ResponseEntity<Citizen[]> getCitizenByFullname(
 			@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 		
 		sendToQueue(new Request(username,"/getCitizensByFullname/" + forenames + "/" + surname, new Timestamp(System.currentTimeMillis())));
 
 		return restTemplate.getForEntity(Constants.CITIZEN_FULLNAME_URL + forenames + "/" + surname, Citizen[].class);
 	}
 
-	@GetMapping("/getCitizensByFullnameAndAddress/{forenames}/{surname}/{address}")
+	@GetMapping("/getCitizensByFullnameAndAddress/{username}/{forenames}/{surname}/{address}")
 	public ResponseEntity<Citizen[]> getCitizenByFullnameAndAddress(
 			@PathVariable("forenames") String forenames,
 			@PathVariable("surname") String surname,
 			@PathVariable("address") String address,
-			@RequestHeader("username") String username) {
+			@PathVariable("username") String username) {
 		
 		sendToQueue(new Request(username,"/getCitizensByFullnameAndAddress/" + forenames + "/" + surname + "/" + address, new Timestamp(System.currentTimeMillis())));
 
