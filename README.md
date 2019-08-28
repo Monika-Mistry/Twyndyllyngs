@@ -8,7 +8,6 @@ In fulfilment of the final group project for week 16 of QA Academy.
   
 [Architecture](#architecture)
   * [Multi Tier Architechture Diagram](#mla)
-  * [Component Hierarchy] (#comphier)
   
 [Wireframes](#wireframes)
   * [ link to dynamic wireframes ](https://xd.adobe.com/view/599b62f7-9972-4b4e-55b9-dce92bf4cd81-2faa/)
@@ -26,7 +25,7 @@ In fulfilment of the final group project for week 16 of QA Academy.
 
 <a name="brief"></a>
 ## Brief
-
+[insert brief here]
 
 <a name="solution"></a>
 ### Solution
@@ -78,7 +77,8 @@ The SonarQube static analysis shows minor code smells relating to entity constru
 ## Aspirations for the Future
 
 * Using machine learning (ML)/artificial intelligence (AI) to suggest linked data to the end user
-* End users can create a publishable final report containing resulting analysis 
+* End users can create a publishable final report containing resulting analysis
+* 
 
 <a name="auth"></a>
 ## Authors
