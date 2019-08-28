@@ -42,7 +42,8 @@ export class Scenario1 extends Component {
                         this.setState({ notFound: "Person Not Found." });
                     } else {
                     this.setState({
-                        data: response.data
+                        data: response.data,
+                        notFound: ""
                     })
                 }
                 }).catch(response => {

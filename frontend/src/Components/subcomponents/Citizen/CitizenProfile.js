@@ -23,7 +23,6 @@ export class CitizenProfile extends Component {
             carCollapse: false,
             phoneCollapse: false,
             transactionsCollapse: false
-
         }
     }
 
@@ -104,9 +103,9 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 style={{"padding-top":"40px"}} align="center"><u>Associates</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Associates</u></h3>
                 
-                <Button color="primary" onClick={this.toggleAssociates} style={{
+                <Button onClick={this.toggleAssociates} style={{
                     alignSelf: 'stretch'
                 }}>View Associates</Button>
                 <Collapse isOpen={this.state.associatesCollapse}>
@@ -124,9 +123,9 @@ export class CitizenProfile extends Component {
                     </Card>
                 </Collapse>
 
-                <h3 style={{"padding-top":"40px"}} align="center"><u>Vehicle</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Vehicle</u></h3>
 
-                <Button color="primary" onClick={this.toggleCar} style={{
+                <Button onClick={this.toggleCar} style={{
                     alignSelf: 'stretch'
                 }}>View Vehicle Details</Button>
                 <Collapse isOpen={this.state.carCollapse}>
@@ -143,9 +142,9 @@ export class CitizenProfile extends Component {
                     </Card>
                 </Collapse>
 
-                <h3 style={{"padding-top":"40px"}} align="center"><u>Phones</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Phones</u></h3>
 
-                <Button color="primary" onClick={this.togglePhone} style={{
+                <Button onClick={this.togglePhone} style={{
                     alignSelf: 'stretch'
                 }}>View Phone Calls</Button>
                 <Collapse isOpen={this.state.phoneCollapse}>
@@ -166,9 +165,9 @@ export class CitizenProfile extends Component {
                     </Card>
                 </Collapse>
 
-                <h3 style={{"padding-top":"40px"}} align="center"><u>Transactions</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Transactions</u></h3>
 
-                <Button color="primary" onClick={this.toggleTransactions} style={{
+                <Button onClick={this.toggleTransactions} style={{
                     alignSelf: 'stretch'
                 }}>View Financial Transactions</Button>
                 <Collapse isOpen={this.state.transactionsCollapse}>

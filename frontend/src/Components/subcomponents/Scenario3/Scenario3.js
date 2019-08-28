@@ -44,7 +44,8 @@ export class Scenario3 extends Component {
                     } else {
                         this.setState({
                             vehicle: response.data.vehicleRegistration[0],
-                            location: response.data.vehicleLocation
+                            location: response.data.vehicleLocation,
+                            notFound: ""
                         })
                         console.log(response.data);
                     }
