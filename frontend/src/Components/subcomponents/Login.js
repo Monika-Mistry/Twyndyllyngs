@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
+import { Container, Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
 import { loginUser } from './Constants/Routes.js'
 
 export class Login extends Component {
 
-    constructor(){
+    constructor() {
         super()
-        this.state ={
+        this.state = {
             username: "",
             password: ""
         }
@@ -15,25 +15,25 @@ export class Login extends Component {
 
     login = (e) => {
         e.preventDefault();
-        
+
         let user = {
             username: e.target[0].value,
             password: e.target[1].value
         }
-        
-        loginUser(user).then( response => {
+
+        loginUser(user).then(response => {
             sessionStorage.setItem("JWToken", response.data.token)
             sessionStorage.setItem("username", user.username);
             this.props.onLogin(response.data.usertype)
-        }).catch( response => {
+        }).catch(response => {
             console.error(response)
         })
     }
 
     render() {
 
-        if (this.props.refer)  {
-            if (this.props.role === "analyst"){
+        if (this.props.refer) {
+            if (this.props.role === "analyst") {
                 return <Redirect to='/analyst' />;
             } else {
                 return <Redirect to='/auditor' />;
@@ -41,30 +41,29 @@ export class Login extends Component {
         }
         return (
             <div>
+            <div className="container chameleon-body login-form">
                 <Form onSubmit={this.login} className="search-form">
                     <FormGroup row>
-                        <Col sm={1}>
-                            <Label for="forname">Username:</Label>
-                        </Col>
-                        <Col sm={3}>
+                    <Label for="username">Username:</Label>
+                        <Col>
                             <Input type="text" name="username" placeholder="enter username" required />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Col sm={1}>
-                            <Label for="password">Password:</Label>
-                        </Col>
-                        <Col sm={3}>
-                            <Input type="password" name="password"  placeholder="enter password" required />
+                    <Label for="password">Password:</Label>
+                        <Col>
+                            <Input type="password" name="password" placeholder="enter password" required />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Col sm={{ size: 2, offset: 1 }}>
+                        <Col sm={{ size: 2, offset: 4}}>
                             <Button>Login</Button>
                         </Col>
                     </FormGroup>
                 </Form>
-                <p> <Link to='/forgot'> Forgotten Password?</Link></p>
+                <br></br>
+            </div>
+            <p> <Link to='/forgot'> Forgotten Password?</Link></p>
             </div>
         )
     }

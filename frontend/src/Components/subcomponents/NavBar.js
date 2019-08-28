@@ -82,14 +82,16 @@ export class NavBar extends Component {
 
         return (
             <div>
-                <Navbar color="light" light expand="md">
+                <Navbar className="chameleon-dark" dark expand="md">
                     <NavbarBrand tag={RRNavLink} to={user}>
                         <img
                             style={{ width: 69, height: 69 }}
-                            src={require('../../Logos/Lizzie.png')}
+                            src={require('../../Logos/Lizzie_white.png')}
                             alt="Chameleon">
                         </img>
+                        
                     </NavbarBrand>
+                    <NavbarBrand>Chameleon</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         {barItems}

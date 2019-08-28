@@ -59,7 +59,6 @@ export class CitizenProfile extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.show} >click</button>
                 <Container>
                     <Row>
                         <Col sm={2}>
