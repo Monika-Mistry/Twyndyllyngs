@@ -40,8 +40,7 @@ export class Scenario3 extends Component {
                 document.getElementById("regError").innerText = "";
                 findCar(reg).then(response => {
                     if (response.data.vehicleRegistration.length === 0) {
-                        document.getElementById("regInput").placeholder = "Vehicle not found.";
-                        this.setState({ notFound: "Vehicle not Found." });
+                        this.setState({ notFound: "Vehicle Not Found." });
                     } else {
                         this.setState({
                             vehicle: response.data.vehicleRegistration[0],
@@ -83,7 +82,7 @@ export class Scenario3 extends Component {
                             <p id="regError" style={{ color: 'red' }}></p>
                         </FormGroup>
                     </Form>
-                    <p>{this.state.notFound}</p>
+                    <h3>{this.state.notFound}</h3>
                 </div>
 
                 <VehicleProfile data={this.state.vehicle} />
