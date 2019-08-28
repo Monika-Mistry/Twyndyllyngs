@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { VehicleContainer } from './VehicleContainer.js';
+import { Link } from 'react-router-dom';
 
 export class VehicleProfile extends Component {
+
+    details = () => {
+        sessionStorage.setItem('forenames', this.props.data.forenames);
+        sessionStorage.setItem('surname', this.props.data.surname);
+        sessionStorage.setItem('address', this.props.data.address);
+    }
 
     render() {
         let vehicle = this.props.data;
@@ -20,15 +26,18 @@ export class VehicleProfile extends Component {
                 <Container align="left">
                     <Row>
                         <Col sm={2}>
-                            <FontAwesomeIcon icon='user' style={{ width: 69, height: 69 }}></FontAwesomeIcon>
+                            <img src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} style={{ width: 100, height: 100 }}></img>
                         </Col>
                         <Col sm={4} align="left">
                             <p> Full Name: {vehicle.forenames} {vehicle.surname}</p>
-                            <p> D.o.B : {vehicle.dob} </p>
+                            <p> Date of Brith : {vehicle.dateOfBirth} </p>
                             <p> Driving Licence: {vehicle.driverLicenceId} </p>
                         </Col>
                         <Col sm={4} align="left">
                             <p> Address: {vehicle.address} </p>
+                        </Col>
+                        <Col sm={2}>
+                            <Link to='/Profile' onClick={this.details}>More Details</Link>
                         </Col>
                     </Row>
                 </Container>
