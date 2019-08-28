@@ -27,7 +27,7 @@ export class Login extends Component {
             sessionStorage.setItem("username", user.username);
             this.props.onLogin(response.data.usertype)
         }).catch(response => {
-            this.setState({ errorMessage: response })
+            this.setState({ errorMessage: "Incorrect Password" })
             console.error(response)
         })
     }
