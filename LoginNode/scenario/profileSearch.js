@@ -49,7 +49,7 @@ makeRequest(vehiclePath, getVehicleRequest)
 
 makeRequest(mobilePath, getMobileRequest)
 
-router.post(path, (req, res, next) => {
+router.post("/phoneRecords", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if (err) {
             console.error(err);
