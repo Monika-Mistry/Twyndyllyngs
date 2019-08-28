@@ -29,7 +29,7 @@ export class Scenario3 extends Component {
         e.preventDefault();
         let reg = {
             vehicleRegistrationNo : e.target[0].value,
-            username: sesstionStorage.getItem("username")
+            username: sessionStorage.getItem("username")
         }
 
         if (validation(reg.vehicleRegistrationNo, alnuValid)) {
