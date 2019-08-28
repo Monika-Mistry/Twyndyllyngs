@@ -6,8 +6,8 @@ const axios = require('axios');
 
 const coreApiCitizen = "http://core:8000/citizen/";
 
-const getAllCitizenRequest = (forenames, surname, address) => {
-    return axios.get(coreApiCitizen +  "/" + forenames + "/" + surname + "/" + address);
+const getAllCitizenRequest = (username, forenames, surname, address) => {
+    return axios.get(coreApiCitizen + username + "/" + forenames + "/" + surname + "/" + address);
 };
 
 router.get("/test", (req, res) => {
@@ -26,7 +26,8 @@ router.post("/", (req, res, next) => {
             let forenames = req.body.forenames;
             let surname = req.body.surname;
             let address = req.body.address;
-            getAllCitizenRequest(forenames, surname, address).then(response => {
+            let username = req.body.username;
+            getAllCitizenRequest(username, forenames, surname, address).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
         }

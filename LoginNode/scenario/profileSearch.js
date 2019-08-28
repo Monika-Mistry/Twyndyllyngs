@@ -6,8 +6,8 @@ const axios = require('axios');
 
 const coreApiVehicle = "http://core:8000/vehicle/findVehicleByFullnameAndAddress/";
 
-const getVehicleRequest = (username, forenames, surname, address) => {
-    return axios.get(coreApiVehicle + username +  "/" + forenames + "/" + surname + "/" + address);
+const getVehicleRequest = (forenames, surname, address) => {
+    return axios.get(coreApiVehicle +  "/" + forenames + "/" + surname + "/" + address);
 };
 
 router.get("/test", (req, res) => {
@@ -25,8 +25,7 @@ router.post("/", (req, res, next) => {
             let forenames = req.body.forenames;
             let surname = req.body.surname;
             let address = req.body.address;
-            let username = req.body.username;
-            getVehicleRequest(username, forenames, surname, address).then(response => {
+            getVehicleRequest(forenames, surname, address).then(response => {
                 res.json(response.data);
             }).catch(err => { console.error(err) })
         }

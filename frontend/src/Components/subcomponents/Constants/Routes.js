@@ -6,6 +6,9 @@ export function findCitizens(citizens) {
     
 }
 
+export function findCitizenVehicle(citizen) {
+    return axios.post(loginApi + "ProfileDetails/", citizen, header)
+}
 
 export function findCar(vehicleRegistrationNo) {
     return axios.post(loginApi + "getCarDetails/", vehicleRegistrationNo, header)

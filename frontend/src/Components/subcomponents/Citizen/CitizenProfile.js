@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
-import { findCitizens } from '../Constants/Routes.js';
+import { findCitizens, findCitizenVehicle } from '../Constants/Routes.js';
 
 export class CitizenProfile extends Component {
 
@@ -47,6 +47,14 @@ export class CitizenProfile extends Component {
                 associates: [{ citizenId: 1, forenames: "monika", surname: "mistry" }, { citizenId: 2, forenames: "owen", surname: "miller" }, { citizenId: 3, forenames: "rich", surname: "thi" }],
                 associates2: [{ forenames: "monika" }, { forenames: "owen" }, { forenames: "rich" }]
             });
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findCitizenVehicle(user).then(response => {
+            this.setState({
+                vehicle: response.data[0]
+            })
         }).catch(response => {
             console.log(response)
         })
