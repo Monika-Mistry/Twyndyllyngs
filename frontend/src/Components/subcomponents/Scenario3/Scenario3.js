@@ -21,7 +21,8 @@ export class Scenario3 extends Component {
             registrationId: "",
             surname: "",
             vehicleRegistrationNo: ""},
-            location: []
+            location: [],
+            notFound:""
         }
     }
     
@@ -36,6 +37,10 @@ export class Scenario3 extends Component {
             if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
                 document.getElementById("regError").innerText = ""; 
                 findCar(reg).then( response => {
+                    if (response.data===[]){
+                        document.getElementById("regInput").placeholder = "Vehicle not found."
+                        this.setState({notFound:"Vehicle not Found."})
+                    } else {
                     this.setState({
                         vehicle: response.data.vehicleRegistration[0],
                         location: response.data.vehicleLocation
@@ -64,7 +69,8 @@ export class Scenario3 extends Component {
                                 <Label>Car Registration:</Label>
                             </Col>
                             <Col sm={2}>
-                                <Input type="text" placeholder="eg. AB12 3CD" required> </Input>
+                                <Input id="regInput" type="text" placeholder="eg. AB12 3CD" required> </Input>
+                                <FormText color="muted">Please include correct spaces in the registration.</FormText>
                             </Col>
                             <Col sm={2}>
                                 <Button> Search</Button>
@@ -74,6 +80,7 @@ export class Scenario3 extends Component {
                             <p id="regError" style={{ color: 'red' }}></p>
                         </FormGroup>
                     </Form>
+                    <p>{this.state.notFound}</p>
                 </div>
 
                 <VehicleProfile data={this.state.vehicle}/>
