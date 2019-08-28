@@ -23,7 +23,7 @@
 <a name="service"></a>
 # 1. Mobile Service
 
-A Spring Boot based applicatin which acts as an interface between the secure information database and core API for call based data. This API communcates over port 8006.
+A Spring Boot based application which acts as an interface between the secure information database and core API for call based data. This API communcates over port 8006.
 
 <a name="auth"></a>
 # 4. Authors
