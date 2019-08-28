@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { findCar } from '../Constants/Routes.js';
 import { alnuValid, validation } from '../Constants/Constants.js';
 import { VehicleProfile } from '../Profiles/VehicleProfile.js';
@@ -10,38 +10,45 @@ export class Scenario3 extends Component {
     constructor() {
         super()
         this.state = {
-            vehicle: {address: "",
-            colour: "",
-            dateOfBirth: "",
-            driverLicenceId: " ",
-            forenames: " ",
-            make: "",
-            model: "",
-            registrationDate: "",
-            registrationId: "",
-            surname: "",
-            vehicleRegistrationNo: ""},
-            location: []
+            vehicle: {
+                address: "",
+                colour: "",
+                dateOfBirth: "",
+                driverLicenceId: " ",
+                forenames: " ",
+                make: "",
+                model: "",
+                registrationDate: "",
+                registrationId: "",
+                surname: "",
+                vehicleRegistrationNo: ""
+            },
+            location: [],
+            notFound: ""
         }
     }
-    
+
     CarSearch = (e) => {
         e.preventDefault();
         let reg = {
-            vehicleRegistrationNo : e.target[0].value,
+            vehicleRegistrationNo: e.target[0].value,
             username: sessionStorage.getItem("username")
         }
 
         if (validation(reg.vehicleRegistrationNo, alnuValid)) {
             if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
-                document.getElementById("regError").innerText = ""; 
-                findCar(reg).then( response => {
-                    this.setState({
-                        vehicle: response.data.vehicleRegistration[0],
-                        location: response.data.vehicleLocation
-                    })
-                    console.log(response.data);
-                }).catch( response => {
+                document.getElementById("regError").innerText = "";
+                findCar(reg).then(response => {
+                    if (response.data.vehicleRegistration.length === 0) {
+                        this.setState({ notFound: "Vehicle Not Found." });
+                    } else {
+                        this.setState({
+                            vehicle: response.data.vehicleRegistration[0],
+                            location: response.data.vehicleLocation
+                        })
+                        console.log(response.data);
+                    }
+                }).catch(response => {
                     console.log(response);
                 })
             } else {
@@ -55,7 +62,8 @@ export class Scenario3 extends Component {
     render() {
         return (
             <div>
-                <p>Suspect Fleeing</p>
+                <h1><u>Vehicle Information</u></h1>
+                <br></br>
                 <div className="container">
                     <Form onSubmit={this.CarSearch}>
                         <FormGroup row>
@@ -63,7 +71,8 @@ export class Scenario3 extends Component {
                                 <Label>Car Registration:</Label>
                             </Col>
                             <Col sm={2}>
-                                <Input type="text" placeholder="eg. AB12 3CD" required> </Input>
+                                <Input id="regInput" type="text" placeholder="eg. AB12 3CD" required> </Input>
+                                <FormText color="muted">Please include correct spaces in the registration.</FormText>
                             </Col>
                             <Col sm={2}>
                                 <Button> Search</Button>
@@ -73,10 +82,11 @@ export class Scenario3 extends Component {
                             <p id="regError" style={{ color: 'red' }}></p>
                         </FormGroup>
                     </Form>
+                    <h3>{this.state.notFound}</h3>
                 </div>
 
-                <VehicleProfile data={this.state.vehicle}/>
-                <VehicleHeader data={this.state.location}/>
+                <VehicleProfile data={this.state.vehicle} />
+                <VehicleHeader data={this.state.location} />
             </div>
 
         )

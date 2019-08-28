@@ -5,15 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export class Footer extends Component {
     render() {
         return (
-            <MDBFooter color="blue" className="font-small pt-4 mt-4">
+            <MDBFooter className="font-small pt-4 mt-4 chameleon-dark">
                 <MDBContainer fluid className="text-center text-md-left">
                     <MDBRow>
-                        <MDBCol md="3">
+                        <MDBCol md="4">
                             <h5 className="title">Address</h5>
                             <p>Line 1, Line 2, Town, county, Post Code,
                             </p>
                         </MDBCol>
-                        <MDBCol md="3">
+                        <MDBCol md="5">
                             <h5 className="title">Contact Us</h5>
                             <div className="row">
 
@@ -25,9 +25,9 @@ export class Footer extends Component {
                                 <p> <FontAwesomeIcon icon='envelope'></FontAwesomeIcon> contactDesk@twyndyll.co</p>
                             </div>
                         </MDBCol>
-                        <MDBCol md="6">
+                        <MDBCol md="3">
                             <br></br>
-                            <img
+                            <img 
                                 style={{ width: 400 }}
                                 src={require('../../Logos/Twyndyllyngs.png')}
                                 alt="default">

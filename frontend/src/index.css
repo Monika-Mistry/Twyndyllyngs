@@ -1,13 +1,103 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+html {
+  height: 100%;
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100%;
+  padding-bottom:250px;
+}
+
+h3 {
+  font-family: "Cabin", sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.chameleon-dark {
+  background-color: #120033;
+  color: #ffffff
+}
+
+.chameleon-lightblue {
+  background-color: #bbc2e2
+}
+
+.chameleon-grey {
+  background-color: #465362
+}
+
+.chameleon-brown {
+  background-color: #605856
+}
+
+.chameleon-white {
+  background-color: #ffffff
+}
+
+.numberplate {
+  font-family: "Montserrat", sans-serif;
+}
+
+.chameleon-navbar {
+  padding-bottom: 50px;
+}
+
+.login-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-header{
+  background-color: #465362;
+  color:#ffffff;
+}
+
+.footerfix{height:4rem;}
+footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #222;
+}
+
+
+.profile{
+  padding-bottom:60px;
+}
+
+.information-header{
+  font-family: "Cabin", sans-serif;
+  font-size: 20;
+}
+
+
+

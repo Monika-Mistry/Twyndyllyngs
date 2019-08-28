@@ -14,7 +14,8 @@ export class Scenario1 extends Component {
             forenames: "",
             surname: "",
             address: "",
-            profile: false
+            profile: false,
+            notFound: ""
         };
     }
 
@@ -37,9 +38,13 @@ export class Scenario1 extends Component {
             if (validation(user.forenames, alphavalid) && validation(user.surname, alphavalid)) {
                 document.getElementById("searchError").innerText = ""
                 findCitizens(user).then(response => {
+                    if (response.data.length === 0) {
+                        this.setState({ notFound: "Person Not Found." });
+                    } else {
                     this.setState({
                         data: response.data
                     })
+                }
                 }).catch(response => {
                     console.error(response.message);
                 })
@@ -100,6 +105,7 @@ export class Scenario1 extends Component {
                 <p id="searchError" style={{ color: 'red' }}></p>
                 <br></br>
                 <br></br>
+                <h3>{this.state.notFound}</h3>
                 <Scenario data={this.state.data} details={this.details} ></Scenario>
 
             </div>
