@@ -21,10 +21,9 @@ export class Login extends Component {
             password: e.target[1].value
         }
         
-        sessionStorage.setItem("username", user.username);
-
         loginUser(user).then( response => {
             sessionStorage.setItem("JWToken", response.data.token)
+            sessionStorage.setItem("username", user.username);
             this.props.onLogin(response.data.usertype)
         }).catch( response => {
             console.error(response)
