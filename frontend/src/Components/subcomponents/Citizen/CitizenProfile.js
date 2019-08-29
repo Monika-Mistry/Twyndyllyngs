@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Container, Row, Collapse, Card, CardBody, Button } from 'reactstrap';
-import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
 import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
