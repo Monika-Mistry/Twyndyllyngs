@@ -43,6 +43,10 @@ Upload data .csv files to **/var/lib/mysql-files/**
 
 Run the commands in **full_data_import.txt** (this will create tables and import data from the .csv files).
 
+## Create Users database
+
+Run the commands in **login_sql_setup.txt** in either the same VM or a different one (created using the same method).
+
 # Spring Boot App configuration
 
 ### Use the application.properties file in this repo in your application
