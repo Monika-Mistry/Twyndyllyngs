@@ -27,7 +27,11 @@ export class VehicleProfile extends Component {
                 <Container className="profile" align="center">
                     <Row>
                         <Col sm={2}>
-                            <img src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} style={{ width: 100, height: 100 }}></img>
+                            <img 
+                                src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} 
+                                alt={"Citizen profile Image"}
+                                style={{ width: 100, height: 100 }}>
+                            </img>
                         </Col>
                         <Col sm={4} align="center">
                             <p> Full Name: {vehicle.forenames} {vehicle.surname}</p>
