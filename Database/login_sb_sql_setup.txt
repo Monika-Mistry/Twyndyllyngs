@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS users;
+
+CREATE TABLE IF NOT EXISTS users(
+	id INT AUTO_INCREMENT NOT NULL,
+	username VARCHAR(255) DEFAULT NULL,
+	password VARCHAR(255) DEFAULT NULL,
+	usertype VARCHAR(7) DEFAULT NULL,
+	createdAt DATETIME NOT NULL,
+	updatedAt DATETIME NOT NULL,
+	PRIMARY KEY (id)
+);
+
+INSERT INTO users (username, password, usertype, createdAt, updatedAt) VALUES ("DemoUser1", "demonstration", "analyst", CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+
+DELETE FROM users  WHERE id=3;
