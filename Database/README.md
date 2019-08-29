@@ -41,7 +41,7 @@ Run **database_setup.sh** (change [MY_PASSWORD] and [DATABASE] to appropriate va
 
 Upload data .csv files to **/var/lib/mysql-files/**
 
-Run **data_import.sh** (this will create tables and import data from the .csv files).
+Run the commands in **full_data_import.txt** (this will create tables and import data from the .csv files).
 
 # Spring Boot App configuration
 
