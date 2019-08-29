@@ -48,13 +48,13 @@ export class Login extends Component {
                         <FormGroup row>
                             <Label for="username">Username:</Label>
                             <Col>
-                                <Input type="text" name="username" placeholder="enter username" required />
+                                <Input type="text" name="username" placeholder="Enter Username" required />
                             </Col>
                         </FormGroup>
                         <FormGroup row>
                             <Label for="password">Password:</Label>
                             <Col>
-                                <Input type="password" name="password" placeholder="enter password" required />
+                                <Input type="password" name="password" placeholder="Enter Password" required />
                             </Col>
                         </FormGroup>
                         <FormGroup row>
@@ -66,7 +66,7 @@ export class Login extends Component {
                     <br></br>
                 </div>
                 <br></br>
-                <p>{this.state.errorMessage}</p>
+                <p style={{color: 'red'}}>{this.state.errorMessage}</p>
                 <br></br>
                 <p> <Link to='/forgot'> Forgotten Password?</Link></p>
             </div>
