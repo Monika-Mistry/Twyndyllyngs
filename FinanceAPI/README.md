@@ -23,7 +23,7 @@
 <a name="service"></a>
 # 1. Finance Service
 
-A Spring Boot based applicatin which acts as an interface between the secure information database and core API for finance based data. This API communcates over port 8005.
+A Spring Boot based application which acts as an interface between the secure information database and core API for finance based data. This API communcates over port 8005.
 
 <a name="auth"></a>
 # 4. Authors
