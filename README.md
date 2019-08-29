@@ -77,6 +77,7 @@ The SonarQube static analysis shows minor code smells relating to entity constru
 ### Technologies Used
 * Version Control – Git
 * Agile Project Management - Jira
+* Wireframes - [wireframe.cc](https://wireframe.cc/), Adobe XD
 * Frameworks - Spring, React
 * Libraries - Node, React
 * Build Tool/Dependency Management - Maven, Node Package Manager (NPM)
