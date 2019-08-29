@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Col, Label, Input, Button } from 'reactstrap';
 import { loginUser } from './Constants/Routes.js'
 
 export class Login extends Component {
