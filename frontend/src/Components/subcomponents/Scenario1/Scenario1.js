@@ -87,19 +87,19 @@ export class Scenario1 extends Component {
                             <Label for="forname">Forename:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="forname" placeholder="enter forename" />
+                            <Input type="text" name="forname" placeholder="Enter Forename(s)" />
                         </Col>
                         <Col>
                             <Label for="surname">Surname:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="surname" placeholder="enter surname" />
+                            <Input type="text" name="surname" placeholder="Enter Surname" />
                         </Col>
                         <Col>
                             <Label for="address">Address:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="address" placeholder="enter address here" />
+                            <Input type="text" name="address" placeholder="Enter Address" />
                         </Col>
                         <Col>
                             <Button>Search</Button>
