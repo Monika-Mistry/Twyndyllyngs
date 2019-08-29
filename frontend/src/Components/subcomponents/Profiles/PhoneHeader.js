@@ -9,7 +9,10 @@ export function PhoneHead(props) {
             <Table>
                 <thead>
                     <tr>
-                        <th>Value</th>
+                        <th>Time Stamp</th>
+                        <th>Recipient</th>
+                        <th>Caller Tower</th>
+                        <th>Reciever Tower</th>
                     </tr>
                 </thead>
                 <PhoneRow data={props.data}/>

@@ -15,7 +15,7 @@ export class Scenario1 extends Component {
             surname: "",
             address: "",
             profile: false,
-            notFound: ""
+            status: ""
         };
     }
 
@@ -37,12 +37,16 @@ export class Scenario1 extends Component {
 
             if (validation(user.forenames, alphavalid) && validation(user.surname, alphavalid)) {
                 document.getElementById("searchError").innerText = ""
+                this.setState({
+                    status: "Loading..."
+                })
                 findCitizens(user).then(response => {
                     if (response.data.length === 0) {
-                        this.setState({ notFound: "Person Not Found." });
+                        this.setState({ status: "Person Not Found." });
                     } else {
                     this.setState({
-                        data: response.data
+                        data: response.data,
+                        status: ""
                     })
                 }
                 }).catch(response => {
@@ -83,19 +87,19 @@ export class Scenario1 extends Component {
                             <Label for="forname">Forename:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="forname" placeholder="enter forename" />
+                            <Input type="text" name="forname" placeholder="Enter Forename(s)" />
                         </Col>
                         <Col>
                             <Label for="surname">Surname:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="surname" placeholder="enter surname" />
+                            <Input type="text" name="surname" placeholder="Enter Surname" />
                         </Col>
                         <Col>
                             <Label for="address">Address:</Label>
                         </Col>
                         <Col>
-                            <Input type="text" name="address" placeholder="enter address here" />
+                            <Input type="text" name="address" placeholder="Enter Address" />
                         </Col>
                         <Col>
                             <Button>Search</Button>
@@ -105,7 +109,7 @@ export class Scenario1 extends Component {
                 <p id="searchError" style={{ color: 'red' }}></p>
                 <br></br>
                 <br></br>
-                <h3>{this.state.notFound}</h3>
+                <h3>{this.state.status}</h3>
                 <Scenario data={this.state.data} details={this.details} ></Scenario>
 
             </div>

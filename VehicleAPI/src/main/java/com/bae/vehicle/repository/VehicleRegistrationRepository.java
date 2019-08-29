@@ -12,4 +12,6 @@ public interface VehicleRegistrationRepository extends CrudRepository<VehicleReg
 	
 	public List<VehicleRegistration> findByVehicleRegistrationNo(String vehicleRegistrationNo);
 
+	public List<VehicleRegistration> findByForenamesAndSurnameAndAddress(String forenames, String surname, String address);
+
 }
