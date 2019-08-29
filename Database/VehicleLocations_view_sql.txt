@@ -1,0 +1,5 @@
+CREATE VIEW VehicleLocations AS
+SELECT VehicleObservations.id,VehicleObservations.anprPointId, VehicleObservations.vehicleRegistrationNo, VehicleObservations.timestamp,AnprCamera.streetName,AnprCamera.latitude,AnprCamera.longitude
+FROM VehicleObservations
+INNER JOIN AnprCamera ON VehicleObservations.anprPointId=AnprCamera.anprPointId
+ORDER BY timestamp DESC;
