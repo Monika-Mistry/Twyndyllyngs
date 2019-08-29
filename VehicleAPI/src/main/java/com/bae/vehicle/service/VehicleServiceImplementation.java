@@ -35,5 +35,10 @@ public class VehicleServiceImplementation implements VehicleService {
 		List<VehicleLocations> vehicleLocationsList = vehicleLocationsRepository.findByVehicleRegistrationNo(vehicleRegistrationNo);
 		return vehicleLocationsList.toArray(new VehicleLocations[vehicleLocationsList.size()]);
 	}
+	
+	public VehicleRegistration[] findVehicleByForenameSurnameAddress(String forenames, String surname, String address) {
+		List<VehicleRegistration> vehicleRegistrationList = vehicleRegistrationRepository.findByForenamesAndSurnameAndAddress(forenames, surname, address);
+		return vehicleRegistrationList.toArray(new VehicleRegistration[vehicleRegistrationList.size()]);
+	}
 
 }

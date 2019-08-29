@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
-import { findCitizens } from '../Constants/Routes.js';
+import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
+import { AssociateHead } from '../Profiles/AssociateHead.js';
 
 export class CitizenProfile extends Component {
 
@@ -13,17 +13,13 @@ export class CitizenProfile extends Component {
             forenames: null,
             surname: null,
             address: null,
-            associates: ["hello", "bye bye", "aardvark"],
+            associates: [],
             citizen: { citizenId: "", forenames: "", surname: "", dob: "", gender: "", pob: "", address: "" },
             vehicle: [],
-            phone: [],
-            finances: [],
-            associates2: []
+            mobile:[],
+            callRecords:[],
+            finances: []
         }
-    }
-
-    show = () => {
-        console.log(this.state.citizen)
     }
 
     onLoad = () => {
@@ -42,11 +38,49 @@ export class CitizenProfile extends Component {
 
             this.setState({
                 citizen: response.data[0],
-                phone: [{ id: 1, timestamp: 2, callerMSISDN: 3, callCellTowerId: 4, recieverMSISDN: 5, recieverTowerId: 6 }, { id: 2, timestamp: 3, callerMSISDN: 4, callCellTowerId: 5, recieverMSISDN: 6, recieverTowerId: 7 }],
-                vehicle: { registrationId: 1, registrationDate: "day", vehicleRegistrationNo: 2, make: "yes", model: "true", colour: "blue", forenames: "forename", surname: "surname", address: "england", dataOfBirth: "today", driverLicenceId: 3 },
-                associates: [{ citizenId: 1, forenames: "monika", surname: "mistry" }, { citizenId: 2, forenames: "owen", surname: "miller" }, { citizenId: 3, forenames: "rich", surname: "thi" }],
-                associates2: [{ forenames: "monika" }, { forenames: "owen" }, { forenames: "rich" }]
+                callRecords: [{ id: "", timestamp: "", callerMSISDN: "", callCellTowerId: "", recieverMSISDN: "", recieverTowerId: "" }, { id: "", timestamp: "", callerMSISDN: "", callCellTowerId: "", recieverMSISDN: "", recieverTowerId: "" }],
+                vehicle: { registrationId: "", registrationDate: "", vehicleRegistrationNo: "", make: "", model: "", colour: "", forenames: "", surname: "", address: "", dataOfBirth: "", driverLicenceId: "" },
+                associates: [{ citizenId: "", forenames: "", surname: "" }],
+                associates2: [{ forenames: "" }]
             });
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findCitizenVehicle(user).then(response => {
+            this.setState({
+                vehicle: response.data[0]
+            })
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findCitizenMobile(user).then(response => {
+            this.setState({
+                mobile: response.data[0]
+            })
+            console.log(response.data[0])
+        }).then(() => {
+
+            let number = {
+                number: this.state.mobile.phoneNumber
+            }
+
+            findPhoneRecords(number).then(response => {
+                this.setState({
+                    callRecords: response.data
+                })
+            }).catch(response => {
+                console.log(response)
+            })
+        }).catch(response => {
+            console.log(response)
+        })
+
+        findAssociates(user).then(response => {
+            this.setState({
+                associates: response.data
+            })
         }).catch(response => {
             console.log(response)
         })
@@ -89,7 +123,7 @@ export class CitizenProfile extends Component {
 
                 <Container>
 
-                    <ScrollBar data={this.state.associates} />
+                    <AssociateHead data={this.state.associates}/>
 
                 </Container>
 
@@ -112,7 +146,15 @@ export class CitizenProfile extends Component {
 
                 <Container>
                     <Row>
-                        <Phone data={this.state.phone} />
+                        <Col>
+                        <p> Phone Network: {this.state.mobile.network}</p>
+                        </Col>
+                        <Col>
+                        <p>Phone Number: {this.state.mobile.phoneNumber}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Phone data={this.state.callRecords} />
                     </Row>
                 </Container>
 

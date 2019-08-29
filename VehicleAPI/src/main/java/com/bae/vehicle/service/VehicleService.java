@@ -7,5 +7,6 @@ public interface VehicleService {
 		
 	VehicleRegistration[] findByVehicleRegistrationNo(String vehicleRegistrationNo);
 	VehicleLocations[] findLocationsByVehicleRegistrationNo(String vehicleRegistrationNo);
+	VehicleRegistration[] findVehicleByForenameSurnameAddress(String forenames, String surname, String address);
 	
 }
