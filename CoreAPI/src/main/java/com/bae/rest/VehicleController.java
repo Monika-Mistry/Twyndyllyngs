@@ -31,34 +31,40 @@ public class VehicleController extends Controller {
 	}
 
 	@GetMapping("/{username}/{vehicleReg}")
-	public ResponseEntity<CarObject> getCarDetails(
-			@PathVariable("vehicleReg") String vehicleReg,
+	public ResponseEntity<CarObject> getCarDetails(@PathVariable("vehicleReg") String vehicleReg,
 			@PathVariable("username") String username) {
 
 		ResponseEntity<VehicleLocations[]> vehicleLocation = getVehicleLocation(vehicleReg, username);
 		ResponseEntity<VehicleRegistration[]> vehicleRegistration = getVehicleRegistration(vehicleReg, username);
 
 		CarObject carObject = new CarObject(vehicleLocation.getBody(), vehicleRegistration.getBody());
-		
-		sendToQueue(new Request(username,"/getVehiclesByRegistrationNo/" + vehicleReg, new Timestamp(System.currentTimeMillis())));
+
+		sendToQueue(new Request(username, "/getVehiclesByRegistrationNo/" + vehicleReg,
+				new Timestamp(System.currentTimeMillis())));
 
 		return new ResponseEntity<>(carObject, HttpStatus.OK);
 	}
 
 	@GetMapping("/getLocationsByRegistrationNo/{vehicleRegistrationNo}")
 	public ResponseEntity<VehicleLocations[]> getVehicleLocation(
-			@PathVariable("vehicleRegistrationNo") String vehicleReg,
-			@RequestHeader("username") String username) {
+			@PathVariable("vehicleRegistrationNo") String vehicleReg, @RequestHeader("username") String username) {
 		return restTemplate.getForEntity(Constants.VEHICLE_LOCATION_URL + vehicleReg, VehicleLocations[].class);
 
 	}
 
 	@GetMapping("/getVehiclesByRegistrationNo/{vehicleRegistrationNo}")
 	public ResponseEntity<VehicleRegistration[]> getVehicleRegistration(
-			@PathVariable("vehicleRegistrationNo") String vehicleReg,
-			@RequestHeader("username") String username) {
+			@PathVariable("vehicleRegistrationNo") String vehicleReg, @RequestHeader("username") String username) {
 		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION_URL + vehicleReg, VehicleRegistration[].class);
 
+	}
+
+	@GetMapping("/findVehicleByFullnameAndAddress/{forenames}/{surname}/{address}")
+	public ResponseEntity<VehicleRegistration[]> findVehicleByForenameSurnameAddress(
+			@PathVariable("forenames") String forenames, @PathVariable("surname") String surname,
+			@PathVariable("address") String address) {
+
+		return restTemplate.getForEntity(Constants.VEHICLE_REGISTRATION2_URL + forenames + "/" + surname +"/" +  address, VehicleRegistration[].class);
 	}
 
 }

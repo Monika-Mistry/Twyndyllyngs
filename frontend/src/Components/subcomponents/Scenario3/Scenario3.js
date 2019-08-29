@@ -24,7 +24,7 @@ export class Scenario3 extends Component {
                 vehicleRegistrationNo: ""
             },
             location: [],
-            notFound: ""
+            status: ""
         }
     }
 
@@ -38,13 +38,17 @@ export class Scenario3 extends Component {
         if (validation(reg.vehicleRegistrationNo, alnuValid)) {
             if (reg.vehicleRegistrationNo.length >= 6 && reg.vehicleRegistrationNo.length <= 8) {
                 document.getElementById("regError").innerText = "";
+                this.setState({
+                    status: "Loading..."
+                })
                 findCar(reg).then(response => {
                     if (response.data.vehicleRegistration.length === 0) {
-                        this.setState({ notFound: "Vehicle Not Found." });
+                        this.setState({ status: "Vehicle Not Found." });
                     } else {
                         this.setState({
                             vehicle: response.data.vehicleRegistration[0],
-                            location: response.data.vehicleLocation
+                            location: response.data.vehicleLocation,
+                            status: ""
                         })
                         console.log(response.data);
                     }
@@ -82,7 +86,7 @@ export class Scenario3 extends Component {
                             <p id="regError" style={{ color: 'red' }}></p>
                         </FormGroup>
                     </Form>
-                    <h3>{this.state.notFound}</h3>
+                    <h3>{this.state.status}</h3>
                 </div>
 
                 <VehicleProfile data={this.state.vehicle} />

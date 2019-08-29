@@ -42,5 +42,13 @@ public class VehicleMockitoTests {
 		Mockito.verify(service).findLocationsByVehicleRegistrationNo("CRA 55Y");
 		
 	}
+	
+	@Test
+	public void getVechileByForenameSurnameAddressTest() {
+		Mockito.when(service.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY")).thenReturn(TestConstants.MOCK_VEHICLE_REGISTRATION_1_ARRAY);
+
+		assertEquals(TestConstants.MOCK_VEHICLE_REGISTRATION_RESPONSE, controller.findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY"));
+		Mockito.verify(service).findVehicleByForenameSurnameAddress("Crazy", "Ivan","543 Crazy Street, Crazy Town, CR 4ZY");
+	}
 
 }

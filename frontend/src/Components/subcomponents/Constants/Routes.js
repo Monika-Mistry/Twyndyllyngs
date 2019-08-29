@@ -6,6 +6,21 @@ export function findCitizens(citizens) {
     
 }
 
+export function findCitizenVehicle(citizen) {
+    return axios.post(loginApi + "ProfileDetails/vehicle/", citizen, header)
+}
+
+export function findCitizenMobile(citizen) {
+    return axios.post(loginApi + "ProfileDetails/mobile/", citizen, header)
+}
+
+export function findPhoneRecords(number) {
+    return axios.post(loginApi + "ProfileDetails/phoneRecords/", number, header)
+}
+
+export function findAssociates(citizen) {
+    return axios.post(loginApi + "ProfileDetails/associates/", citizen, header)
+}
 
 export function findCar(vehicleRegistrationNo) {
     return axios.post(loginApi + "getCarDetails/", vehicleRegistrationNo, header)
