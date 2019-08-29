@@ -121,7 +121,11 @@ export class CitizenProfile extends Component {
 
                     <Row>
                         <Col sm={2}>
-                            <img src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`} style={{ width: 100, height: 100 }}></img>
+                            <img 
+                                src={`https://thispersondoesnotexist.com/image?random=${Math.random()}`}
+                                alt={"Citizen profile image"}
+                                style={{ width: 100, height: 100 }}>   
+                            </img>
                         </Col>
                         <Col sm={4} align="center">
                             <p> Full Name: {this.state.citizen.forenames} {this.state.citizen.surname}</p>
