@@ -1,22 +1,20 @@
 import React from 'react';
 
-export function PhoneRow(props) {
+export function AssociateRow(props) {
     return (
+
         <tbody>
             {props.data.map(element => {
                 return (
-                <tr key={element.id}>
+                <tr key={element.forenames}>
                     <td>
-                        {element.timestamp}
+                        {element.forenames}
                     </td>
                     <td>
-                        {element.receiverMSISDN}
+                        {element.surname}
                     </td>
                     <td>
-                        {element.callCellTowerId}
-                    </td>
-                    <td>
-                        {element.receiverTowerId}
+                        {element.address}
                     </td>
                 </tr>)
             })}
