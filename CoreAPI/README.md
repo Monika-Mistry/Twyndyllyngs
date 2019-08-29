@@ -14,7 +14,7 @@
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/Core.PNG)
+![Module Architecture](/Documentation/Architecture/Modules/CoreService.PNG)
 
 ### Application Architecture
 
