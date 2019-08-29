@@ -9,7 +9,8 @@ export class Login extends Component {
         super()
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            errorMessage: ""
         }
     }
 
@@ -26,6 +27,7 @@ export class Login extends Component {
             sessionStorage.setItem("username", user.username);
             this.props.onLogin(response.data.usertype)
         }).catch(response => {
+            this.setState({ errorMessage: "Incorrect Password" })
             console.error(response)
         })
     }
@@ -41,29 +43,32 @@ export class Login extends Component {
         }
         return (
             <div>
-            <div className="container login-form">
-                <Form onSubmit={this.login} className="search-form">
-                    <FormGroup row>
-                    <Label for="username">Username:</Label>
-                        <Col>
-                            <Input type="text" name="username" placeholder="enter username" required />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                    <Label for="password">Password:</Label>
-                        <Col>
-                            <Input type="password" name="password" placeholder="enter password" required />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                        <Col sm={{ size: 2, offset: 4}}>
-                            <Button>Login</Button>
-                        </Col>
-                    </FormGroup>
-                </Form>
+                <div className="container login-form">
+                    <Form onSubmit={this.login} className="search-form">
+                        <FormGroup row>
+                            <Label for="username">Username:</Label>
+                            <Col>
+                                <Input type="text" name="username" placeholder="enter username" required />
+                            </Col>
+                        </FormGroup>
+                        <FormGroup row>
+                            <Label for="password">Password:</Label>
+                            <Col>
+                                <Input type="password" name="password" placeholder="enter password" required />
+                            </Col>
+                        </FormGroup>
+                        <FormGroup row>
+                            <Col sm={{ size: 2, offset: 4 }}>
+                                <Button>Login</Button>
+                            </Col>
+                        </FormGroup>
+                    </Form>
+                    <br></br>
+                </div>
                 <br></br>
-            </div>
-            <p> <Link to='/forgot'> Forgotten Password?</Link></p>
+                <p>{this.state.errorMessage}</p>
+                <br></br>
+                <p> <Link to='/forgot'> Forgotten Password?</Link></p>
             </div>
         )
     }

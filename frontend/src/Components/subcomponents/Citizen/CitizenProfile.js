@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import { Col, Container, Row, Collapse, Card, CardBody, Button } from 'reactstrap';
+import { ScrollBar } from '../ScrollBar/Scroll.js';
 import Phone from '../Profiles/PhoneProfile.js';
 import { VehicleContainer } from '../Profiles/VehicleContainer.js';
 import { findCitizens, findCitizenVehicle, findCitizenMobile, findPhoneRecords, findAssociates } from '../Constants/Routes.js';
@@ -18,8 +19,28 @@ export class CitizenProfile extends Component {
             vehicle: [],
             mobile:[],
             callRecords:[],
-            finances: []
+            finances: [],
+            associatesCollapse: false,
+            carCollapse: false,
+            phoneCollapse: false,
+            transactionsCollapse: false
         }
+    }
+
+    toggleAssociates = () => {
+        this.setState({ associatesCollapse: !this.state.associatesCollapse });
+    }
+
+    toggleCar = () => {
+        this.setState({ carCollapse: !this.state.carCollapse });
+    }
+
+    togglePhone = () => {
+        this.setState({ phoneCollapse: !this.state.phoneCollapse });
+    }
+
+    toggleTransactions = () => {
+        this.setState({ transactionsCollapse: !this.state.transactionsCollapse });
     }
 
     onLoad = () => {
@@ -95,9 +116,9 @@ export class CitizenProfile extends Component {
             <div>
                 <Container>
 
-                <h1 className="information-header" align="center"><u>Profile</u></h1>
-                
-                <br></br>
+                    <h1 className="information-header" align="center"><u>Profile</u></h1>
+
+                    <br></br>
 
                     <Row>
                         <Col sm={2}>
@@ -117,59 +138,96 @@ export class CitizenProfile extends Component {
                 <br></br>
                 <br></br>
 
-                <h3 align="center"><u>Associates</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Associates</u></h3>
                 
-                <br></br>
+                <Button onClick={this.toggleAssociates} style={{
+                    alignSelf: 'stretch'
+                }}>View Associates</Button>
+                <Collapse isOpen={this.state.associatesCollapse}>
+                    <Card>
+                        <CardBody>
 
-                <Container>
+                            <Container>
 
                     <AssociateHead data={this.state.associates}/>
 
-                </Container>
 
-                <br></br>
-                <br></br>
+                           </Container>
 
-                <h3 align="center"><u>Car</u></h3>
 
-                <br></br>
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
-                <Container>
-                    <VehicleContainer data={this.state.vehicle} />
-                </Container>
-                <br></br>
-                <br></br>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Vehicle</u></h3>
 
-                <h3 align="center"><u>Phones</u></h3>
+                <Button onClick={this.toggleCar} style={{
+                    alignSelf: 'stretch'
+                }}>View Vehicle Details</Button>
+                <Collapse isOpen={this.state.carCollapse}>
+                    <Card>
+                        <CardBody>
 
-                <br></br>
+                            <Container>
+                                <VehicleContainer data={this.state.vehicle} />
+                            </Container>
+                            <br></br>
+                            <br></br>
 
-                <Container>
-                    <Row>
-                        <Col>
-                        <p> Phone Network: {this.state.mobile.network}</p>
-                        </Col>
-                        <Col>
-                        <p>Phone Number: {this.state.mobile.phoneNumber}</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Phone data={this.state.callRecords} />
-                    </Row>
-                </Container>
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
-                <br></br>
-                <br></br>
 
-                <h3 align="center"><u>Transactions</u></h3>
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Phones</u></h3>
+               
+                <Button onClick={this.togglePhone} style={{
+                    alignSelf: 'stretch'
+                }}>View Phone Calls</Button>
+                <Collapse isOpen={this.state.phoneCollapse}>
+                    <Card>
+                        <CardBody>
 
-                <br></br>
+                            <Container>
+                                <Row>
+                                    <Col>
+                                    <p> Phone Network: {this.state.mobile.network}</p>
+                                    </Col>
+                                    <Col>
+                                    <p>Phone Number: {this.state.mobile.phoneNumber}</p>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Phone data={this.state.callRecords} />
+                                </Row>
+                            </Container>
 
-                <Container>
-                    <Row>
-                        <p> Coming Soon {this.state.finances}</p>
-                    </Row>
-                </Container>
+                            <br></br>
+                            <br></br>
+
+
+                        </CardBody>
+                    </Card>
+                </Collapse>
+
+                <h3 style={{paddingTop:"40px"}} align="center"><u>Transactions</u></h3>
+
+                <Button onClick={this.toggleTransactions} style={{
+                    alignSelf: 'stretch'
+                }}>View Financial Transactions</Button>
+                <Collapse isOpen={this.state.transactionsCollapse}>
+                    <Card>
+                        <CardBody>
+
+                            <Container>
+                                <Row>
+                                    <p> Coming Soon {this.state.finances}</p>
+                                </Row>
+                            </Container>
+
+                        </CardBody>
+                    </Card>
+                </Collapse>
 
 
             </div>
