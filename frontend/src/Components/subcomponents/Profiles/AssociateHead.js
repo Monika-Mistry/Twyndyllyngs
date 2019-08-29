@@ -12,7 +12,6 @@ export function AssociateHead(props) {
                         <th>Forenames</th>
                         <th>Surname</th>
                         <th>Address</th>
-                        <th>See More</th>
                     </tr>
                 </thead>
                 <AssociateRow data={props.data}/>
