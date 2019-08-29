@@ -26,7 +26,7 @@
 A Spring Boot based application which acts as an interface between the secure information database and core API for call based data. This API communcates over port 8006.
 
 <a name="auth"></a>
-# 4. Authors
+# 2. Authors
 
 1. [Rich Harris](https://github.com/RJHarrisUK "Rich's GitHub")
 2. [Owen Miller](https://github.com/biomiller "Owen's GitHub")
@@ -35,6 +35,6 @@ A Spring Boot based application which acts as an interface between the secure in
 5. [Josh Brooks](https://github.com/jjbrooks251 "Josh's Github")
 
 <a name="ack"></a>
-# 5. Acknowledgements
+# 3. Acknowledgements
 
 * QA consulting and our fantastic instructors.
