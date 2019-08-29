@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Scenario from '../Scenario.js';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { findCitizens } from '../Constants/Routes.js';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { validation, alphavalid } from '../Constants/Constants.js';
 
 export class Scenario1 extends Component {
