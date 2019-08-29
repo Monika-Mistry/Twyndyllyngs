@@ -18,11 +18,11 @@
 
 ### Module Architecture
 
-![Module Architecture](/Documentation/Architecture/Modules/Auditor.png)
+![Module Architecture](/Documentation/Architecture/Modules/Auditor.PNG)
 
 ### Application Architecture
 
-![Application Architecture](/Documentation/Architecture/Application.png)
+![Application Architecture](/Documentation/Architecture/Application.PNG)
 
 <a name="audit"></a>
 # 1. Audit Service
