@@ -50,11 +50,11 @@ const makeRequest = (path, method) => {
     });
 }
 
-makeRequest(vehiclePath, getVehicleRequest)
+makeRequest(vehiclePath, getVehicleRequest);
 
-makeRequest(mobilePath, getMobileRequest)
+makeRequest(mobilePath, getMobileRequest);
 
-makeRequest(associatePath, getAssociateRequest)
+makeRequest(associatePath, getAssociateRequest);
 
 router.post("/phoneRecords", (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user, info) => {
